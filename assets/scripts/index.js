@@ -12,6 +12,6 @@ const roundsEvents = require('./rounds/events');
 
 $(() => {
   authEvents.addHandlers();
-  profileEvents.addHandlers();
-  roundsEvents.addHandlers();
+  // profileEvents.addHandlers();
+  // roundsEvents.addHandlers();
 });
