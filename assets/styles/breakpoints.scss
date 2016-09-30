@@ -1,0 +1,149 @@
+@import 'breakpoint';
+@import 'layout';
+@import 'typography';
+
+.container {
+  @include breakpoint(tiny) {
+    max-width: 100%;
+  }
+
+  @include breakpoint(x-small) {
+    max-width: 460px;
+  }
+
+  @include breakpoint(small) {
+    max-width: 768px;
+  }
+
+  @include breakpoint(medium) {
+    max-width: 992px;
+  }
+
+  @include breakpoint(large) {
+    max-width: $base-container-width;
+  }
+}
+
+.board-row {
+  @include breakpoint(tiny) {
+    width: 75%;
+  }
+
+  @include breakpoint(x-small) {
+    width: 75%;
+  }
+
+  @include breakpoint(small) {
+    width: ($row-width * 7.68 / 12);
+  }
+
+  @include breakpoint(medium) {
+    width: ($row-width * 9.92 / 12);
+  }
+
+  @include breakpoint(large) {
+    width: $row-width;
+  }
+}
+
+.game-cell {
+  @include breakpoint(tiny) {
+    font-size: ($game-piece-size * 3 / 12);
+    height: ($cell-size * 3 / 12);
+    line-height: ($cell-size * 3 / 12);
+    width: ($cell-size * 3 / 12);
+  }
+
+  @include breakpoint(x-small) {
+    font-size: ($game-piece-size * 4 / 12);
+    height: ($cell-size * 4 / 12);
+    line-height: ($cell-size * 4 / 12);
+    width: ($cell-size * 4 / 12);
+  }
+
+  @include breakpoint(small) {
+    font-size: ($game-piece-size * 7.68 / 12);
+    height: ($cell-size * 7.68 / 12);
+    line-height: ($cell-size * 7.68 / 12);
+    width: ($cell-size * 7.68 / 12);
+  }
+
+  @include breakpoint(medium) {
+    font-size: ($game-piece-size * 9.92 / 12);
+    height: ($cell-size * 9.92 / 12);
+    line-height: ($cell-size * 9.92 / 12);
+    width: ($cell-size * 9.92 / 12);
+  }
+
+  @include breakpoint(large) {
+    font-size: $game-piece-size;
+    height: $cell-size;
+    line-height: $cell-size;
+    width: $cell-size;
+  }
+}
+
+html {
+  @include breakpoint(large) {
+    height: 944px;
+  }
+}
+
+.title {
+  @include breakpoint(tiny) {
+    font-size: 5.2vw;
+    margin-left: 4px;
+    margin-top: 2.8vh;
+  }
+
+  @include breakpoint(x-small) {
+    font-size: 6.7vw;
+    margin-left: 4px;
+    margin-top: 2.0vh;
+  }
+
+  @include breakpoint(small) {
+    font-size: ($title-size * .94);
+    margin: inherit;
+    margin-left: 4px;
+  }
+
+  @include breakpoint(medium) {
+    font-size: $title-size;
+    margin: inherit;
+    margin-left: 4px;
+  }
+
+  @include breakpoint(large) {
+    font-size: $title-size;
+    margin: inherit;
+    margin-left: 4px;
+  }
+}
+
+.credit {
+  @include breakpoint(tiny) {
+    font-size: ($credit-size * .75);
+  }
+
+  @include breakpoint(x-small) {
+    font-size: ($credit-size * .75);
+  }
+
+  @include breakpoint(small) {
+    font-size: ($credit-size * .75);
+  }
+
+  @include breakpoint(medium) {
+    font-size: $credit-size * .8;
+  }
+
+  @include breakpoint(large) {
+    font-size: $credit-size * .85;
+  }
+}
+
+// .game-cell {
+//   height: $height;
+//   width: ($row-width / 3);
+// }

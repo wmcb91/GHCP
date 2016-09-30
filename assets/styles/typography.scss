@@ -1,0 +1,35 @@
+@import 'layout';
+// margin
+// width and friends (like max-width)
+// line-height
+// font-size
+// padding
+
+$title-size: 75px;
+$credit-size: 16px;
+
+// font-family: 'VT323', monospace;
+$bungee-shade: 'Bungee Shade', cursive;
+$bungee: 'Bungee', cursive;
+$rubik: 'Rubik', sans-serif;
+$vt323: 'VT323', monospace;
+
+$font-size: 14px;
+$line-height: 1.6;
+$heading-line-height: 2;
+$game-piece-size: $cell-size * 1.15;
+
+body {
+  color: $charcoal;
+  font-family: $rubik;
+}
+
+.title {
+  font-family: $rubik;
+  // font-size: 75px;
+}
+
+.game-cell {
+  font-size: $game-piece-size;
+  line-height: $cell-size;
+}

@@ -1,0 +1,34 @@
+$background-color: $off-white;
+$font-color: $charcoal;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+hr {
+  border: 1px solid $black;
+}
+
+.game-cell {
+  border: 1px solid $black;
+}
+
+//Change hover icon from highlight bar to mouse or finger for anchors
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.game-cell:hover {
+  background-color: $grey;
+}
+
+.alert-link {
+  text-decoration: underline;
+}
+
+.alert-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

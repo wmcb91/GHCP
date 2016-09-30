@@ -1,0 +1,87 @@
+$row-width: 720px;
+$cell-size: 235px;
+$base-container-width: 1200px;
+$header-margin: 15px;
+$header-box-height: 60px;
+
+p {
+  margin: 0;
+}
+
+.title {
+  float: left;
+  margin: 0 0 0 $header-margin;
+}
+
+.header-box {
+  align-items: flex-end;
+  display: flex;
+  float: right;
+  height: $header-box-height;
+  margin-right: $header-margin;
+  margin-top: $header-margin;
+}
+
+.user-welcome {
+  align-items: center;
+  display: flex;
+  float: right;
+  // justify-content: center;
+  margin-right: ($header-margin * 1.5);
+  margin-top: $header-margin;
+}
+
+.welcome-msg {
+  float: left;
+  margin: auto 5px;
+}
+
+.cog-btn {
+  float: right;
+  margin: 3px;
+  padding: 0;
+}
+
+.glyphicon-cog {
+  margin: 0;
+  padding: 3px 3px 1px 4px;
+}
+
+.dropdown-menu {
+  text-align: center;
+}
+
+hr {
+  clear: both;
+  margin: 0;
+  position: static;
+  width: 100%;
+}
+
+.content {
+  text-align: center;
+}
+
+.sign-in-alert-danger {
+  float: right;
+}
+
+.no-sign-in-alert-danger {
+  margin: 5px auto;
+  width: 460px;
+}
+
+.btn-text {
+  clear: both;
+  margin: 10px 5px;
+  text-align: center;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+}
+
+.credit {
+  margin: 55px 0 5px 10px;
+}
