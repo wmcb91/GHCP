@@ -17,17 +17,17 @@ const signIn = function (data) {
     data: data,
   });
 };
-//
-// const changePassword = function (data) {
-//   return $.ajax({
-//     url: app.host + '/change-password/' + app.user.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//     data: data,
-//   });
-// };
+
+const changePassword = function (data) {
+  return $.ajax({
+    url: app.host + '/change-password/' + app.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
+  });
+};
 //
 // const signOut = function (data) {
 //   return $.ajax({
@@ -43,6 +43,6 @@ const signIn = function (data) {
 module.exports = {
   signUp,
   signIn,
-  // changePassword,
+  changePassword,
   // signOut,
 };

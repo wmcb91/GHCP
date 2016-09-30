@@ -15,8 +15,7 @@ $(() => {
   // profileEvents.addHandlers();
   // roundsEvents.addHandlers();
 
-// $('#pwd-change-msg').hide();
-// // $('#sign-out').hide();
-$('#user-welcome').hide();
-$('#sign-in-failure').hide();
+  // $('#sign-out').hide();
+  $('#user-welcome').hide();
+  $('#sign-in-failure').hide();
 });
