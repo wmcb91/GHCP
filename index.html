@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GHCP</title>
+    <meta charset="utf-8">
+    <script src="vendor.bundle.js"
+            type="text/javascript"
+            charset="utf-8"
+            defer></script>
+    <script src="bundle.js"
+            type="text/javascript"
+            charset="utf-8"
+            defer></script>
+    <link
+    href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Rubik|VT323"
+    rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+  </head>
+
+  <body>
+    <header>
+      <h1 class='title'>GHCP</h1>
+  <!-- Container for sign in prompt pre sign-in and welcome-msg post sign in
+      <div class='header-box'>
+        <div id="sign-in-prompt" class = "sign-in-prompt">
+          <form id="sign-in">
+            <fieldset>
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <br>
+              <input type="password" name="credentials[password]"
+              placeholder="Password">
+              <input type="submit" value="Sign In">
+            </fieldset>
+          </form>
+          <p class="new-user-text">
+            New user? <a id="sign-up-link" class="sign-up-link">
+              Click here</a> to sign-up now!
+          </p>
+        </div>
+-->
+
+<!-- Initially hidden
+          Note:
+          - Find something better than span if possible
+        <div class='user-welcome' id="user-welcome">
+          <h4 class="welcome-msg"> Hi,
+            <span id="user-name-welcome" class="user-name-welcome"></span>
+          </h4>
+          <div class="dropdown">
+            <button class="btn btn-default btn-lg dropdown-toggle cog-btn"
+                    type="button" id="cogMenu" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true">
+<!- ->        </span>
+
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="dropdownMenu1">
+              <li><a id="show-stats-btn">View Stats</a></li>
+              <li><a id='change-password-btn'>Change Password</a></li>
+              <li role="separator" class="divider">
+              <!- - - ->
+              <!- - </li>
+              <li><form id="sign-out" class='sign-out'>
+                <fieldset>
+                  <input type="submit" value="Sign Out">
+                </fieldset>
+              </form></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+-->
+
+      <!-- Initially hidden-->
+      <!--  Sign Up Modal
+      <div class="modal fade" id="signUpModal"
+           tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up">
+                <fieldset>
+                  <input type="email" name="credentials[email]" placeholder="Email">
+comment out       <!- <input type="text" name="credentials[user_name]" placeholder="User Name">
+                  <br>
+                  <input type="password" name="credentials[password]"
+                  placeholder="Password">
+                  <input type="password" name="credentials[password_confirmation]"
+                  placeholder="Confirm Password">
+                  <input type="submit" value="Sign Up!">
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- SUCCESSFUL SIGN UP MESSAGE AND PROMPT TO SIGN IN
+      <div class="modal fade" id="signUpSuccessModal" tabindex="-1"
+      role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3>Sign up succesful! Please sign in now.</h3>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      <!-- initially hidden: change password form
+      <div class="modal fade" id="changePasswordModal" tabindex="-1"
+      role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <fieldset>
+                  <legend>Change Password</legend>
+                  <input type="password" name="passwords[old]"
+                  placeholder="Current Password">
+                  <input type="password" name="passwords[new]"
+                  placeholder="New Password">
+                  <input type="submit" value="Change Password">
+                </fieldset>
+              </form>
+              <h3 id='pwd-change-msg'>Password Successfully Changed</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+    </header>
+
+
+
+    <hr>
+    <main class='content'>
+
+      <!-- sign in failure warning message
+      <div
+      id="sign-in-failure"
+      class="alert alert-danger sign-in-alert-danger"
+      role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
+        </span>
+        <span class="sr-only">Error:</span>
+        The account email or password you entered is incorrect.
+      </div> -->
+
+    </main>
+    <footer>
+      <h5 class="credit">Game created by Will McBride</h5>
+    </footer>
+
+  </body>
+</html>
