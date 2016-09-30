@@ -40,8 +40,7 @@
 
 
 <!-- Initially hidden
-          Note:
-          - Find something better than span if possible
+          Note: Find something better than span if possible -->
         <div class='user-welcome' id="user-welcome">
           <h4 class="welcome-msg"> Hi,
             <span id="user-name-welcome" class="user-name-welcome"></span>
@@ -51,24 +50,30 @@
                     type="button" id="cogMenu" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="true">
               <span class="glyphicon glyphicon-cog" aria-hidden="true">
-<!- ->        </span>
+                <!----></span>
 
             </button>
             <ul class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="dropdownMenu1">
-              <li><a id="show-stats-btn">View Stats</a></li>
+              <li><a id="show-stats-btn">View Profile</a></li>
+              <li><a href="#">View Rounds</a></li>
+              <li><a href="#">View Course</a></li>
               <li><a id='change-password-btn'>Change Password</a></li>
-              <li role="separator" class="divider">
-              <!- - - ->
-              <!- - </li>
-              <li><form id="sign-out" class='sign-out'>
-                <fieldset>
-                  <input type="submit" value="Sign Out">
-                </fieldset>
-              </form></li>
+              <li role="separator" class="divider"><!----></li>
+              <li>
+                <a id="change-profile-btn" class='change-profile'>Change Profile
+                </a>
+              </li>
+              <li>
+                <form id="sign-out" class='sign-out'>
+                  <fieldset>
+                    <input type="submit" value="Sign Out">
+                  </fieldset>
+                </form>
+              </li>
             </ul>
           </div>
-        </div> -->
+        </div>
       </div>
 
 
@@ -171,16 +176,16 @@
     <hr>
     <main class='content'>
 
-      <!-- sign in failure warning message
+      <!-- SIGN IN FAILURE WARNING MESSAGE -->
       <div
       id="sign-in-failure"
       class="alert alert-danger sign-in-alert-danger"
       role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
-        </span>
+        <!----></span>
         <span class="sr-only">Error:</span>
         The account email or password you entered is incorrect.
-      </div> -->
+      </div>
 
     </main>
     <footer>

@@ -10,14 +10,13 @@ const signUp = function (data) {
   });
 };
 
-// const signIn = function (data) {
-//   // console.log(data);
-//   return $.ajax({
-//     url: app.host + '/sign-in',
-//     method: 'POST',
-//     data: data,
-//   });
-// };
+const signIn = function (data) {
+  return $.ajax({
+    url: app.host + '/sign-in',
+    method: 'POST',
+    data: data,
+  });
+};
 //
 // const changePassword = function (data) {
 //   return $.ajax({
@@ -43,7 +42,7 @@ const signUp = function (data) {
 
 module.exports = {
   signUp,
-  // signIn,
+  signIn,
   // changePassword,
   // signOut,
 };

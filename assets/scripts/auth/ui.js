@@ -2,7 +2,22 @@
 
 const app = require('../app');
 
-//sign in
+//SIGN UP
+const signUpSuccess = (data) => {
+  $('#signUpModal').modal('hide');
+  $('#signUpSuccessModal').modal('show');
+
+  //debug
+  console.log('Sign up success. Data is', data);
+};
+
+const signUpFailure = (error) => {
+  console.error(error);
+  return error;
+};
+
+//
+//SIGN IN
 const signInSuccess = (data) => {
   //Stores current user data into app.user
   app.user = data.user;
@@ -25,23 +40,8 @@ const signInFailure = (error) => {
   return error;
 };
 
-
-//sign up
-const signUpSuccess = (data) => {
-  $('#signUpModal').modal('hide');
-  $('#signUpSuccessModal').modal('show');
-
-  //debug
-  console.log('Sign up success. Data is', data);
-};
-
-const signUpFailure = (error) => {
-  console.error(error);
-  return error;
-};
-
-
-//sign out
+//
+//SIGN OUT
 const signOutSuccess = () => {
   app.user = null;
   $('#user-welcome').hide();
