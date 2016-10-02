@@ -61,10 +61,7 @@
               <li><a href="#">View Courses</a></li>
               <li><a id='change-password-btn'>Change Password</a></li>
               <li role="separator" class="divider"><!----></li>
-              <li>
-                <a id="change-profile-btn" class='change-profile'>Change Profile
-                </a>
-              </li>
+              <li><a id='change-profile-btn'>Change Profile</a></li>
               <li>
                 <form id="sign-out" class='sign-out'>
                   <fieldset>
@@ -185,7 +182,7 @@
       </div>
 
 
-      <div class="modal fade" id="chooseProfileModal" tabindex="-1"
+      <div class="modal fade" id="changeProfileModal" tabindex="-1"
         role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -200,19 +197,10 @@
               <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
             </div>
             <div class="modal-body">
-              <form id="choose-profile">
-                <fieldset>
-                  <input type="text" name="given_name"
-                  placeholder="First Name">
-                  <input type="text" name="surname"
-                  placeholder="Last Name">
-                  <input type="date" name="dob"
-                  placeholder="Date of Birth">
-                  <input type="text" name="home_course"
-                  placeholder="Home Golf Course">
-                  <input type="submit" value="Submit">
-                </fieldset>
-              </form>
+              <button id='new-profile' class='profile-button new'>
+                <h3>Create New</h3>
+                <h1>+</h1>
+              </button>
             </div>
           </div>
         </div>
@@ -239,10 +227,9 @@
                   placeholder="First Name">
                   <input type="text" name="surname"
                   placeholder="Last Name">
-                  <input type="date" name="dob"
-                  placeholder="Date of Birth">
+                  <br>
                   <input type="text" name="home_course"
-                  placeholder="Home Golf Course">
+                  placeholder="Home Course">
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>

@@ -29,7 +29,7 @@ const signInSuccess = (data) => {
 
   //code to show email in welcome
   $('#user-name-welcome').html(app.user.email);
-
+  $('#changeProfileModal').modal('show');
   //debug
   console.log('Data.user is', data.user);
 };
