@@ -57,7 +57,7 @@
                 aria-labelledby="dropdownMenu1">
               <li><a id="show-stats-btn">View Profile</a></li>
               <li><a href="#">View Rounds</a></li>
-              <li><a href="#">View Course</a></li>
+              <li><a href="#">View Courses</a></li>
               <li><a id='change-password-btn'>Change Password</a></li>
               <li role="separator" class="divider"><!----></li>
               <li>
@@ -155,12 +155,11 @@
             <div class="modal-body">
               <form id="change-password">
                 <fieldset>
-                  <legend>Change Password</legend>
                   <input type="password" name="passwords[old]"
                   placeholder="Current Password">
                   <input type="password" name="passwords[new]"
                   placeholder="New Password">
-                  <input type="submit" value="Change Password">
+                  <input type="submit" value="Submit Changes">
                 </fieldset>
               </form>
               <h3 id='pwd-change-msg'>Password Successfully Changed</h3>
@@ -171,8 +170,6 @@
     </header>
     <hr>
 
-    <div class ='welcome-img'>
-      <h2 class = 'shouldnotmatter'></h2><!---->
     <div class='body'>
       <!-- SIGN IN FAILURE WARNING MESSAGE -->
       <div
@@ -182,13 +179,81 @@
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
         <!----></span>
         <span class="sr-only">Error:</span>
-        The account email or password you entered is incorrect.
+        The email or password you entered is incorrect.
+      </div>
+
+
+      <div class="modal fade" id="chooseProfileModal" tabindex="-1"
+        role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
+            </div>
+            <div class="modal-body">
+              <form id="choose-profile">
+                <fieldset>
+                  <input type="text" name="given_name"
+                  placeholder="First Name">
+                  <input type="text" name="surname"
+                  placeholder="Last Name">
+                  <input type="date" name="dob"
+                  placeholder="Date of Birth">
+                  <input type="text" name="home_course"
+                  placeholder="Home Golf Course">
+                  <input type="submit" value="Submit">
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="createProfileModal" tabindex="-1"
+      role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-profile">
+                <fieldset>
+                  <input type="text" name="given_name"
+                  placeholder="First Name">
+                  <input type="text" name="surname"
+                  placeholder="Last Name">
+                  <input type="date" name="dob"
+                  placeholder="Date of Birth">
+                  <input type="text" name="home_course"
+                  placeholder="Home Golf Course">
+                  <input type="submit" value="Submit">
+                </fieldset>
+              </form>
+              <h3 id='profile-created-msg'>Profile Successfully Created</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    <footer>
+
+    <!-- <footer>
       <h5 class="credit">Game created by Will McBride</h5>
-    </footer>
+    </footer> -->
 
   </body>
 </html>

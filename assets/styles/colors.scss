@@ -5,6 +5,7 @@ $faint-charcoal: rgba(78, 78, 78, .6);
 $white: #fff;
 $black: #000;
 $red: #f00;
+$destroy: #c20002;
 
 @function tint($color, $percentage) {
   @return mix($white, $color, $percentage);
