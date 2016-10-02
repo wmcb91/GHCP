@@ -1,8 +1,10 @@
-$row-width: 720px;
-$cell-size: 235px;
-$base-container-width: 1200px;
 $header-margin: 15px;
 $header-box-height: 60px;
+
+html {
+  height: 105%;
+  overflow: visible;
+}
 
 p {
   margin: 0;
@@ -83,5 +85,5 @@ footer {
 }
 
 .credit {
-  margin: 55px 0 5px 10px;
+  margin: 0;
 }

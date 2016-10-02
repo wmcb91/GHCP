@@ -1,8 +1,9 @@
 $background-color: $off-white;
 $font-color: $charcoal;
 
+
+
 body {
-  background-color: $background-color;
   color: $font-color;
 }
 
@@ -10,18 +11,19 @@ hr {
   border: 1px solid $black;
 }
 
-.game-cell {
+.welcome-img {
+  background-image: url('./Header_Golf_1.jpg');
+  background-repeat: no-repeat;
+  background-size: 143%;
   border: 1px solid $black;
+  height: 40vw * 1.10;
+  position: static;
 }
 
 //Change hover icon from highlight bar to mouse or finger for anchors
 a:hover {
   cursor: pointer;
   text-decoration: none;
-}
-
-.game-cell:hover {
-  background-color: $grey;
 }
 
 .alert-link {
@@ -31,4 +33,8 @@ a:hover {
 .alert-link:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.credit {
+  padding: 2px;
 }
