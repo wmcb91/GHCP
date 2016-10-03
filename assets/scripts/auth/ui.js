@@ -27,19 +27,6 @@ const signInSuccess = (data) => {
   // $('#user-welcome').show();
   $('#sign-in-failure').hide();
 
-  //code to show email in welcome
-  // $('#user-name-welcome').html(app.user.email);
-
-  //debug
-  // console.log('Data.user is', data.user);
-  // console.log('App.user is', app.user);
-};
-
-const getUserSuccess = function (data) {
-  //SET USER INFO FROM GET
-  app.user = data.user;
-
-
   if (app.user.profiles.length === 0) {
     setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
   }
@@ -113,5 +100,4 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   showSignUpModal,
-  getUserSuccess,
 };
