@@ -1,8 +1,8 @@
 'use strict';
 
 const app = require('../app');
-const roundsAPI = require('../rounds/api');
-const roundsUI = require('../rounds/ui');
+// const roundsAPI = require('../rounds/api');
+// const roundsUI = require('../rounds/ui');
 
 //SIGN UP
 const signUpSuccess = () => {
@@ -27,10 +27,8 @@ const hasOneProfile = function () {
   app.profile = app.user.profiles[0];
   $('#user-welcome').fadeIn(100);
   $('#user-name-welcome').html(app.profile.given_name);
+  // roundsUI.printLatestRounds(app.profile.rounds);
   setTimeout(function(){$('.dashboard').fadeIn(100);}, 50);
-  roundsAPI.indexRounds()
-    .done(roundsUI.indexRoundsSuccess)
-    .fail(roundsUI.indexRoundsFailure);
 };
 
 const hasManyProfiles = function () {

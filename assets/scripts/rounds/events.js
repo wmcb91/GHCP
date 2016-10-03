@@ -18,9 +18,18 @@ const onSubmitRound = function (event) {
     .fail(ui.createRoundFailure);
 };
 
+const onViewRoundsClick = function (data) {
+  data = app.profile.rounds;
+  console.log('app.profile.rounds is', data);
+  ui.printLatestRounds(data);
+  api.indexRounds()
+    .done(ui.printLatestRounds);
+};
+
 const addHandlers = function() {
   $('.add-round-btn').on('click', onAddRoundClick);
   $('#add-round').on('submit', onSubmitRound);
+  $('#view-rounds').on('click', onViewRoundsClick);
 };
 
 module.exports = {
