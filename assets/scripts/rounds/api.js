@@ -2,6 +2,13 @@
 
 const app = require('../app');
 
+const indexRounds = function() {
+  return $.ajax({
+    url: app.host + '/rounds',
+    method: 'GET',
+  });
+};
+
 const createRound = function (data) {
   return $.ajax({
     url: app.host + '/rounds',
@@ -12,4 +19,5 @@ const createRound = function (data) {
 
 module.exports = {
   createRound,
+  indexRounds
 };

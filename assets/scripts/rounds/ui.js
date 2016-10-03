@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app');
+// const showRoundsTemplate = require('../templates/book-listing.handlebars');
 
 const showAddRoundField = function () {
   $('#add-round').fadeIn(500);
@@ -18,8 +19,19 @@ const createRoundFailure = function (error) {
   console.log('Create round failure is', error);
 };
 
+const indexRoundsSuccess = function(rounds) {
+  console.log('Rounds are', rounds);
+  // $('#content').html(showRoundsTemplate(rounds));
+};
+
+const indexRoundsFailure = function(error) {
+  console.log('Error is', error);
+};
+
 module.exports = {
   showAddRoundField,
   createRoundSuccess,
   createRoundFailure,
+  indexRoundsSuccess,
+  indexRoundsFailure,
 };
