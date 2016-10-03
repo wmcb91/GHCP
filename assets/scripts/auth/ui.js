@@ -30,7 +30,7 @@ const hasOneProfile = function () {
   setTimeout(function(){$('.dashboard').fadeIn(100);}, 50);
   roundsAPI.indexRounds()
     .done(roundsUI.indexRoundsSuccess)
-    .fail(roundUI.indexRoundsFailure)
+    .fail(roundsUI.indexRoundsFailure);
 };
 
 const hasManyProfiles = function () {
