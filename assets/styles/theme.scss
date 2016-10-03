@@ -1,14 +1,14 @@
 @import 'colors';
 
 $background-color: $off-white;
-$font-color: $charcoal;
+// $font-color: $charcoal;
 $large-field-width: 221px;
-$medium-field-width: 141px;
+$medium-field-width: 111px;
 $small-field-width: 71px;
 
-body {
-  color: $font-color;
-}
+// body {
+//   color: $font-color;
+// }
 
 hr {
   border: 1px solid $black;
@@ -55,7 +55,22 @@ input {
 }
 
 .rounds-header {
-  margin: 4px 0;
+  margin: 0 0 8px;
+}
+
+.add-round-btn {
+  background-color: $grass;
+  border: 1px solid $black;
+  border-radius: 3px;
+  color: $off-white;
+  padding: 3px 10px;
+}
+
+.add-round-btn:hover {
+  background-color: tint($grass, 25);
+  border: 1px solid $black;
+  border-radius: 3px;
+  color: $off-white;
 }
 
 .large-field {
@@ -110,8 +125,20 @@ input {
 }
 
 .submit-round {
-  height: 100%;
-  margin: 1px 0 0 2px;
+  height: 30px;
+  margin-top: 1px;
+  padding: 3px 6px;
+  width: $medium-field-width;
+}
+
+.submit-round:hover {
+  background-color: tint($grass, 50);
+  border: 1px solid $ash;
+  // border-style: outset;
+  height: 30px;
+  margin-top: 1px;
+  padding: 2px 6px;
+  width: $medium-field-width;
 }
 
 th,

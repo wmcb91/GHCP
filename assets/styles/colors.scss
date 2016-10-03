@@ -1,11 +1,13 @@
+$white: #fff;
+$black: #000;
 $off-white: #fefefe;
 $grey: #e5e5e5;
 $charcoal: #4e4e4e;
 $faint-charcoal: rgba(78, 78, 78, .6);
-$white: #fff;
-$black: #000;
+$ash: #e8e8e8;
 $red: #f00;
 $destroy: #c20002;
+$grass: #5c8e05;
 
 @function tint($color, $percentage) {
   @return mix($white, $color, $percentage);

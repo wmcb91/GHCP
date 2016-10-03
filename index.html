@@ -246,6 +246,7 @@
       <div class='dashboard'>
         <div class='rounds'>
           <h2 class='rounds-header'>Your Golf Rounds</h2>
+          <button class='add-round-btn'>Add New Round +</button>
           <table class='round-headers'>
             <tr>
               <th class='medium-field'>Date Played</th>
@@ -254,6 +255,7 @@
               <th class='small-field'>Slope</th>
               <th class='small-field'>Par</th>
               <th class='small-field'>Score</th>
+              <th class='medium-field'>Differential</th>
             </tr>
           </table>
           <form id="add-round" class='add-round'>
@@ -262,33 +264,35 @@
               placeholder="Date Played">
               <input class='large-field round-input course' type="text" name="course"
               placeholder="Course">
-              <input class='small-field round-input rating' type="text" name="rating"
+              <input class='small-field round-input rating' type="number" name="rating"
               placeholder="Rating">
-              <input class='small-field round-input slope' type="text" name="slope"
+              <input class='small-field round-input slope' type="number" name="slope"
               placeholder="Slope">
-              <input class='small-field round-input par' type="text" name="par"
+              <input class='small-field round-input par' type="number" name="par"
               placeholder="Par">
-              <input class='small-field round-input score' type="text" name="score"
+              <input class='small-field round-input score' type="number" name="score"
               placeholder="Score">
-              <input class='submit-round' type="submit" value="Add Round">
+              <input class='submit-round' type="submit" value="Submit">
             </fieldset>
           </form>
           <table class='previous-rounds'>
             <tr>
-              <td class='medium-field'>October 3</td>
+              <td class='medium-field'>2016-10-03</td>
               <td class='large-field'>Newton Commonwealth</td>
               <td class='small-field'>71.2</td>
               <td class='small-field'>117</td>
               <td class='small-field'>72</td>
               <td class='small-field'>87</td>
+              <td class='medium-field'>15</td>
             </tr>
             <tr>
-              <td>October 2</td>
+              <td>2016-10-02</td>
               <td>Concord Country Club</td>
               <td>73.4</td>
               <td>124</td>
               <td>72</td>
               <td>88</td>
+              <td>16</td>
             </tr>
           </table>
         </div>

@@ -40,8 +40,8 @@ const signOut = function (data) {
   });
 };
 
-
-//May be unnecissary if I change the user_login_serializer to have many :profiles
+// May be unnecissary if I change the user_login_serializer to have many :profiles
+// Yup it was.
 const getUser = function () {
   return $.ajax({
     url: app.host + '/users/' + app.user.id,

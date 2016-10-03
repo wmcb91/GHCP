@@ -54,7 +54,7 @@ const signOutSuccess = () => {
   $('#user-welcome').hide();
   $('#game-container').hide();
   $('#sign-in-prompt').show();
-
+  setTimeout(function(){$('.dashboard').fadeOut(100);}, 50);
   //debug
   // console.log('Sign Out Successful');
 };

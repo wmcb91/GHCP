@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 //PROFILE EVENTS
 
 const getFormFields = require('../../../lib/get-form-fields');
@@ -10,15 +10,15 @@ const onChangeProfileClick = function () {
   ui.showChangeProfile();
 
   // DEBUG
-  console.log('Change profile button click heard');
+  // console.log('Change profile button click heard');
 };
 
 const onNewProfileClick = function () {
   ui.showCreateProfile();
 
   // DEBUG
-  console.log('Profile click heard');
-  console.log(app.user.id);
+  // console.log('Profile click heard');
+  // console.log(app.user.id);
 };
 
 const onCreateProfile = function (event) {
@@ -28,7 +28,7 @@ const onCreateProfile = function (event) {
   api.createProfile(data)
     .done(ui.createProfileSuccess)
     .fail(ui.createProfileFailure);
-  console.log(data);
+  // console.log(data);
 };
 
 const addHandlers = function() {

@@ -8,15 +8,16 @@ require('./example');
 
 const authEvents = require('./auth/events');
 const profileEvents = require('./profile/events');
-// const roundsEvents = require('./rounds/events');
+const roundsEvents = require('./rounds/events');
 
 $(() => {
   authEvents.addHandlers();
   profileEvents.addHandlers();
-  // roundsEvents.addHandlers();
+  roundsEvents.addHandlers();
 
   // $('#sign-out').hide();
   $('#user-welcome').hide();
   $('#sign-in-failure').hide();
   $('.dashboard').hide();
+  $('#add-round').hide();
 });
