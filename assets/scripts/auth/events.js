@@ -25,6 +25,13 @@ const onSignIn = function (event) {
   api.signIn(data)
     .done(ui.signInSuccess)
     .fail(ui.signInFailure);
+
+  // GET DEEPER INFO ABOUT USER
+  setTimeout(function () {
+    api.getUser(data)
+      .done(ui.getUserSuccess)
+      .fail(ui.signInFailure);
+    }, 120);
 };
 
 const onChangePasswordClick = function () {
