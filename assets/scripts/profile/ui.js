@@ -1,22 +1,38 @@
 'use strict';
 
-const showChangeProfile = function () {
-  $('#changeProfileModal').modal('show');
+const app = require('../app');
 
-  // DEBUG
-  console.log('Change profile event fired');
+const showChangeProfile = function () {
+  $('#chooseProfileModal').modal('show');
 };
 
 const showCreateProfile = function () {
 // CHANGE TO JUST ONE MODAL with different DIVS
-  $('#changeProfileModal').modal('hide');
+  $('#chooseProfileModal').modal('hide');
   $('#createProfileModal').modal('show');
   $('#profile-created-msg').hide();
-  // DEBUG
-  console.log('New profile event fired');
+};
+
+const createProfileSuccess = function (data) {
+  app.profile = data.profile;
+  // Show welcome function here
+  $('#createProfileModal').modal('hide');
+  $('#user-welcome').show();
+  $('#user-name-welcome').html(app.profile.given_name);
+
+// debug
+  // console.log('App.profile is', app.profile);
+};
+
+const createProfileFailure = function (error) {
+  // create error message for UI
+  return error;
+  // console.log('Error is', error);
 };
 
 module.exports = {
   showChangeProfile,
-  showCreateProfile
+  showCreateProfile,
+  createProfileSuccess,
+  createProfileFailure,
 };

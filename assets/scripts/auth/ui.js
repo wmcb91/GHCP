@@ -3,16 +3,16 @@
 const app = require('../app');
 
 //SIGN UP
-const signUpSuccess = (data) => {
+const signUpSuccess = () => {
   $('#signUpModal').modal('hide');
   $('#signUpSuccessModal').modal('show');
 
   //debug
-  console.log('Sign up success. Data is', data);
+  // console.log('Sign up success. Data is', data);
 };
 
 const signUpFailure = (error) => {
-  console.error(error);
+  // console.log(error);
   return error;
 };
 
@@ -24,19 +24,20 @@ const signInSuccess = (data) => {
 
   //UI response to sign in
   $('#sign-in-prompt').hide();
-  $('#user-welcome').show();
+  // $('#user-welcome').show();
   $('#sign-in-failure').hide();
 
   //code to show email in welcome
-  $('#user-name-welcome').html(app.user.email);
-  $('#changeProfileModal').modal('show');
+  // $('#user-name-welcome').html(app.user.email);
+  $('#chooseProfileModal').modal('show');
   //debug
-  console.log('Data.user is', data.user);
+  // console.log('Data.user is', data.user);
+  // console.log('App.user is', app.user);
 };
 
 const signInFailure = (error) => {
   $('#sign-in-failure').show();
-  console.error(error);
+  // console.error(error);
   return error;
 };
 
