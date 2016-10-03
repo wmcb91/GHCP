@@ -40,9 +40,20 @@ const signOut = function (data) {
   });
 };
 
+const getUser = function () {
+  return $.ajax({
+    url: app.host + '/users/' + app.user.id,
+    method: 'GET',
+    headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
+  getUser,
 };
