@@ -29,10 +29,29 @@ const signInSuccess = (data) => {
 
   //code to show email in welcome
   // $('#user-name-welcome').html(app.user.email);
-  setTimeout(function(){$('#chooseProfileModal').modal('show');}, 550);
+
   //debug
   // console.log('Data.user is', data.user);
   // console.log('App.user is', app.user);
+};
+
+const getUserSuccess = function (data) {
+  //SET USER INFO FROM GET
+  app.user = data.user;
+
+
+  if (app.user.profiles.length === 0) {
+    setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
+  }
+  if (app.user.profiles.length === 1) {
+    app.profile = app.user.profiles[0];
+    $('#user-welcome').fadeIn(100);
+    $('#user-name-welcome').html(app.profile.given_name);
+    setTimeout(function(){$('.dashboard').fadeIn(100);}, 50);
+  }
+  else {
+    setTimeout(function(){$('#chooseProfileModal').modal('show');}, 350);
+  }
 };
 
 const signInFailure = (error) => {
@@ -94,4 +113,5 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   showSignUpModal,
+  getUserSuccess,
 };
