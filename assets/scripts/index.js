@@ -18,5 +18,5 @@ $(() => {
   // $('#sign-out').hide();
   $('#user-welcome').hide();
   $('#sign-in-failure').hide();
-  // $('.dashboard').hide();
+  $('.dashboard').hide();
 });
