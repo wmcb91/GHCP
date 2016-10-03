@@ -204,7 +204,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> <!-- END CHOOSE PROFILE MODAL -->
 
       <!-- CREATE PROFILE MODAL, MERGE INTO CHOOSE PROFILE LATER-->
       <div class="modal fade" id="createProfileModal" tabindex="-1"
@@ -240,7 +240,59 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> <!-- END CREATE PROFILE MODAL -->
+
+      <!-- DASHBOARD DIV -->
+      <div class='dashboard'>
+        <div class='rounds'>
+          <table class='round-headers'>
+            <tr>
+              <th class='medium-field'>Date Played</th>
+              <th class='large-field'>Course</th>
+              <th class='small-field'>Rating</th>
+              <th class='small-field'>Slope</th>
+              <th class='small-field'>Par</th>
+              <th class='small-field'>Score</th>
+            </tr>
+          </table>
+          <form id="add-round" class='add-round'>
+            <fieldset class='add-round'>
+              <input class='medium-field round-input date-played' type="text" name="date_played"
+              placeholder="Date Played">
+              <input class='large-field round-input course' type="text" name="course"
+              placeholder="Course">
+              <input class='small-field round-input rating' type="text" name="rating"
+              placeholder="Rating">
+              <input class='small-field round-input slope' type="text" name="slope"
+              placeholder="Slope">
+              <input class='small-field round-input par' type="text" name="par"
+              placeholder="Par">
+              <input class='small-field round-input score' type="text" name="score"
+              placeholder="Score">
+              <input class='submit-round' type="submit" value="Add Round">
+            </fieldset>
+          </form>
+          <table class='previous-rounds'>
+            <tr>
+              <td class='medium-field'>October 3</td>
+              <td class='large-field'>Newton Commonwealth</td>
+              <td class='small-field'>71.2</td>
+              <td class='small-field'>117</td>
+              <td class='small-field'>72</td>
+              <td class='small-field'>87</td>
+            </tr>
+            <tr>
+              <td>October 2</td>
+              <td>Concord Country Club</td>
+              <td>73.4</td>
+              <td>124</td>
+              <td>72</td>
+              <td>88</td>
+            </tr>
+          </table>
+        </div>
+      </div> <!-- END DASHBOARD -->
+
     </div>
 
 

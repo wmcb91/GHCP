@@ -1,7 +1,10 @@
+@import 'colors';
+
 $background-color: $off-white;
 $font-color: $charcoal;
-
-
+$large-field-width: 221px;
+$medium-field-width: 141px;
+$small-field-width: 71px;
 
 body {
   color: $font-color;
@@ -38,6 +41,80 @@ a:hover {
 // Enlarges X out button for modals
 .close {
   font-size: 30px;
+}
+
+input {
+  margin: 1px 2px 1px 0;
+}
+
+.rounds {
+  background-color: $off-white;
+  border: 2px solid $charcoal;
+  border-radius: 3px;
+}
+
+.large-field {
+  // margin-right: -2px;
+  width: $large-field-width;
+}
+
+.medium-field {
+  // margin-right: -2px;
+  width: $medium-field-width;
+}
+
+.small-field {
+  // margin-left: 0;
+  // margin-right: -2px;
+  width: $small-field-width;
+}
+
+.round-input {
+  float: left;
+  margin: 0;
+}
+
+// .add-round {
+//   margin: 0;
+// }
+
+.date-played {
+  margin-left: -.25pt;
+  width: $medium-field-width * 1.005;
+}
+
+.course {
+  margin-left: .25pt;
+  margin-right: 1pt;
+  width: $large-field-width - 1px;
+}
+
+.rating {
+  margin-right: 1pt;
+  width: $small-field-width - 1px;
+}
+
+.slope {
+  margin-right: .5pt;
+  width: $small-field-width - 1px;
+}
+
+.par {
+  margin-right: 1pt;
+  width: $small-field-width - 1px;
+}
+
+.submit-round {
+  height: 100%;
+  margin: 1px 0 0 2px;
+}
+
+th,
+td {
+  border: 1px solid $black;
+  border-style: inset;
+  margin: 1px 20px 1px 0;
+  padding: 1px 3px 1px 4px;
 }
 
 // Styling for profile buttons
