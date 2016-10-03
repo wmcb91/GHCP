@@ -29,7 +29,7 @@ const signInSuccess = (data) => {
 
   //code to show email in welcome
   // $('#user-name-welcome').html(app.user.email);
-  $('#chooseProfileModal').modal('show');
+  setTimeout(function(){$('#chooseProfileModal').modal('show');}, 550);
   //debug
   // console.log('Data.user is', data.user);
   // console.log('App.user is', app.user);

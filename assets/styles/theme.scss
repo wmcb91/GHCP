@@ -49,8 +49,13 @@ input {
 
 .rounds {
   background-color: $off-white;
-  border: 2px solid $charcoal;
-  border-radius: 3px;
+  border: 3px solid $charcoal;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.rounds-header {
+  margin: 4px 0;
 }
 
 .large-field {

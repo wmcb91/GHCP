@@ -9,7 +9,7 @@ const showChangeProfile = function () {
 const showCreateProfile = function () {
 // CHANGE TO JUST ONE MODAL with different DIVS
   $('#chooseProfileModal').modal('hide');
-  $('#createProfileModal').modal('show');
+  setTimeout(function(){$('#createProfileModal').modal('show');}, 150);
   $('#profile-created-msg').hide();
 };
 
@@ -19,6 +19,7 @@ const createProfileSuccess = function (data) {
   $('#createProfileModal').modal('hide');
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
+  setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
 
 // debug
   // console.log('App.profile is', app.profile);
