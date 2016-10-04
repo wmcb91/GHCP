@@ -9,6 +9,10 @@ const onAddRoundClick = function () {
   ui.showAddRoundField();
 };
 
+const onCancelAddRoundClick = function () {
+  ui.hideAddRoundField();
+};
+
 const onSubmitRound = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -17,7 +21,7 @@ const onSubmitRound = function (event) {
     .done(ui.createRoundSuccess)
     .fail(ui.createRoundFailure);
 
-  // need to refresh board or only submit 1 
+  // need to refresh board or only submit 1
 };
 
 const onViewRoundsClick = function (data) {
@@ -29,7 +33,8 @@ const onViewRoundsClick = function (data) {
 };
 
 const addHandlers = function() {
-  $('.add-round-btn').on('click', onAddRoundClick);
+  $('.add').on('click', onAddRoundClick);
+  $('.cancel').on('click', onCancelAddRoundClick);
   $('#add-round').on('submit', onSubmitRound);
   $('#view-rounds').on('click', onViewRoundsClick);
 };

@@ -77,20 +77,28 @@ input {
   margin: 0 0 8px;
 }
 
-.add-round-btn {
-  background-color: $grass;
-  border: 1px solid $black;
+.rounds-btn {
+  border: 1px solid $charcoal;
   border-radius: 3px;
   color: $off-white;
   margin: 1px 0;
   padding: 3px 10px;
 }
 
-.add-round-btn:hover {
+.add {
+  background-color: $grass;
+}
+
+.add:hover {
   background-color: tint($grass, 25);
-  border: 1px solid $black;
-  border-radius: 3px;
-  color: $off-white;
+}
+
+.cancel {
+  background-color: $destroy;
+}
+
+.cancel:hover {
+  background-color: tint($destroy, 25);
 }
 
 .large-field {
@@ -152,18 +160,19 @@ input {
 }
 
 .submit-round:hover {
-  background-color: tint($grass, 50);
-  border: 1px solid $ash;
+  background-color: tint($grass, 30);
+  border: 2px solid $charcoal;
+  color: $charcoal;
   // border-style: outset;
   height: 30px;
   margin-top: 1px;
-  padding: 2px 6px;
+  padding: 1px 6px;
   width: $medium-field-width;
 }
 
 th,
 td {
-  border: 1px solid $black;
+  border: 1px solid $charcoal;
   border-style: inset;
   margin: 1px 20px 1px 0;
   padding: 1px 3px 1px 4px;

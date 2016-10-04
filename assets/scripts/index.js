@@ -15,10 +15,10 @@ $(() => {
   profileEvents.addHandlers();
   roundsEvents.addHandlers();
 
-  // $('#sign-out').hide();
   $('#user-welcome').hide();
   $('#sign-in-failure').hide();
   $('.dashboard').hide();
+  $('.cancel').hide();
   $('#add-round').hide();
   $('.create-profile-modal').hide();
   $('#0').hide();

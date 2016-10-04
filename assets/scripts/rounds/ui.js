@@ -4,10 +4,14 @@ const app = require('../app');
 // const showRoundsTemplate = require('../templates/round-showing.handlebars');
 
 const showAddRoundField = function () {
+  $('.add').hide();
+  $('.cancel').fadeIn(500);
   $('#add-round').fadeIn(500);
 };
 
 const hideAddRoundField = function () {
+  $('.cancel').hide();
+  $('.add').fadeIn(500);
   $('#add-round').fadeOut(250);
 };
 
@@ -63,6 +67,7 @@ const indexRoundsFailure = function(error) {
 
 module.exports = {
   showAddRoundField,
+  hideAddRoundField,
   createRoundSuccess,
   createRoundFailure,
   // indexRoundsSuccess,
