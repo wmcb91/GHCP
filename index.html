@@ -45,19 +45,17 @@
           <h4 class="welcome-msg"> Hi,
             <span id="user-name-welcome" class="user-name-welcome"></span>
           </h4>
-
           <div class="dropdown">
             <button class="btn btn-default btn-lg dropdown-toggle cog-btn"
                     type="button" id="cogMenu" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="true">
               <span class="glyphicon glyphicon-cog" aria-hidden="true">
                 <!----></span>
-
             </button>
             <ul class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="dropdownMenu1">
-              <li><a id="show-stats-btn">View Profile</a></li>
-              <li><a id="view-rounds">View Rounds</a></li>
+              <li><a id="show-stats-btn">Edit Profile</a></li>
+              <!-- <li><a id="view-rounds">View Rounds</a></li> -->
               <!-- <li><a href="#">View Courses</a></li> -->
               <li><a id='change-password-btn'>Change Password</a></li>
               <li role="separator" class="divider"><!----></li>
@@ -71,6 +69,7 @@
               </li>
             </ul>
           </div>
+          Settings
         </div>
       </div>
 
@@ -298,16 +297,25 @@
             </fieldset>
           </form>
           <table class='previous-rounds'>
+            <tr class="width-setter">
+              <td class='medium-field'></td>
+              <td class='large-field'></td>
+              <td class='small-field'></td>
+              <td class='small-field'></td>
+              <td class='small-field'></td>
+              <td class='small-field'></td>
+              <td class='medium-field'></td>
+            </tr>
             <tr>
-              <td class='medium-field'>2016-10-03</td>
+              <!-- <td class='medium-field'>2016-10-03</td>
               <td class='large-field'>Newton Commonwealth</td>
               <td class='small-field'>71.2</td>
               <td class='small-field'>117</td>
               <td class='small-field'>72</td>
               <td class='small-field'>87</td>
               <td class='medium-field'>15</td>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
               <td>2016-10-02</td>
               <td>Concord Country Club</td>
               <td>73.4</td>
@@ -315,7 +323,7 @@
               <td>72</td>
               <td>88</td>
               <td>16</td>
-            </tr>
+            </tr> -->
           </table>
         </div>
       </div> <!-- END DASHBOARD -->

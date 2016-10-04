@@ -32,10 +32,9 @@ const selectProfile = function (data) {
   app.profile = data;
   $('#chooseProfileModal').modal('hide');
   $('#user-welcome').show();
-  $('#user-welcome').html("<h4 class='welcome-msg'>Welcome back, app.profile.given_name</h4>");
-
+  $('#user-name-welcome').html(app.profile.given_name);
   // Trigger populateRounds
-  
+
 
   setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
 };

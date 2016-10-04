@@ -16,6 +16,8 @@ const onSubmitRound = function (event) {
   api.createRound(data)
     .done(ui.createRoundSuccess)
     .fail(ui.createRoundFailure);
+
+  // need to refresh board or only submit 1 
 };
 
 const onViewRoundsClick = function (data) {
