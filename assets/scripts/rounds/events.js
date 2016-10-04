@@ -20,10 +20,10 @@ const onSubmitRound = function (event) {
 
 const onViewRoundsClick = function (data) {
   data = app.profile.rounds;
-  console.log('app.profile.rounds is', data);
+  // console.log('app.profile.rounds is', data);
   ui.printLatestRounds(data);
-  api.indexRounds()
-    .done(ui.printLatestRounds);
+  // api.indexRounds()
+  //   .done(ui.printLatestRounds);
 };
 
 const addHandlers = function() {

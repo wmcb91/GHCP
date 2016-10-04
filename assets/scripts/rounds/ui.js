@@ -1,21 +1,49 @@
 'use strict';
 
 const app = require('../app');
-const showRoundsTemplate = require('../templates/round-showing.handlebars');
+// const showRoundsTemplate = require('../templates/round-showing.handlebars');
 
 const showAddRoundField = function () {
   $('#add-round').fadeIn(500);
 };
 
-const printLatestRounds = function(rounds) {
-  console.log('latest rounds are', app.profile.rounds);
-  console.log('rounds are', rounds);
-  $('.handlebars').html(showRoundsTemplate(rounds));
+const roundsToObject = function () {
+  let roundsObject = app.profile.rounds.reduce(function(o, v, i) {
+    o[i] = v;
+    return o;
+  }, {});
+  return roundsObject;
+};
+
+const printLatestRounds = function () {
+    let roundsObject = roundsToObject();
+    for (let i = 0; i < app.profile.rounds.length; i++) {
+      $('.previous-rounds')
+        .prepend("<tr><td>"+roundsObject[i].date_played+
+                "</td><td>"+roundsObject[i].course+
+                "</td><td>"+roundsObject[i].rating+
+                "</td><td>"+roundsObject[i].slope+
+                "</td><td>"+roundsObject[i].par+
+                "</td><td>"+roundsObject[i].score+
+                "</td></tr>");
+    }
+    // $().appendTo('#add-round')
+    //   .append("<tr><td>"+roundsObject[i].date_played+
+    //           "</td><td>"+roundsObject[i].course+
+    //           "</td><td>"+roundsObject[i].rating+
+    //           "</td><td>"+roundsObject[i].slope+
+    //           "</td><td>"+roundsObject[i].par+
+    //           "</td><td>"+roundsObject[i].score+
+    //           "</td></tr>");
 };
 
 const createRoundSuccess = function (data) {
+  //Console
+  console.log('create round success run');
   app.round = data.round;
   app.profile.rounds[app.profile.rounds.length] = data.round;
+  //Console
+  console.log(app.profile.rounds);
   printLatestRounds(app.profile.rounds);
 };
 
