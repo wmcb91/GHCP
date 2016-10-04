@@ -6,19 +6,12 @@ const api = require('./api');
 const ui = require('./ui');
 const app = require('../app');
 
-const onChangeProfileClick = function () {
-  ui.showChangeProfile();
-  ui.populateProfiles();
-  // DEBUG
-  // console.log('Change profile button click heard');
+const onProfileClick = function () {
+  ui.selectProfile();
 };
 
 const onNewProfileClick = function () {
   ui.showCreateProfile();
-
-  // DEBUG
-  // console.log('Profile click heard');
-  // console.log(app.user.id);
 };
 
 const onCreateProfile = function (event) {
@@ -28,13 +21,17 @@ const onCreateProfile = function (event) {
   api.createProfile(data)
     .done(ui.createProfileSuccess)
     .fail(ui.createProfileFailure);
-  // console.log(data);
+};
+
+const onChangeProfileClick = function () {
+  ui.populateProfiles();
+  ui.showChangeProfile();
 };
 
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileClick);
   $('#new-profile').on('click', onNewProfileClick);
-  // $('.profile-button').on('click', onProfileClick);
+  $('.profile-button').on('click', onProfileClick);
   $('#create-profile').on('submit', onCreateProfile);
 };
 

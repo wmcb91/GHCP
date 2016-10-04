@@ -6,6 +6,10 @@ html {
   overflow: visible;
 }
 
+body {
+  padding-top: 2px;
+}
+
 p {
   margin: 0;
 }
@@ -22,6 +26,10 @@ p {
   height: $header-box-height;
   margin-right: $header-margin;
   margin-top: $header-margin;
+}
+
+.sign-in-prompt {
+  margin-top: 3px;
 }
 
 .user-welcome {
