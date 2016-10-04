@@ -29,14 +29,25 @@ const changePassword = function (data) {
   });
 };
 
-const signOut = function (data) {
+const signOut = function () {
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
     method: 'DELETE',
     headers: {
         Authorization: 'Token token=' + app.user.token,
       },
-    data: data,
+  });
+};
+
+// May be unnecissary if I change the user_login_serializer to have many :profiles
+// Yup it was.
+const getUser = function () {
+  return $.ajax({
+    url: app.host + '/users/' + app.user.id,
+    method: 'GET',
+    headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
   });
 };
 
@@ -45,4 +56,5 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
+  getUser,
 };

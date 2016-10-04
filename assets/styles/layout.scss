@@ -6,6 +6,10 @@ html {
   overflow: visible;
 }
 
+body {
+  padding-top: 2px;
+}
+
 p {
   margin: 0;
 }
@@ -24,6 +28,10 @@ p {
   margin-top: $header-margin;
 }
 
+.sign-in-prompt {
+  margin-top: 3px;
+}
+
 .user-welcome {
   align-items: center;
   display: flex;
@@ -38,8 +46,8 @@ p {
   margin: auto 5px;
 }
 
+// Settings icon
 .cog-btn {
-  float: right;
   margin: 3px;
   padding: 0;
 }
@@ -48,6 +56,7 @@ p {
   margin: 0;
   padding: 3px 3px 1px 4px;
 }
+// END settings icon
 
 .dropdown-menu {
   text-align: center;
@@ -75,14 +84,51 @@ hr {
   text-align: center;
 }
 
+// Set top margin for all modals
 .modal {
   margin-top: 25vh;
 }
 
-input {
-  margin: 1px 2px 1px 0;
+
+.profile-button,
+.profile-btn {
+  float: left;
 }
 
+// STYLING FOR ROUNDS TABLE
+.rounds {
+  float: left;
+  margin: 45px 5px 5px 50px;
+}
+
+.rounds-header {
+  float: left;
+}
+
+// INITIALIZE ADD ROUND BUTTON
+.rounds-btn {
+  float: right;
+}
+
+.round-headers {
+  clear: both;
+  float: left;
+}
+
+// ADD ROUND SUBMIT BUTTON
+.add-round {
+  clear: both;
+  float: left;
+}
+
+// MAKES INSERTED ROWS LINE UP WITH OLDER ROWS
+.previous-rounds {
+  clear: both;
+  float: left;
+}
+
+
+// STYLING FOR FOOTER AND ITS CONTENTS
 footer {
   bottom: 0;
   position: fixed;

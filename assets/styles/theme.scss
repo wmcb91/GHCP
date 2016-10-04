@@ -1,22 +1,25 @@
+@import 'colors';
+
 $background-color: $off-white;
-$font-color: $charcoal;
+// $font-color: $charcoal;
+$large-field-width: 221px;
+$medium-field-width: 111px;
+$small-field-width: 71px;
 
-
-
-body {
-  color: $font-color;
-}
+// body {
+//   color: $font-color;
+// }
 
 hr {
   border: 1px solid $black;
 }
 
-.body {
+.main {
   background-image: url('./Header_Golf_1.jpg');
   background-repeat: no-repeat;
-  background-size: 143%;
+  background-size: 140%;
   border: 1px solid $black;
-  height: 40vw * 1.10;
+  height: 40vw * 1.085;
   position: static;
 }
 
@@ -38,6 +41,139 @@ a:hover {
 // Enlarges X out button for modals
 .close {
   font-size: 30px;
+}
+
+// Should break into class for new rounds, login and create profile
+
+input {
+  margin: 1px 0;
+}
+
+.profiles {
+  display: inline-block;
+  padding: 6px;
+}
+
+.profile-btn,
+.profile-button {
+  height: 110px;
+  margin: 3px;
+  width: 150px;
+}
+
+.rounds {
+  background-color: $off-white;
+  border: 3px solid $charcoal;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.width-setter {
+  border: solid $charcoal;
+  border-width: 0 1px 4px;
+}
+
+.rounds-header {
+  margin: 0 0 8px;
+}
+
+.rounds-btn {
+  border: 1px solid $charcoal;
+  border-radius: 3px;
+  color: $off-white;
+  margin: 1px 0;
+  padding: 3px 10px;
+}
+
+.add {
+  background-color: $grass;
+}
+
+.add:hover {
+  background-color: tint($grass, 25);
+}
+
+.cancel {
+  background-color: $destroy;
+}
+
+.cancel:hover {
+  background-color: tint($destroy, 25);
+}
+
+.large-field {
+  // margin-right: -2px;
+  width: $large-field-width;
+}
+
+.medium-field {
+  // margin-right: -2px;
+  width: $medium-field-width;
+}
+
+.small-field {
+  // margin-left: 0;
+  // margin-right: -2px;
+  width: $small-field-width;
+}
+
+.round-input {
+  float: left;
+  margin: 0;
+}
+
+.date-played {
+  margin-left: -.25pt;
+  width: $medium-field-width * 1.005;
+}
+
+.course {
+  margin-left: .25pt;
+  margin-right: 1pt;
+  width: $large-field-width - 1px;
+}
+
+.rating {
+  margin-right: 1pt;
+  width: $small-field-width - 1px;
+}
+
+.slope {
+  margin-right: .5pt;
+  width: $small-field-width - 1px;
+}
+
+.par {
+  margin-right: 1pt;
+  width: $small-field-width - 1px;
+}
+
+.add-round {
+  margin: 1px 0;
+}
+
+.submit-round {
+  height: 30px;
+  margin-left: 1px;
+  margin-top: 1px;
+  padding: 3px 6px;
+  width: $medium-field-width - 2px;
+}
+
+.submit-round:hover {
+  background-color: shade($off-white, 12);
+  border: 1px solid $grass;
+  // border-style: outset;
+  height: 30px;
+  padding: 1px 6px;
+}
+
+th,
+td {
+  border: 1px solid $charcoal;
+  border-style: inset;
+  margin: 1px 20px 1px 0;
+  padding: 1px 3px 1px 4px;
 }
 
 // Styling for profile buttons

@@ -45,20 +45,18 @@
           <h4 class="welcome-msg"> Hi,
             <span id="user-name-welcome" class="user-name-welcome"></span>
           </h4>
-
           <div class="dropdown">
             <button class="btn btn-default btn-lg dropdown-toggle cog-btn"
                     type="button" id="cogMenu" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="true">
               <span class="glyphicon glyphicon-cog" aria-hidden="true">
                 <!----></span>
-
             </button>
             <ul class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="dropdownMenu1">
-              <li><a id="show-stats-btn">View Profile</a></li>
-              <li><a href="#">View Rounds</a></li>
-              <li><a href="#">View Courses</a></li>
+              <li><a id="show-stats-btn">Edit Profile</a></li>
+              <!-- <li><a id="view-rounds">View Rounds</a></li> -->
+              <!-- <li><a href="#">View Courses</a></li> -->
               <li><a id='change-password-btn'>Change Password</a></li>
               <li role="separator" class="divider"><!----></li>
               <li><a id='change-profile-btn'>Change Profile</a></li>
@@ -71,6 +69,7 @@
               </li>
             </ul>
           </div>
+          Settings
         </div>
       </div>
 
@@ -169,7 +168,7 @@
     </header>
     <hr>
 
-    <div class='body'>
+    <div class='main'>
       <!-- SIGN IN FAILURE WARNING MESSAGE -->
       <div
       id="sign-in-failure"
@@ -181,47 +180,47 @@
         The email or password you entered is incorrect.
       </div>
 
-
+      <!-- CHOOSE PROFILE MODALS -->
+      <!-- LOGIN CHOOSE PROFILE -->
       <div class="modal fade" id="chooseProfileModal" tabindex="-1"
-        role="dialog" aria-labelledby="myModalLabel">
+        role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+        data-keyboard='false'>
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content choose-profile-modal">
             <div class="modal-header">
-              <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
+              <h2 class="modal-title" id="myModalLabel">Choose your profile</h2>
             </div>
-            <div class="modal-body">
-              <button id='new-profile' class='profile-button new'>
-                <h3>Create New</h3>
-                <h1>+</h1>
+            <div class="modal-body profiles">
+              <button id='new-profile' class='new-profile-button profile-btn'>
+                <h3 class='profile-text'>Create New</h3>
+                <h1 class='profile-text'>+</h1>
+              </button>
+              <button id='0' class='profile-button'>
+              </button>
+              <button id='1' class='profile-button'>
+              </button>
+              <button id='2' class='profile-button'>
+              </button>
+              <button id='3' class='profile-button'>
+              </button>
+              <button id='4' class='profile-button'>
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="createProfileModal" tabindex="-1"
-      role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <!-- LOGIN CREATE PROFILE -->
+          <div class="modal-content create-profile-modal">
             <div class="modal-header">
+              <!-- MAKE BUTTON A BACK BUTTON -->
               <button
               type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+              id='back-btn'
+              class="close">
+                <span aria-hidden="true">Back</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
+              <h3 class="modal-title" id="myModalLabel">Create your profile</h3>
             </div>
             <div class="modal-body">
-              <form id="create-profile">
+              <form class="create-profile">
                 <fieldset>
                   <input type="text" name="given_name"
                   placeholder="First Name">
@@ -235,12 +234,161 @@
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
-              <h3 id='profile-created-msg'>Profile Successfully Created</h3>
+              <h2 class='profile-created-msg'>Profile Successfully Created</h2>
             </div>
           </div>
         </div>
       </div>
+      <!-- END LOGIN MODAL -->
+
+      <!-- CHANGE PROFILE MODAL -->
+      <div class="modal fade" id="changeProfileModal" tabindex="-1"
+        role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content choose-profile-modal">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h2 class="modal-title" id="myModalLabel">Choose your profile</h2>
+            </div>
+            <div class="modal-body profiles">
+              <button class='new-profile-button profile-btn'>
+                <h3 class='profile-text'>Create New</h3>
+                <h1 class='profile-text'>+</h1>
+              </button>
+              <button id='00' class='profile-button'>
+              </button>
+              <button id='11' class='profile-button'>
+              </button>
+              <button id='22' class='profile-button'>
+              </button>
+              <button id='33' class='profile-button'>
+              </button>
+              <button id='44' class='profile-button'>
+              </button>
+            </div>
+          </div>
+
+          <!-- CHANGE PROFILE MODAL -> CREATE PROFILE -->
+          <div class="modal-content create-profile-modal">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h3 class="modal-title" id="myModalLabel">Create your profile</h3>
+            </div>
+            <div class="modal-body">
+              <form class="create-profile">
+                <fieldset>
+                  <input type="text" name="given_name"
+                  placeholder="First Name">
+                  <input type="text" name="surname"
+                  placeholder="Last Name">
+                  <br>
+                  <input type="text" name="home_course"
+                  placeholder="Home Course">
+                  <input type="text" name="state"
+                  placeholder="State">
+                  <input type="submit" value="Submit">
+                </fieldset>
+              </form>
+              <h2 class='profile-created-msg'>Profile Successfully Created</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END CHANGE PROFILE MODAL -->
+
+      <!-- DASHBOARD DIV -->
+      <div class='dashboard'>
+        <div class='rounds'>
+          <h2 class='rounds-header'>Your Golf Rounds</h2>
+          <button class='rounds-btn add'>Add Round +</button>
+          <button class='rounds-btn cancel'>Cancel</button>
+          <table class='round-headers'>
+            <tr>
+              <th class='medium-field'>Date Played</th>
+              <th class='large-field'>Course</th>
+              <th class='small-field'>Rating</th>
+              <th class='small-field'>Slope</th>
+              <th class='small-field'>Par</th>
+              <th class='small-field'>Score</th>
+              <th class='medium-field'>Differential</th>
+            </tr>
+          </table>
+          <form id="add-round" class='add-round'>
+            <fieldset class='add-round'>
+              <input class='medium-field round-input date-played'
+                     type="date"
+                     name="date_played"
+                     placeholder="Date Played">
+              <input class='large-field round-input course'
+                     type="text"
+                     name="course"
+                     placeholder="Course">
+              <input class='small-field round-input rating'
+                     type="number"
+                     name="rating"
+                     placeholder="Rating">
+              <input class='small-field round-input slope'
+                     type="number"
+                     name="slope"
+                     placeholder="Slope">
+              <input class='small-field round-input par'
+                     type="number"
+                     name="par"
+                     placeholder="Par">
+              <input class='small-field round-input score'
+                     type="number"
+                     name="score"
+                     placeholder="Score">
+              <input class='submit-round' type="submit" value="Submit">
+            </fieldset>
+          </form>
+          <table class='previous-rounds'>
+            <tr class="width-setter">
+              <td class='medium-field'></td>
+              <td class='large-field'></td>
+              <td class='small-field'></td>
+              <td class='small-field'></td>
+              <td class='small-field'></td>
+              <td class='small-field'></td>
+              <td class='medium-field'></td>
+            </tr>
+            <tr>
+              <!-- <td class='medium-field'>2016-10-03</td>
+              <td class='large-field'>Newton Commonwealth</td>
+              <td class='small-field'>71.2</td>
+              <td class='small-field'>117</td>
+              <td class='small-field'>72</td>
+              <td class='small-field'>87</td>
+              <td class='medium-field'>15</td>
+            </tr> -->
+            <!-- <tr>
+              <td>2016-10-02</td>
+              <td>Concord Country Club</td>
+              <td>73.4</td>
+              <td>124</td>
+              <td>72</td>
+              <td>88</td>
+              <td>16</td>
+            </tr> -->
+          </table>
+        </div>
+      </div> <!-- END DASHBOARD -->
+
     </div>
+
+
 
     <!-- <footer>
       <h5 class="credit">Game created by Will McBride</h5>

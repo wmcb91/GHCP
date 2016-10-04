@@ -8,14 +8,27 @@ require('./example');
 
 const authEvents = require('./auth/events');
 const profileEvents = require('./profile/events');
-// const roundsEvents = require('./rounds/events');
+const roundsEvents = require('./rounds/events');
 
 $(() => {
   authEvents.addHandlers();
   profileEvents.addHandlers();
-  // roundsEvents.addHandlers();
+  roundsEvents.addHandlers();
 
-  // $('#sign-out').hide();
   $('#user-welcome').hide();
   $('#sign-in-failure').hide();
+  $('.dashboard').hide();
+  $('.cancel').hide();
+  $('#add-round').hide();
+  $('.create-profile-modal').hide();
+  $('#0').hide();
+  $('#1').hide();
+  $('#2').hide();
+  $('#3').hide();
+  $('#4').hide();
+  $('#00').hide();
+  $('#11').hide();
+  $('#22').hide();
+  $('#33').hide();
+  $('#44').hide();
 });

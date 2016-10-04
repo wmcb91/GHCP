@@ -7,6 +7,7 @@
 
 $title-size: 75px;
 $credit-size: 15px;
+$rounds-font-size: 13pt;
 
 // font-family: 'VT323', monospace;
 $bungee-shade: 'Bungee Shade', cursive;
@@ -26,6 +27,23 @@ body {
 .title {
   font-family: $rubik;
   // font-size: 75px;
+}
+
+.profile-text {
+  margin: 5px;
+}
+
+.profile-club {
+  margin-top: 15px;
+}
+
+.round-input {
+  font-size: $rounds-font-size - 1pt;
+  line-height: $rounds-font-size * 1.5;
+}
+
+.rounds {
+  font-size: $rounds-font-size;
 }
 
 .credit {
