@@ -2,9 +2,7 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
-const authAPI = require('../auth/api');
 const ui = require('./ui');
-const authUI = require('../auth/ui');
 const app = require('../app');
 
 const onAddRoundClick = function () {
@@ -22,18 +20,11 @@ const onSubmitRound = function (event) {
   api.createRound(data)
     .done(ui.createRoundSuccess)
     .fail(ui.createRoundFailure);
-
-  authAPI.getUser()
-    .done(authUI.updateUserProfiles, setTimeout(function(){ui.addRoundSuccess();},1500));
-  // need to refresh board or only submit 1
 };
 
 const onViewRoundsClick = function (data) {
   data = app.profile.rounds;
-  // console.log('app.profile.rounds is', data);
   ui.initialRoundsPopulation(data);
-  // api.indexRounds()
-  //   .done(ui.initialRoundsPopulation);
 };
 
 const addHandlers = function() {

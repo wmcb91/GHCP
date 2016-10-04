@@ -23,21 +23,8 @@ const reverseRoundsToObject = function () {
   return reverseRoundsObject;
 };
 
-const roundsToObject = function () {
-  // console.log('reverse is', app.profile.rounds.reverse());
-  let roundsObject = app.profile.rounds.reduce(function(o, v, i) {
-    o[i] = v;
-    return o;
-  }, {});
-  return roundsObject;
-};
-
 const initialRoundsPopulation = function () {
   let reverseRoundsObject = reverseRoundsToObject();
-  console.log('reverseRoundsObject[0] is',reverseRoundsObject[0]);
-  console.log('reverseRoundsObject[1] is',reverseRoundsObject[1]);
-  console.log('reverseRoundsObject[-2] is',reverseRoundsObject[app.profile.rounds.length-2]);
-  console.log('reverseRoundsObject[1] is',reverseRoundsObject[app.profile.rounds.length-1]);
   for (let i = 0; i < 15; i++) {
   // for (let i = 15; i > 0; i--) {
     $('.width-setter')
@@ -47,25 +34,6 @@ const initialRoundsPopulation = function () {
               "</td><td>"+reverseRoundsObject[i].slope+
               "</td><td>"+reverseRoundsObject[i].par+
               "</td><td>"+reverseRoundsObject[i].score+
-              "</td></tr>");
-    }
-};
-
-const roundsPopulation = function () {
-  let roundsObject = roundsToObject();
-  console.log('reverseRoundsObject[0] is',roundsObject[0]);
-  console.log('reverseRoundsObject[1] is',roundsObject[1]);
-  console.log('reverseRoundsObject[-2] is',roundsObject[app.profile.rounds.length-2]);
-  console.log('reverseRoundsObject[1] is',roundsObject[app.profile.rounds.length-1]);
-  for (let i = 0; i < 15; i++) {
-  // for (let i = 15; i > 0; i--) {
-    $('.width-setter')
-      .before("<tr class='profile-rounds'><td>"+roundsObject[i].date_played+
-              "</td><td>"+roundsObject[i].course+
-              "</td><td>"+roundsObject[i].rating+
-              "</td><td>"+roundsObject[i].slope+
-              "</td><td>"+roundsObject[i].par+
-              "</td><td>"+roundsObject[i].score+
               "</td></tr>");
     }
 };
@@ -87,13 +55,6 @@ const addRound = function (data) {
   $('.profile-rounds').last().remove();
 };
 
-
-const addRoundSuccess = function () {
-  // clearRounds();
-  // initialRoundsPopulation();
-  // addRound(app.round);
-};
-
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
   //Console
@@ -107,12 +68,6 @@ const createRoundSuccess = function (data) {
 
 const createRoundFailure = function (error) {
   //Add error message
-  // console.log('Create round failure is', error);
-  return error;
-};
-
-const indexRoundsFailure = function(error) {
-  // console.log('Error is', error);
   return error;
 };
 
@@ -121,10 +76,7 @@ module.exports = {
   hideAddRoundField,
   createRoundSuccess,
   addRound,
-  addRoundSuccess,
   createRoundFailure,
-  // indexRoundsSuccess,
-  indexRoundsFailure,
   initialRoundsPopulation,
   clearRounds,
 };
