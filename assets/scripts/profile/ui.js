@@ -38,6 +38,7 @@ const selectProfile = function (data) {
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
   // Trigger populateRounds
+  roundsUI.clearRounds();
   roundsUI.populateRounds();
   setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
 };

@@ -19,7 +19,7 @@ const populateRounds = function () {
     let roundsObject = roundsToObject();
     for (let i = 0; i < app.profile.rounds.length; i++) {
       $('.previous-rounds')
-        .prepend("<tr><td>"+roundsObject[i].date_played+
+        .prepend("<tr class='profile-rounds'><td>"+roundsObject[i].date_played+
                 "</td><td>"+roundsObject[i].course+
                 "</td><td>"+roundsObject[i].rating+
                 "</td><td>"+roundsObject[i].slope+
@@ -27,6 +27,10 @@ const populateRounds = function () {
                 "</td><td>"+roundsObject[i].score+
                 "</td></tr>");
     }
+};
+
+const clearRounds = function () {
+  $('.profile-rounds').html('');
 };
 
 const createRoundSuccess = function (data) {
@@ -54,4 +58,5 @@ module.exports = {
   // indexRoundsSuccess,
   indexRoundsFailure,
   populateRounds,
+  clearRounds,
 };

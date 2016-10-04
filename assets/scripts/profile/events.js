@@ -6,6 +6,7 @@ const api = require('./api');
 const authAPI = require('../auth/api');
 const ui = require('./ui');
 const authUI = require('../auth/ui');
+const roundsUI = require('../rounds/ui');
 const app = require('../app');
 
 const onProfileSelection = function (event) {
