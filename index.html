@@ -188,7 +188,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content choose-profile-modal">
             <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
+              <h2 class="modal-title" id="myModalLabel">Choose your profile</h2>
             </div>
             <div class="modal-body profiles">
               <button id='new-profile' class='new-profile-button profile-btn'>
@@ -207,6 +207,7 @@
               </button>
             </div>
           </div>
+          <!-- LOGIN CREATE PROFILE -->
           <div class="modal-content create-profile-modal">
             <div class="modal-header">
               <!-- MAKE BUTTON A BACK BUTTON -->
@@ -216,7 +217,7 @@
               class="close">
                 <span aria-hidden="true">Back</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
+              <h3 class="modal-title" id="myModalLabel">Create your profile</h3>
             </div>
             <div class="modal-body">
               <form class="create-profile">
@@ -233,11 +234,12 @@
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
-              <h3 class='profile-created-msg'>Profile Successfully Created</h3>
+              <h2 class='profile-created-msg'>Profile Successfully Created</h2>
             </div>
           </div>
         </div>
       </div>
+      <!-- END LOGIN MODAL -->
 
       <!-- CHANGE PROFILE MODAL -->
       <div class="modal fade" id="changeProfileModal" tabindex="-1"
@@ -252,7 +254,7 @@
               aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
+              <h2 class="modal-title" id="myModalLabel">Choose your profile</h2>
             </div>
             <div class="modal-body profiles">
               <button class='new-profile-button profile-btn'>
@@ -271,6 +273,8 @@
               </button>
             </div>
           </div>
+
+          <!-- CHANGE PROFILE MODAL -> CREATE PROFILE -->
           <div class="modal-content create-profile-modal">
             <div class="modal-header">
               <button
@@ -280,7 +284,7 @@
               aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
+              <h3 class="modal-title" id="myModalLabel">Create your profile</h3>
             </div>
             <div class="modal-body">
               <form class="create-profile">
@@ -297,48 +301,12 @@
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
-              <h3 class='profile-created-msg'>Profile Successfully Created</h3>
+              <h2 class='profile-created-msg'>Profile Successfully Created</h2>
             </div>
           </div>
         </div>
       </div>
-      <!-- END CHOOSE PROFILE MODAL -->
-
-      <!-- CREATE PROFILE MODAL, MERGE INTO CHOOSE PROFILE LATER-->
-      <!-- <div class="modal fade" id="createProfileModal" tabindex="-1"
-      role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
-            </div>
-            <div class="modal-body">
-              <form id="create-profile">
-                <fieldset>
-                  <input type="text" name="given_name"
-                  placeholder="First Name">
-                  <input type="text" name="surname"
-                  placeholder="Last Name">
-                  <br>
-                  <input type="text" name="home_course"
-                  placeholder="Home Course">
-                  <input type="text" name="state"
-                  placeholder="State">
-                  <input type="submit" value="Submit">
-                </fieldset>
-              </form>
-              <h3 id='profile-created-msg'>Profile Successfully Created</h3>
-            </div>
-          </div>
-        </div>
-      </div> <!- END CREATE PROFILE MODAL -->
+      <!-- END CHANGE PROFILE MODAL -->
 
       <!-- DASHBOARD DIV -->
       <div class='dashboard'>

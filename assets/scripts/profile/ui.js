@@ -53,10 +53,12 @@ const selectProfileSuccess = function (data) {
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
   // Trigger populateRounds
-  roundsUI.clearRounds();
-  roundsUI.populateRounds();
-  setTimeout(function(){$('.dashboard').fadeIn(500);}, 150);
+  $('.dashboard').fadeOut(400);
+  setTimeout(function(){roundsUI.clearRounds();}, 410);
+  setTimeout(function(){roundsUI.populateRounds();}, 410);
+  setTimeout(function(){$('.dashboard').fadeIn(400);}, 500);
 };
+
 
 const showChangeProfile = function () {
   $('.create-profile-modal').hide();
@@ -66,7 +68,9 @@ const showChangeProfile = function () {
 
 const showCreateProfile = function () {
 // CHANGE TO JUST ONE MODAL with different DIVS
+  $('.create-profile').hide();
   $('.choose-profile-modal').hide();
+  $('.create-profile').show();
   setTimeout(function(){$('.create-profile-modal').fadeIn(300);}, 10);
   $('.profile-created-msg').hide();
 };
@@ -80,16 +84,27 @@ const createProfileSuccess = function (data) {
   //update app.profile to be current profile
   app.profile = data.profile;
   // Show welcome function here
-  $('#createProfileModal').modal('hide');
+  $('.create-profile').hide();
+  $('.profile-created-msg').show();
+  setTimeout(function(){$('.create-profile-modal').hide();}, 2000);
+  setTimeout(function(){$('#chooseProfileModal').modal('hide');}, 2000);
+  setTimeout(function(){$('#changeProfileModal').modal('hide');}, 2000);
+  setTimeout(function(){$('.choose-profile-modal').show();}, 2300);
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
 
   //Create message about adding rounds and trigger it
 
   //Show user's dashboard
-  roundsUI.clearRounds();
-  roundsUI.populateRounds();
-  setTimeout(function(){$('.dashboard').fadeIn(500);}, 150);
+  $('.dashboard').fadeOut(400);
+  setTimeout(function(){roundsUI.clearRounds();}, 410);
+  setTimeout(function(){roundsUI.populateRounds();}, 410);
+  setTimeout(function(){$('.dashboard').fadeIn(500);}, 2100);
+
+
+  // roundsUI.clearRounds();
+  // roundsUI.populateRounds();
+  // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
 
 // debug
   // console.log('App.profile is', app.profile);

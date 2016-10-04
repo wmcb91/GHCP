@@ -7,6 +7,10 @@ const showAddRoundField = function () {
   $('#add-round').fadeIn(500);
 };
 
+const hideAddRoundField = function () {
+  $('#add-round').fadeOut(250);
+};
+
 const roundsToObject = function () {
   let roundsObject = app.profile.rounds.reduce(function(o, v, i) {
     o[i] = v;
@@ -33,6 +37,7 @@ const clearRounds = function () {
   $('.profile-rounds').html('');
 };
 
+// ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
   //Console
   console.log('create round success run');
@@ -40,15 +45,20 @@ const createRoundSuccess = function (data) {
   app.profile.rounds[app.profile.rounds.length] = data.round;
   //Console
   console.log(app.profile.rounds);
-  populateRounds(app.profile.rounds);
+  hideAddRoundField();
+  setTimeout(function(){clearRounds();}, 250);
+  setTimeout(function(){populateRounds(app.profile.rounds);}, 250);
 };
 
 const createRoundFailure = function (error) {
-  console.log('Create round failure is', error);
+  //Add error message
+  // console.log('Create round failure is', error);
+  return error;
 };
 
 const indexRoundsFailure = function(error) {
-  console.log('Error is', error);
+  // console.log('Error is', error);
+  return error;
 };
 
 module.exports = {
