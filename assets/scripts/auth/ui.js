@@ -24,7 +24,7 @@ const hasOneProfile = function () {
   app.profile = app.user.profiles[0];
   $('#user-welcome').fadeIn(100);
   $('#user-name-welcome').html(app.profile.given_name);
-  roundsUI.populateRounds(app.profile.rounds);
+  roundsUI.initialRoundsPopulation(app.profile.rounds);
   setTimeout(function(){$('.dashboard').fadeIn(100);}, 50);
 };
 

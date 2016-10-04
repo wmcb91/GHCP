@@ -52,10 +52,10 @@ const selectProfileSuccess = function (data) {
   $('#changeProfileModal').modal('hide');
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
-  // Trigger populateRounds
+  // Trigger initialRoundsPopulation
   $('.dashboard').fadeOut(400);
   setTimeout(function(){roundsUI.clearRounds();}, 410);
-  setTimeout(function(){roundsUI.populateRounds();}, 410);
+  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
   setTimeout(function(){$('.dashboard').fadeIn(400);}, 500);
 };
 
@@ -98,12 +98,12 @@ const createProfileSuccess = function (data) {
   //Show user's dashboard
   $('.dashboard').fadeOut(400);
   setTimeout(function(){roundsUI.clearRounds();}, 410);
-  setTimeout(function(){roundsUI.populateRounds();}, 410);
+  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
   setTimeout(function(){$('.dashboard').fadeIn(500);}, 2100);
 
 
   // roundsUI.clearRounds();
-  // roundsUI.populateRounds();
+  // roundsUI.initialRoundsPopulation();
   // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
 
 // debug

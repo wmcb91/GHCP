@@ -26,8 +26,8 @@ const onCreateProfile = function (event) {
   api.createProfile(data)
     .done(ui.createProfileSuccess)
     .fail(ui.createProfileFailure);
-  authAPI.getUser()
-    .done(authUI.updateUserProfiles, ui.populateProfiles);
+  // authAPI.getUser()
+  //   .done(authUI.updateUserProfiles, ui.populateProfiles);
     // Add .fail later
 };
 
