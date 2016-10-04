@@ -44,7 +44,7 @@ a:hover {
 }
 
 input {
-  margin: 1px 2px 1px 0;
+  margin: 1px 0;
 }
 
 .rounds {
@@ -63,6 +63,7 @@ input {
   border: 1px solid $black;
   border-radius: 3px;
   color: $off-white;
+  margin: 1px 0;
   padding: 3px 10px;
 }
 
