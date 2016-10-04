@@ -122,10 +122,6 @@ input {
   margin: 0;
 }
 
-// .add-round {
-//   margin: 0;
-// }
-
 .date-played {
   margin-left: -.25pt;
   width: $medium-field-width * 1.005;
@@ -152,22 +148,24 @@ input {
   width: $small-field-width - 1px;
 }
 
+.add-round {
+  margin: 1px 0;
+}
+
 .submit-round {
   height: 30px;
+  margin-left: 1px;
   margin-top: 1px;
   padding: 3px 6px;
-  width: $medium-field-width;
+  width: $medium-field-width - 2px;
 }
 
 .submit-round:hover {
-  background-color: tint($grass, 30);
-  border: 2px solid $charcoal;
-  color: $charcoal;
+  background-color: shade($off-white, 12);
+  border: 1px solid $grass;
   // border-style: outset;
   height: 30px;
-  margin-top: 1px;
   padding: 1px 6px;
-  width: $medium-field-width;
 }
 
 th,
