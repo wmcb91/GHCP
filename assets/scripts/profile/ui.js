@@ -26,6 +26,16 @@ const populateProfiles = function () {
         profilesObject[i].home_course+
         "</h6></button>");
     $('#'+i).show();
+    $('#'+i+i)
+      .html(
+        "<h3 class='profile-text'>"+
+        profilesObject[i].given_name+
+        "</h3><h4 class='profile-text'>"+
+        profilesObject[i].surname+
+        "</h4><h6 class='profile-club'>"+
+        profilesObject[i].home_course+
+        "</h6></button>");
+    $('#'+i+i).show();
   }
 };
 
@@ -36,26 +46,34 @@ const clearProfiles = function () {
 
 // CALLED BY ONPROFILE SELECTION
 // SETS APP.PROFILE and CHANGES UI
-const selectProfile = function (data) {
+const selectProfileSuccess = function (data) {
   app.profile = data;
   $('#chooseProfileModal').modal('hide');
+  $('#changeProfileModal').modal('hide');
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
   // Trigger populateRounds
   roundsUI.clearRounds();
   roundsUI.populateRounds();
-  setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
+  setTimeout(function(){$('.dashboard').fadeIn(500);}, 150);
 };
 
 const showChangeProfile = function () {
-  $('#chooseProfileModal').modal('show');
+  $('.create-profile-modal').hide();
+  $('.choose-profile-modal').show();
+  $('#changeProfileModal').modal('show');
 };
 
 const showCreateProfile = function () {
 // CHANGE TO JUST ONE MODAL with different DIVS
-  $('#chooseProfileModal').modal('hide');
-  setTimeout(function(){$('#createProfileModal').modal('show');}, 150);
-  $('#profile-created-msg').hide();
+  $('.choose-profile-modal').hide();
+  setTimeout(function(){$('.create-profile-modal').fadeIn(300);}, 10);
+  $('.profile-created-msg').hide();
+};
+
+const backClickSuccess = function () {
+  $('.create-profile-modal').hide();
+  setTimeout(function(){$('.choose-profile-modal').fadeIn(300);}, 10);
 };
 
 const createProfileSuccess = function (data) {
@@ -71,7 +89,7 @@ const createProfileSuccess = function (data) {
   //Show user's dashboard
   roundsUI.clearRounds();
   roundsUI.populateRounds();
-  setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
+  setTimeout(function(){$('.dashboard').fadeIn(500);}, 150);
 
 // debug
   // console.log('App.profile is', app.profile);
@@ -86,9 +104,10 @@ const createProfileFailure = function (error) {
 module.exports = {
   populateProfiles,
   clearProfiles,
-  selectProfile,
+  selectProfileSuccess,
   showChangeProfile,
   showCreateProfile,
+  backClickSuccess,
   createProfileSuccess,
   createProfileFailure,
 };

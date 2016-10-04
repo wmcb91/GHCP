@@ -180,11 +180,70 @@
         The email or password you entered is incorrect.
       </div>
 
-      <!-- CHOOSE PROFILE MODAL -->
-      <div class="modal fade profile-modal" id="chooseProfileModal" tabindex="-1"
+      <!-- CHOOSE PROFILE MODALS -->
+      <!-- LOGIN CHOOSE PROFILE -->
+      <div class="modal fade" id="chooseProfileModal" tabindex="-1"
+        role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+        data-keyboard='false'>
+        <div class="modal-dialog" role="document">
+          <div class="modal-content choose-profile-modal">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
+            </div>
+            <div class="modal-body profiles">
+              <button id='new-profile' class='new-profile-button profile-btn'>
+                <h3 class='profile-text'>Create New</h3>
+                <h1 class='profile-text'>+</h1>
+              </button>
+              <button id='0' class='profile-button'>
+              </button>
+              <button id='1' class='profile-button'>
+              </button>
+              <button id='2' class='profile-button'>
+              </button>
+              <button id='3' class='profile-button'>
+              </button>
+              <button id='4' class='profile-button'>
+              </button>
+            </div>
+          </div>
+          <div class="modal-content create-profile-modal">
+            <div class="modal-header">
+              <!-- MAKE BUTTON A BACK BUTTON -->
+              <button
+              type="button"
+              id='back-btn'
+              class="close">
+                <span aria-hidden="true">Back</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
+            </div>
+            <div class="modal-body">
+              <form class="create-profile">
+                <fieldset>
+                  <input type="text" name="given_name"
+                  placeholder="First Name">
+                  <input type="text" name="surname"
+                  placeholder="Last Name">
+                  <br>
+                  <input type="text" name="home_course"
+                  placeholder="Home Course">
+                  <input type="text" name="state"
+                  placeholder="State">
+                  <input type="submit" value="Submit">
+                </fieldset>
+              </form>
+              <h3 class='profile-created-msg'>Profile Successfully Created</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHANGE PROFILE MODAL -->
+      <div class="modal fade" id="changeProfileModal" tabindex="-1"
         role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-          <div class="modal-content profile-modal">
+          <div class="modal-content choose-profile-modal">
             <div class="modal-header">
               <button
               type="button"
@@ -196,27 +255,57 @@
               <h4 class="modal-title" id="myModalLabel">Choose your profile</h4>
             </div>
             <div class="modal-body profiles">
-              <button id='new-profile' class='new-profile-button profile-btn'>
+              <button class='new-profile-button profile-btn'>
                 <h3 class='profile-text'>Create New</h3>
                 <h1 class='profile-text'>+</h1>
               </button>
-              <button id='0' class='0 profile-button'>
+              <button id='00' class='profile-button'>
               </button>
-              <button id='1' class='1 profile-button'>
+              <button id='11' class='profile-button'>
               </button>
-              <button id='2' class='2 profile-button'>
+              <button id='22' class='profile-button'>
               </button>
-              <button id='3' class='3 profile-button'>
+              <button id='33' class='profile-button'>
               </button>
-              <button id='4' class='4 profile-button'>
+              <button id='44' class='profile-button'>
               </button>
             </div>
           </div>
+          <div class="modal-content create-profile-modal">
+            <div class="modal-header">
+              <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Create your profile</h4>
+            </div>
+            <div class="modal-body">
+              <form class="create-profile">
+                <fieldset>
+                  <input type="text" name="given_name"
+                  placeholder="First Name">
+                  <input type="text" name="surname"
+                  placeholder="Last Name">
+                  <br>
+                  <input type="text" name="home_course"
+                  placeholder="Home Course">
+                  <input type="text" name="state"
+                  placeholder="State">
+                  <input type="submit" value="Submit">
+                </fieldset>
+              </form>
+              <h3 class='profile-created-msg'>Profile Successfully Created</h3>
+            </div>
+          </div>
         </div>
-      </div> <!-- END CHOOSE PROFILE MODAL -->
+      </div>
+      <!-- END CHOOSE PROFILE MODAL -->
 
       <!-- CREATE PROFILE MODAL, MERGE INTO CHOOSE PROFILE LATER-->
-      <div class="modal fade" id="createProfileModal" tabindex="-1"
+      <!-- <div class="modal fade" id="createProfileModal" tabindex="-1"
       role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -249,7 +338,7 @@
             </div>
           </div>
         </div>
-      </div> <!-- END CREATE PROFILE MODAL -->
+      </div> <!- END CREATE PROFILE MODAL -->
 
       <!-- DASHBOARD DIV -->
       <div class='dashboard'>

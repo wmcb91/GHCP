@@ -12,7 +12,7 @@ const onProfileSelection = function (event) {
   event.preventDefault();
   let index = event.data.index;
   let data = app.user.profiles[index];
-  ui.selectProfile(data);
+  ui.selectProfileSuccess(data);
 };
 
 const onNewProfileClick = function () {
@@ -38,10 +38,15 @@ const onChangeProfileButtonClick = function () {
   ui.showChangeProfile();
 };
 
+const onBackButtonClick = function () {
+  ui.backClickSuccess();
+};
+
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileButtonClick);
-  $('#new-profile').on('click', onNewProfileClick);
-  $('#create-profile').on('submit', onCreateProfile);
+  $('.new-profile-button').on('click', onNewProfileClick);
+  $('.create-profile').on('submit', onCreateProfile);
+  $('#back-btn').on('click', onBackButtonClick);
 
   // how to get id of button sent as parameter?
   // Profile buttons
@@ -50,6 +55,11 @@ const addHandlers = function() {
   $('#2').on('click', {index: 2}, onProfileSelection);
   $('#3').on('click', {index: 3}, onProfileSelection);
   $('#4').on('click', {index: 4}, onProfileSelection);
+  $('#00').on('click', {index: 0}, onProfileSelection);
+  $('#11').on('click', {index: 1}, onProfileSelection);
+  $('#22').on('click', {index: 2}, onProfileSelection);
+  $('#33').on('click', {index: 3}, onProfileSelection);
+  $('#44').on('click', {index: 4}, onProfileSelection);
 };
 
 module.exports = {
