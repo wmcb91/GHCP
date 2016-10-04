@@ -3,8 +3,9 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
+const authAPI = require('../auth/api');
 const ui = require('./ui');
-const roundsUI = require('../rounds/ui');
+const authUI = require('../auth/ui');
 const app = require('../app');
 
 const onProfileClick = function (event) {
@@ -13,8 +14,7 @@ const onProfileClick = function (event) {
 
   let data = app.user.profiles[index];
 
-  ui.selectProfile(data)
-    .done(roundsUI.populateRounds);
+  ui.selectProfile(data);
 };
 
 const onNewProfileClick = function () {
@@ -28,6 +28,9 @@ const onCreateProfile = function (event) {
   api.createProfile(data)
     .done(ui.createProfileSuccess)
     .fail(ui.createProfileFailure);
+  authAPI.getUser()
+    .done(authUI.updateCurrentUser, ui.populateProfiles);
+    // Add .fail later
 };
 
 const onChangeProfileButtonClick = function () {

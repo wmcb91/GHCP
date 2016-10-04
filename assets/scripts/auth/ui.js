@@ -60,7 +60,8 @@ const signInFailure = (error) => {
 
 //
 //SIGN OUT
-const signOutSuccess = () => {
+const signOutSuccess = (data) => {
+  console.log('sign out data is', data);
   app.user = null;
   $('#user-welcome').hide();
   $('#game-container').hide();
@@ -103,6 +104,12 @@ const showSignUpModal = function() {
   $('#sign-in-failure').hide();
 };
 
+const updateCurrentUser = function (data) {
+  console.log('updateCurrentUser data is', data);
+  console.log('data.user is', data.user);
+  // app.user = data.user;
+};
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -114,4 +121,5 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   showSignUpModal,
+  updateCurrentUser,
 };

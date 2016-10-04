@@ -29,14 +29,13 @@ const changePassword = function (data) {
   });
 };
 
-const signOut = function (data) {
+const signOut = function () {
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
     method: 'DELETE',
     headers: {
         Authorization: 'Token token=' + app.user.token,
       },
-    data: data,
   });
 };
 
