@@ -11,7 +11,6 @@ const profilesToObject = function () {
   return profilesObject;
 };
 
-
 const populateProfiles = function () {
   let profilesObject = profilesToObject();
   //switch show to toggle
