@@ -69,6 +69,8 @@ const createProfileSuccess = function (data) {
   //Create message about adding rounds and trigger it
 
   //Show user's dashboard
+  roundsUI.clearRounds();
+  roundsUI.populateRounds();
   setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
 
 // debug
