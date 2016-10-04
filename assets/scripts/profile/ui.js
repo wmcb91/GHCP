@@ -2,7 +2,32 @@
 
 const app = require('../app');
 
+const profilesToObject = function () {
+  let profilesObject = app.user.profiles.reduce(function(o, v, i) {
+    o[i] = v;
+    return o;
+  }, {});
+  return profilesObject;
+};
+
+const populateProfiles = function () {
+  let profilesObject = profilesToObject();
+  //DEBUG
+  // console.log(profilesObject);
+
+  // Should not use for loop, oh well...
+  for (let i = 0; i < app.user.profiles.length; i++) {
+    $('.profiles')
+      .append("<button id='"+profilesObject[1].id+
+        "' class='profile-button'><h3 class='profile-text'>"+
+        profilesObject[i].given_name+"</h3><h4 class='profile-text'>"+
+        profilesObject[i].surname+"</h4><h6 class='profile-club'>"+
+        profilesObject[i].home_course+"</h6></button>");
+  }
+};
+
 const showChangeProfile = function () {
+  console.log(app.user.profiles);
   $('#chooseProfileModal').modal('show');
 };
 
@@ -32,6 +57,7 @@ const createProfileFailure = function (error) {
 };
 
 module.exports = {
+  populateProfiles,
   showChangeProfile,
   showCreateProfile,
   createProfileSuccess,

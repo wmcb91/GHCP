@@ -8,7 +8,7 @@ const app = require('../app');
 
 const onChangeProfileClick = function () {
   ui.showChangeProfile();
-
+  ui.populateProfiles();
   // DEBUG
   // console.log('Change profile button click heard');
 };

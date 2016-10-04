@@ -23,3 +23,14 @@
 //     setTimeout(function(){$('#chooseProfileModal').modal('show');}, 350);
 //   }
 // };
+
+
+// alternate 
+// $("<tr></tr>").appendTo('#add-round')
+//   .append("<td>"+roundsObject[i].date_played+
+//           "</td><td>"+roundsObject[i].course+
+//           "</td><td>"+roundsObject[i].rating+
+//           "</td><td>"+roundsObject[i].slope+
+//           "</td><td>"+roundsObject[i].par+
+//           "</td><td>"+roundsObject[i].score+
+//           "</td>");

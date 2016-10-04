@@ -27,14 +27,6 @@ const printLatestRounds = function () {
                 "</td><td>"+roundsObject[i].score+
                 "</td></tr>");
     }
-    // $().appendTo('#add-round')
-    //   .append("<tr><td>"+roundsObject[i].date_played+
-    //           "</td><td>"+roundsObject[i].course+
-    //           "</td><td>"+roundsObject[i].rating+
-    //           "</td><td>"+roundsObject[i].slope+
-    //           "</td><td>"+roundsObject[i].par+
-    //           "</td><td>"+roundsObject[i].score+
-    //           "</td></tr>");
 };
 
 const createRoundSuccess = function (data) {

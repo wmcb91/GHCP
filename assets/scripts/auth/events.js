@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
+const profileUI = require('../profile/ui');
 
 const onSignUpClick = function () {
   ui.showSignUpModal();
@@ -23,7 +24,7 @@ const onSignIn = function (event) {
   $('#sign-in-warning').hide();
 
   api.signIn(data)
-    .done(ui.signInSuccess)
+    .done(ui.signInSuccess, profileUI.populateProfiles)
     .fail(ui.signInFailure);
 };
 

@@ -47,6 +47,17 @@ input {
   margin: 1px 0;
 }
 
+.profiles {
+  // display: inline-block;
+  padding: 6px;
+}
+
+.profile-button {
+  height: 110px;
+  margin: 3px;
+  width: 150px;
+}
+
 .rounds {
   background-color: $off-white;
   border: 3px solid $charcoal;
