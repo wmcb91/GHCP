@@ -37,7 +37,7 @@ const hasManyProfiles = function () {
 const signInSuccess = (data) => {
   //Stores current user data into app.user
   app.user = data.user;
-
+  console.log('app.user is', app.user);
   //UI response to sign in
   $('#sign-in-prompt').hide();
   $('#sign-in-failure').hide();
@@ -60,8 +60,7 @@ const signInFailure = (error) => {
 
 //
 //SIGN OUT
-const signOutSuccess = (data) => {
-  console.log('sign out data is', data);
+const signOutSuccess = () => {
   app.user = null;
   $('#user-welcome').hide();
   $('#game-container').hide();
@@ -104,10 +103,8 @@ const showSignUpModal = function() {
   $('#sign-in-failure').hide();
 };
 
-const updateCurrentUser = function (data) {
-  console.log('updateCurrentUser data is', data);
-  console.log('data.user is', data.user);
-  // app.user = data.user;
+const updateUserProfiles = function (data) {
+  app.user.profiles = data.user.profiles;
 };
 
 module.exports = {
@@ -121,5 +118,5 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   showSignUpModal,
-  updateCurrentUser,
+  updateUserProfiles,
 };
