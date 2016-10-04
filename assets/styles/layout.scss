@@ -38,6 +38,7 @@ p {
   margin: auto 5px;
 }
 
+// Settings icon
 .cog-btn {
   float: right;
   margin: 3px;
@@ -48,6 +49,7 @@ p {
   margin: 0;
   padding: 3px 3px 1px 4px;
 }
+// END settings icon
 
 .dropdown-menu {
   text-align: center;
@@ -75,15 +77,17 @@ hr {
   text-align: center;
 }
 
+// Set top margin for all modals
 .modal {
   margin-top: 25vh;
 }
 
+
 .profile-button {
-  clear: right;
   float: left;
 }
 
+// STYLING FOR ROUNDS TABLE
 .rounds {
   float: left;
   margin: 45px 5px 5px 50px;
@@ -93,6 +97,7 @@ hr {
   float: left;
 }
 
+// INITIALIZE ADD ROUND BUTTON
 .add-round-btn {
   float: right;
 }
@@ -102,17 +107,20 @@ hr {
   float: left;
 }
 
+// ADD ROUND SUBMIT BUTTON
 .add-round {
   clear: both;
   float: left;
 }
 
+// MAKES INSERTED ROWS LINE UP WITH OLDER ROWS
 .previous-rounds {
   clear: both;
   float: left;
 }
 
 
+// STYLING FOR FOOTER AND ITS CONTENTS
 footer {
   bottom: 0;
   position: fixed;
