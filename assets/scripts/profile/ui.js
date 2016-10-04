@@ -29,6 +29,11 @@ const populateProfiles = function () {
   }
 };
 
+const clearProfiles = function () {
+  $('.profile-button').html('');
+  $('.profile-button').hide();
+};
+
 // CALLED BY ONPROFILE SELECTION
 // SETS APP.PROFILE and CHANGES UI
 const selectProfile = function (data) {
@@ -78,6 +83,7 @@ const createProfileFailure = function (error) {
 
 module.exports = {
   populateProfiles,
+  clearProfiles,
   selectProfile,
   showChangeProfile,
   showCreateProfile,

@@ -44,7 +44,7 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   event.preventDefault();
   api.signOut()
-    .done(ui.signOutSuccess)
+    .done(ui.signOutSuccess, profileUI.clearProfiles)
     .fail(ui.failure);
 };
 
