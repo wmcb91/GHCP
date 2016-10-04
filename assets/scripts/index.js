@@ -20,4 +20,9 @@ $(() => {
   $('#sign-in-failure').hide();
   $('.dashboard').hide();
   $('#add-round').hide();
+  $('#0').hide();
+  $('#1').hide();
+  $('#2').hide();
+  $('#3').hide();
+  $('#4').hide();
 });

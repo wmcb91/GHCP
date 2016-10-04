@@ -2,19 +2,16 @@
 
 const app = require('../app');
 // const roundsAPI = require('../rounds/api');
-// const roundsUI = require('../rounds/ui');
+const roundsUI = require('../rounds/ui');
 
 //SIGN UP
 const signUpSuccess = () => {
   $('#signUpModal').modal('hide');
   $('#signUpSuccessModal').modal('show');
-
-  //debug
-  // console.log('Sign up success. Data is', data);
 };
 
 const signUpFailure = (error) => {
-  // console.log(error);
+  // create warning message
   return error;
 };
 
@@ -27,7 +24,7 @@ const hasOneProfile = function () {
   app.profile = app.user.profiles[0];
   $('#user-welcome').fadeIn(100);
   $('#user-name-welcome').html(app.profile.given_name);
-  // roundsUI.printLatestRounds(app.profile.rounds);
+  roundsUI.populateRounds(app.profile.rounds);
   setTimeout(function(){$('.dashboard').fadeIn(100);}, 50);
 };
 
@@ -58,7 +55,6 @@ const signInSuccess = (data) => {
 
 const signInFailure = (error) => {
   $('#sign-in-failure').show();
-  // console.error(error);
   return error;
 };
 
@@ -70,6 +66,9 @@ const signOutSuccess = () => {
   $('#game-container').hide();
   $('#sign-in-prompt').show();
   setTimeout(function(){$('.dashboard').fadeOut(100);}, 50);
+  // create function to clear generated html for logged out user.
+  // Rounds table and profile modal.
+
   //debug
   // console.log('Sign Out Successful');
 };

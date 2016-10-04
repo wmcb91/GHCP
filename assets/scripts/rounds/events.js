@@ -21,9 +21,9 @@ const onSubmitRound = function (event) {
 const onViewRoundsClick = function (data) {
   data = app.profile.rounds;
   // console.log('app.profile.rounds is', data);
-  ui.printLatestRounds(data);
+  ui.populateRounds(data);
   // api.indexRounds()
-  //   .done(ui.printLatestRounds);
+  //   .done(ui.populateRounds);
 };
 
 const addHandlers = function() {

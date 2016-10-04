@@ -4,16 +4,17 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
+const roundsUI = require('../rounds/ui');
 const app = require('../app');
 
-const onProfileClick = function () {
-  console.log('click heard');
-  console.log('class is', $('.profile-button').attr('class'));
-  console.log('id is', $('.profile-button').attr('id'));
-  console.log('id is', $('.profile-button').get(0).id);
-  console.log('id is', $('.profile-button')[0].id);
+const onProfileClick = function (event) {
+  event.preventDefault();
+  let index = event.data.index;
 
-  // ui.selectProfile();
+  let data = app.user.profiles[index];
+
+  ui.selectProfile(data)
+    .done(roundsUI.populateRounds);
 };
 
 const onNewProfileClick = function () {
@@ -37,9 +38,15 @@ const onChangeProfileButtonClick = function () {
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileButtonClick);
   $('#new-profile').on('click', onNewProfileClick);
-  //how to get id of button sent as parameter?
-  $('.profiles').on('click', '.profileElement', onProfileClick);
   $('#create-profile').on('submit', onCreateProfile);
+
+  // how to get id of button sent as parameter?
+  // Profile buttons
+  $('#0').on('click', {index: 0}, onProfileClick);
+  $('#1').on('click', {index: 1}, onProfileClick);
+  $('#2').on('click', {index: 2}, onProfileClick);
+  $('#3').on('click', {index: 3}, onProfileClick);
+  $('#4').on('click', {index: 4}, onProfileClick);
 };
 
 module.exports = {

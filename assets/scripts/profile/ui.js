@@ -15,18 +15,30 @@ const populateProfiles = function () {
   // console.log(profilesObject[1]);
   // Should not use for loop, oh well...
   for (let i = 0; i < app.user.profiles.length; i++) {
-    $('.profiles')
-      .append("<button id='"+profilesObject[i].id+
-        "' class='profile-button'><h3 class='profile-text'>"+
-        profilesObject[i].given_name+"</h3><h4 class='profile-text'>"+
-        profilesObject[i].surname+"</h4><h6 class='profile-club'>"+
-        profilesObject[i].home_course+"</h6></button>");
+    $('#'+i)
+      .html(
+        "<h3 class='profile-text'>"+
+        profilesObject[i].given_name+
+        "</h3><h4 class='profile-text'>"+
+        profilesObject[i].surname+
+        "</h4><h6 class='profile-club'>"+
+        profilesObject[i].home_course+
+        "</h6></button>");
+    $('#'+i).show();
   }
 };
 
-// const selectProfile = function (data) {
-//   app.profile = data.profile
-// };
+const selectProfile = function (data) {
+  app.profile = data;
+  $('#chooseProfileModal').modal('hide');
+  $('#user-welcome').show();
+  $('#user-welcome').html("<h4 class='welcome-msg'>Welcome back, app.profile.given_name</h4>");
+
+  // Trigger populateRounds
+  
+
+  setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
+};
 
 const showChangeProfile = function () {
   console.log(app.user.profiles);
@@ -46,6 +58,9 @@ const createProfileSuccess = function (data) {
   $('#createProfileModal').modal('hide');
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
+
+  //Create message about adding rounds and trigger it
+
   setTimeout(function(){$('.dashboard').fadeIn(600);}, 150);
 
 // debug
@@ -60,6 +75,7 @@ const createProfileFailure = function (error) {
 
 module.exports = {
   populateProfiles,
+  selectProfile,
   showChangeProfile,
   showCreateProfile,
   createProfileSuccess,

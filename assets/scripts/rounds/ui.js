@@ -15,7 +15,7 @@ const roundsToObject = function () {
   return roundsObject;
 };
 
-const printLatestRounds = function () {
+const populateRounds = function () {
     let roundsObject = roundsToObject();
     for (let i = 0; i < app.profile.rounds.length; i++) {
       $('.previous-rounds')
@@ -36,7 +36,7 @@ const createRoundSuccess = function (data) {
   app.profile.rounds[app.profile.rounds.length] = data.round;
   //Console
   console.log(app.profile.rounds);
-  printLatestRounds(app.profile.rounds);
+  populateRounds(app.profile.rounds);
 };
 
 const createRoundFailure = function (error) {
@@ -53,5 +53,5 @@ module.exports = {
   createRoundFailure,
   // indexRoundsSuccess,
   indexRoundsFailure,
-  printLatestRounds,
+  populateRounds,
 };
