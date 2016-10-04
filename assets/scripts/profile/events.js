@@ -7,7 +7,13 @@ const ui = require('./ui');
 const app = require('../app');
 
 const onProfileClick = function () {
-  ui.selectProfile();
+  console.log('click heard');
+  console.log('class is', $('.profile-button').attr('class'));
+  console.log('id is', $('.profile-button').attr('id'));
+  console.log('id is', $('.profile-button').get(0).id);
+  console.log('id is', $('.profile-button')[0].id);
+
+  // ui.selectProfile();
 };
 
 const onNewProfileClick = function () {
@@ -23,15 +29,16 @@ const onCreateProfile = function (event) {
     .fail(ui.createProfileFailure);
 };
 
-const onChangeProfileClick = function () {
+const onChangeProfileButtonClick = function () {
   ui.populateProfiles();
   ui.showChangeProfile();
 };
 
 const addHandlers = function() {
-  $('#change-profile-btn').on('click', onChangeProfileClick);
+  $('#change-profile-btn').on('click', onChangeProfileButtonClick);
   $('#new-profile').on('click', onNewProfileClick);
-  $('.profile-button').on('click', onProfileClick);
+  //how to get id of button sent as parameter?
+  $('.profiles').on('click', '.profileElement', onProfileClick);
   $('#create-profile').on('submit', onCreateProfile);
 };
 
