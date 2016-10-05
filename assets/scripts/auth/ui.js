@@ -2,7 +2,7 @@
 
 const app = require('../app');
 // const roundsAPI = require('../rounds/api');
-const roundsUI = require('../rounds/ui');
+// const roundsUI = require('../rounds/ui');
 
 //SIGN UP
 const signUpSuccess = () => {
@@ -16,21 +16,21 @@ const signUpFailure = (error) => {
 };
 
 
-const hasNoProfiles = function () {
-  setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
-};
+// const hasNoProfiles = function () {
+//   setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
+// };
 
-const hasOneProfile = function () {
-  app.profile = app.user.profiles[0];
-  $('#user-welcome').fadeIn(100);
-  $('#user-name-welcome').html(app.profile.given_name);
-  roundsUI.initialRoundsPopulation(app.profile.rounds);
-  setTimeout(function(){$('.dashboard').fadeIn(100);}, 50);
-};
-
-const hasManyProfiles = function () {
-  setTimeout(function(){$('#chooseProfileModal').modal('show');}, 350);
-};
+// const hasOneProfile = function () {
+//   app.profile = app.user.profiles[0];
+//   $('#user-welcome').fadeIn(100);
+//   $('#user-name-welcome').html(app.profile.given_name);
+//   roundsUI.initialRoundsPopulation(app.profile.rounds);
+//   setTimeout(function(){$('.dashboard').fadeIn(100);}, 100);
+// };
+//
+// const hasManyProfiles = function () {
+//
+// };
 
 //
 //SIGN IN
@@ -41,16 +41,16 @@ const signInSuccess = (data) => {
   //UI response to sign in
   $('#sign-in-prompt').hide();
   $('#sign-in-failure').hide();
-
-  if (app.user.profiles.length === 0) {
-    hasNoProfiles();
-  }
-  if (app.user.profiles.length === 1) {
-    hasOneProfile();
-  }
-  else {
-    hasManyProfiles();
-  }
+  setTimeout(function(){$('#chooseProfileModal').modal('show');}, 350);
+  // if (app.user.profiles.length === 0) {
+  //   hasNoProfiles();
+  // }
+  // if (app.user.profiles.length === 1) {
+  //   hasOneProfile();
+  // }
+  // else {
+  //   hasManyProfiles();
+  // }
 };
 
 const signInFailure = (error) => {
