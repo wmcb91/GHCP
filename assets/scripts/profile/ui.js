@@ -75,6 +75,12 @@ const showCreateProfile = function () {
   $('.profile-created-msg').hide();
 };
 
+const showChooseProfile = function () {
+  $('.create-profile-modal').hide();
+  $('.choose-profile-modal').show();
+  $('#chooseProfileModal').modal('show');
+};
+
 const backClickSuccess = function () {
   $('.create-profile-modal').hide();
   setTimeout(function(){$('.choose-profile-modal').fadeIn(300);}, 10);
@@ -141,6 +147,7 @@ module.exports = {
   clearProfiles,
   selectProfileSuccess,
   showChangeProfile,
+  showChooseProfile,
   showCreateProfile,
   backClickSuccess,
   createProfileSuccess,

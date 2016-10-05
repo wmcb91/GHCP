@@ -62,7 +62,7 @@ const onDeleteProfileConfirm = function(event) {
     .done(authUI.updateUserProfiles, ui.populateProfiles);
   setTimeout(function(){$(ui.clearProfiles());}, 200);
   setTimeout(function(){$(ui.populateProfiles());}, 300);
-  setTimeout(function(){$(ui.showChangeProfile());}, 350);
+  setTimeout(function(){$(ui.showChooseProfile());}, 550);
 };
 
 const addHandlers = function() {
