@@ -67,8 +67,8 @@ const addHandlers = function() {
   $('.create-profile').on('submit', onCreateProfile);
   $('#back-btn').on('click', onBackButtonClick);
   $('.delete-profile-btn').on('submit', onClickDeleteProfile);
-  $('.no-delete').on('click', onDeleteProfileReject);
-  $('.delete-profile').on('click', onDeleteProfileConfirm);
+  $('#no-delete').on('click', onDeleteProfileReject);
+  $('#delete-profile').on('click', onDeleteProfileConfirm);
 
   // how to get id of button sent as parameter?
   // Profile buttons
