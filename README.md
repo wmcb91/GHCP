@@ -10,11 +10,14 @@ HTML, SCSS, JavaScript, jQuery, Ruby on Rails, and Bootstrap were used to
 complete this project.
 
 Client URL: https://wmcb91.github.io/ghcp/
+
 Client-Repo URL: https://github.com/wmcb91/GHCP
+
 API-Repo URL: https://github.com/wmcb91/GHCP-API
 
-Wireframe: [![wireframe](http://imgur.com/a/PxxlR])]
-ERD: [![wireframe](http://imgur.com/a/3ZtzM)]
+Wireframe: http://imgur.com/a/PxxlR
+
+ERD: http://imgur.com/a/3ZtzM
 
 
 # User Stories:
