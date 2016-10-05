@@ -68,9 +68,9 @@
                 </form>
               </li>
               <li class='delete-profile-li'>
-                <form id="delete-profile" class='delete-profile-btn'>
+                <form class='delete-profile-btn'>
                   <fieldset>
-                    <input type="submit" value="Sign Out">
+                    <input type="submit" value="Delete Profile">
                   </fieldset>
                 </form>
               </li>
@@ -80,6 +80,31 @@
         </div>
       </div>
 
+      <div class="modal fade" id="signUpModal"
+           tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="myModalLabel">
+                Are you sure you want to delete this profile?
+              </h2>
+            </div>
+            <div class="modal-body">
+              <form id="delete-profile" class='delete-profile-btn'>
+                <fieldset>
+                  <input type="submit" value="No">
+                </fieldset>
+              </form>
+              <form id="no-delete" class='delete-profile-btn'>
+                <fieldset>
+                  <input type="submit" value="Yes">
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Initially hidden-->
       <!--  Sign Up Modal -->

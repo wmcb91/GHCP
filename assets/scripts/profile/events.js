@@ -42,11 +42,27 @@ const onBackButtonClick = function () {
   ui.backClickSuccess();
 };
 
+const onClickDeleteProfile = function() {
+  ui.showConfirmDelete();
+};
+
+const onDeleteProfileReject = function() {
+  ui.hideConfirmDelete();
+};
+
+const onDeleteProfileConfirm = function() {
+  // write api function
+  // on done run something like -->  ui.deleteProfileSuccess
+};
+
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileButtonClick);
   $('.new-profile-button').on('click', onNewProfileClick);
   $('.create-profile').on('submit', onCreateProfile);
   $('#back-btn').on('click', onBackButtonClick);
+  $('.delete-profile-btn').on('submit', onClickDeleteProfile);
+  $('.no-delete').on('submit', onDeleteProfileReject);
+  $('.delete-profile').on('submit', onDeleteProfileConfirm);
 
   // how to get id of button sent as parameter?
   // Profile buttons
