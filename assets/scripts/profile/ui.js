@@ -125,9 +125,11 @@ const hideConfirmDelete = function () {
 };
 
 const deleteProfileSuccess = function () {
-  console.log('deleteProfileSuccess fired');
-
   $('#confirmDeleteModal').modal('hide');
+  $('#user-welcome').fadeOut(300);
+  $('#user-name-welcome').html('');
+  setTimeout(function(){$('.dashboard').fadeOut(500);}, 300);
+  // setTimeout(function(){$('#chooseProfileModal').modal('show');}, 750);
 };
 
 const deleteProfileFailure = function (error) {

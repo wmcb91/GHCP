@@ -54,11 +54,15 @@ const onDeleteProfileReject = function(event) {
 
 const onDeleteProfileConfirm = function(event) {
   event.preventDefault();
-  console.log('profile delete click heard');
-  console.log('app.profile.id is', app.profile.id);
+  let id = app.profile.id;
   api.destroyProfile()
     .done(ui.deleteProfileSuccess)
     .fail(ui.deleteProfileFailure);
+  authAPI.getUser(id)
+    .done(authUI.updateUserProfiles, ui.populateProfiles);
+  setTimeout(function(){$(ui.clearProfiles());}, 200);
+  setTimeout(function(){$(ui.populateProfiles());}, 300);
+  setTimeout(function(){$(ui.showChangeProfile());}, 350);
 };
 
 const addHandlers = function() {
