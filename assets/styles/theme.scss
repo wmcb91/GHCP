@@ -2,7 +2,8 @@
 
 $background-color: $off-white;
 // $font-color: $charcoal;
-$large-field-width: 221px;
+$huge-field-width: 221px;
+$large-field-width: 141px;
 $medium-field-width: 111px;
 $small-field-width: 71px;
 
@@ -87,6 +88,7 @@ input {
 
 .add {
   background-color: $grass;
+  font-size: .86em;
 }
 
 .add:hover {
@@ -99,6 +101,11 @@ input {
 
 .cancel:hover {
   background-color: tint($destroy, 15);
+}
+
+.huge-field {
+  // margin-right: -2px;
+  width: $huge-field-width;
 }
 
 .large-field {
@@ -118,19 +125,21 @@ input {
 }
 
 .round-input {
+  font-size: .6em;
   float: left;
   margin: 0;
 }
 
 .date-played {
+  font-size: .6em;
   margin-left: -.25pt;
-  width: $medium-field-width * 1.005;
+  width: $large-field-width * 1.005;
 }
 
 .course {
   margin-left: .25pt;
   margin-right: 1pt;
-  width: $large-field-width - 1px;
+  width: $huge-field-width - 1px;
 }
 
 .rating {
