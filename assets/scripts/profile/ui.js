@@ -116,6 +116,24 @@ const createProfileFailure = function (error) {
   // console.log('Error is', error);
 };
 
+const showConfirmDelete = function () {
+  $('#confirmDeleteModal').modal('show');
+};
+
+const hideConfirmDelete = function () {
+  $('#confirmDeleteModal').modal('hide');
+};
+
+const deleteProfileSuccess = function () {
+  console.log('deleteProfileSuccess fired');
+
+  $('#confirmDeleteModal').modal('hide');
+};
+
+const deleteProfileFailure = function (error) {
+  console.log('deleteProfile error is', error);
+};
+
 module.exports = {
   populateProfiles,
   clearProfiles,
@@ -125,4 +143,8 @@ module.exports = {
   backClickSuccess,
   createProfileSuccess,
   createProfileFailure,
+  showConfirmDelete,
+  hideConfirmDelete,
+  deleteProfileSuccess,
+  deleteProfileFailure,
 };

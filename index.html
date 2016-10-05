@@ -80,27 +80,27 @@
         </div>
       </div>
 
-      <div class="modal fade" id="signUpModal"
-           tabindex="-1" role="dialog"
-           aria-labelledby="myModalLabel">
+      <div class="modal" id="confirmDeleteModal"
+           tabindex="-1"
+           role="dialog"
+           aria-labelledby="myModalLabel"
+           data-backdrop="static">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title" id="myModalLabel">
+              <h3 class="modal-title" id="myModalLabel">
                 Are you sure you want to delete this profile?
-              </h2>
+              </h3>
             </div>
             <div class="modal-body">
-              <form id="delete-profile" class='delete-profile-btn'>
-                <fieldset>
-                  <input type="submit" value="No">
-                </fieldset>
-              </form>
-              <form id="no-delete" class='delete-profile-btn'>
-                <fieldset>
-                  <input type="submit" value="Yes">
-                </fieldset>
-              </form>
+              <button class="btn btn-default btn-lg confirm-delete-btn"
+                      id="delete-profile"
+                      type="button">Yes, Delete Profile
+              </button>
+              <button class="btn btn-default btn-lg confirm-delete-btn"
+                      id="no-delete"
+                      type="button">No, Don't Delete
+              </button>
             </div>
           </div>
         </div>
