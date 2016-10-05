@@ -37,20 +37,11 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   //Stores current user data into app.user
   app.user = data.user;
-  console.log('app.user is', app.user);
+
   //UI response to sign in
   $('#sign-in-prompt').hide();
   $('#sign-in-failure').hide();
   setTimeout(function(){$('#chooseProfileModal').modal('show');}, 350);
-  // if (app.user.profiles.length === 0) {
-  //   hasNoProfiles();
-  // }
-  // if (app.user.profiles.length === 1) {
-  //   hasOneProfile();
-  // }
-  // else {
-  //   hasManyProfiles();
-  // }
 };
 
 const signInFailure = (error) => {
@@ -66,11 +57,6 @@ const signOutSuccess = () => {
   $('#game-container').hide();
   $('#sign-in-prompt').show();
   setTimeout(function(){$('.dashboard').fadeOut(100);}, 50);
-  // create function to clear generated html for logged out user.
-  // Rounds table and profile modal.
-
-  //debug
-  // console.log('Sign Out Successful');
 };
 
 const signOutFailure = (error) => {

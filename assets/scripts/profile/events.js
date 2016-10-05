@@ -58,11 +58,11 @@ const onDeleteProfileConfirm = function(event) {
   api.destroyProfile()
     .done(ui.deleteProfileSuccess)
     .fail(ui.deleteProfileFailure);
-  authAPI.getUser(id)
-    .done(authUI.updateUserProfiles, ui.populateProfiles);
-  setTimeout(function(){$(ui.clearProfiles());}, 200);
-  setTimeout(function(){$(ui.populateProfiles());}, 300);
-  setTimeout(function(){$(ui.showChooseProfile());}, 550);
+  setTimeout(function(){$(authAPI.getUser(id)
+    .done(authUI.updateUserProfiles, ui.populateProfiles));}, 75);
+  setTimeout(function(){$(ui.clearProfiles());}, 125);
+  setTimeout(function(){$(ui.populateProfiles());}, 200);
+  setTimeout(function(){$(ui.showChooseProfile());}, 850);
 };
 
 const addHandlers = function() {

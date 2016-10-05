@@ -72,7 +72,7 @@ const showCreateProfile = function () {
   $('.choose-profile-modal').hide();
   $('.create-profile').show();
   setTimeout(function(){$('.create-profile-modal').fadeIn(300);}, 10);
-  $('.profile-created-msg').hide();
+
 };
 
 const showChooseProfile = function () {
@@ -91,11 +91,10 @@ const createProfileSuccess = function (data) {
   app.profile = data.profile;
   // Show welcome function here
   $('.create-profile').hide();
-  $('.profile-created-msg').show();
-  setTimeout(function(){$('.create-profile-modal').hide();}, 2000);
-  setTimeout(function(){$('#chooseProfileModal').modal('hide');}, 2000);
-  setTimeout(function(){$('#changeProfileModal').modal('hide');}, 2000);
-  setTimeout(function(){$('.choose-profile-modal').show();}, 2300);
+  $('.create-profile-modal').hide();
+  setTimeout(function(){$('#chooseProfileModal').modal('hide');}, 200);
+  setTimeout(function(){$('#changeProfileModal').modal('hide');}, 200);
+  setTimeout(function(){$('.choose-profile-modal').show();}, 400);
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
 
@@ -105,7 +104,7 @@ const createProfileSuccess = function (data) {
   $('.dashboard').fadeOut(400);
   setTimeout(function(){roundsUI.clearRounds();}, 410);
   setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
-  setTimeout(function(){$('.dashboard').fadeIn(500);}, 2100);
+  setTimeout(function(){$('.dashboard').fadeIn(500);}, 500);
 
 
   // roundsUI.clearRounds();
