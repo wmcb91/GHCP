@@ -3,6 +3,7 @@
 const app = require('../app');
 // const showRoundsTemplate = require('../templates/round-showing.handlebars');
 
+//SHOW AND HIDE FOR ADDING ROUNDS
 const showAddRoundField = function () {
   $('.add').hide();
   $('.cancel').fadeIn(500);
@@ -14,6 +15,8 @@ const hideAddRoundField = function () {
   $('.add').fadeIn(500);
   $('#add-round').fadeOut(250);
 };
+
+
 
 const reverseRoundsToObject = function () {
   let reverseRoundsObject = app.profile.rounds.reverse().reduce(function(o, v, i) {
@@ -42,7 +45,8 @@ const clearRounds = function () {
   $('.profile-rounds').html('');
 };
 
-const addRound = function (data) {
+const addMaxRound = function (data) {
+  console.log('addMaxRound fired');
   let newRoundObject = data;
   $('.previous-rounds')
     .prepend("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
@@ -53,15 +57,39 @@ const addRound = function (data) {
             "</td><td>"+newRoundObject.score+
             "</td></tr>");
   $('.profile-rounds').last().remove();
+  console.log('deleted', $('.profile-rounds').last());
+};
+
+// ON SUBMISSION OF VALID ROUND
+const createMaxRoundSuccess = function (data) {
+  //Console
+  // console.log('create round success run');
+  app.round = data.round;
+  app.profile.rounds[app.profile.rounds.length] = data.round;
+  // console.log(app.profile.rounds);
+  hideAddRoundField();
+  setTimeout(function(){addMaxRound(app.round);}, 250);
+};
+
+const addRound = function (data) {
+  let newRoundObject = data;
+  $('.previous-rounds')
+    .prepend("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
+            "</td><td>"+newRoundObject.course+
+            "</td><td>"+newRoundObject.rating+
+            "</td><td>"+newRoundObject.slope+
+            "</td><td>"+newRoundObject.par+
+            "</td><td>"+newRoundObject.score+
+            "</td></tr>");
 };
 
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
   //Console
-  console.log('create round success run');
+  // console.log('create round success run');
   app.round = data.round;
   app.profile.rounds[app.profile.rounds.length] = data.round;
-  console.log(app.profile.rounds);
+  // console.log(app.profile.rounds);
   hideAddRoundField();
   setTimeout(function(){addRound(app.round);}, 250);
 };
@@ -74,6 +102,7 @@ const createRoundFailure = function (error) {
 module.exports = {
   showAddRoundField,
   hideAddRoundField,
+  createMaxRoundSuccess,
   createRoundSuccess,
   addRound,
   createRoundFailure,

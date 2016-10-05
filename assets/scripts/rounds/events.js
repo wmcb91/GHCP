@@ -7,6 +7,7 @@ const app = require('../app');
 
 const onAddRoundClick = function () {
   ui.showAddRoundField();
+  console.log(app.profile.rounds.length);
 };
 
 const onCancelAddRoundClick = function () {
@@ -17,9 +18,20 @@ const onSubmitRound = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   data.profile_id = app.profile.id;
-  api.createRound(data)
-    .done(ui.createRoundSuccess)
-    .fail(ui.createRoundFailure);
+
+  if (app.profile.rounds.length < 15) {
+    console.log('fewer than 15 rounds');
+    api.createRound(data)
+      .done(ui.createRoundSuccess)
+      .fail(ui.createRoundFailure);
+    return;
+  }
+  else {
+    console.log('more than 15 rounds');
+    api.createRound(data)
+      .done(ui.createMaxRoundSuccess)
+      .fail(ui.createRoundFailure);
+  }
 };
 
 const onViewRoundsClick = function (data) {
