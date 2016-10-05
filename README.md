@@ -9,7 +9,7 @@ This game has been created for General Assembly's Web Development Immersive.
 HTML, SCSS, JavaScript, jQuery, Ruby on Rails, and Bootstrap were used to
 complete this project.
 
-Client URL: https://wmcb91.github.io/ghcp/
+Client URL: https://wmcb91.github.io/GHCP/
 
 Client-Repo URL: https://github.com/wmcb91/GHCP
 
