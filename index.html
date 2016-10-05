@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GHCP</title>
+    <title>GHC+</title>
     <meta charset="utf-8">
     <script src="vendor.bundle.js"
             type="text/javascript"
@@ -19,7 +19,7 @@
 
   <body>
     <header>
-      <h1 class='title'>GHCP</h1>
+      <h1 class='title'>GHC+</h1>
   <!-- Container for sign in prompt pre sign-in and welcome-msg post sign in -->
       <div class='header-box'>
         <div id="sign-in-prompt" class = "sign-in-prompt">
@@ -55,15 +55,22 @@
             <ul class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="dropdownMenu1">
               <li><a id="show-stats-btn">Edit Profile</a></li>
-              <!-- <li><a id="view-rounds">View Rounds</a></li> -->
+              <!-- <li><a id="view-rounds">View All Rounds</a></li> -->
               <!-- <li><a href="#">View Courses</a></li> -->
               <li><a id='change-password-btn'>Change Password</a></li>
-              <li role="separator" class="divider"><!----></li>
               <li><a id='change-profile-btn'>Change Profile</a></li>
-              <li>
-                <form id="sign-out" class='sign-out'>
+              <li role="separator" class="divider"><!----></li>
+              <li class='sign-out-li'>
+                <form id="sign-out" class='sign-out-btn'>
                   <fieldset>
                     <input type="submit" value="Sign Out">
+                  </fieldset>
+                </form>
+              </li>
+              <li class='delete-profile-li'>
+                <form class='delete-profile-btn'>
+                  <fieldset>
+                    <input type="submit" value="Delete Profile">
                   </fieldset>
                 </form>
               </li>
@@ -73,6 +80,31 @@
         </div>
       </div>
 
+      <div class="modal fade" id="confirmDeleteModal"
+           tabindex="-1"
+           role="dialog"
+           aria-labelledby="myModalLabel"
+           data-backdrop="static">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="myModalLabel">
+                Are you sure you want to delete this profile?
+              </h3>
+            </div>
+            <div class="modal-body">
+              <button class="btn btn-default btn-lg confirm-delete-btn delete"
+                      id="delete-profile"
+                      type="button">Yes, Delete Profile
+              </button>
+              <button class="btn btn-default btn-lg confirm-delete-btn"
+                      id="no-delete"
+                      type="button">No, Don't Delete Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Initially hidden-->
       <!--  Sign Up Modal -->
@@ -111,28 +143,6 @@
           </div>
         </div>
       </div>
-
-      <!-- SUCCESSFUL SIGN UP MESSAGE AND PROMPT TO SIGN IN
-      <div class="modal fade" id="signUpSuccessModal" tabindex="-1"
-      role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <h3>Sign up succesful! Please sign in now.</h3>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
 
       <!-- initially hidden: change password form -->
       <div class="modal fade" id="changePasswordModal" tabindex="-1"
@@ -215,26 +225,25 @@
               type="button"
               id='back-btn'
               class="close">
-                <span aria-hidden="true">Back</span>
+                <span aria-hidden="true">&times;</span>
               </button>
               <h3 class="modal-title" id="myModalLabel">Create your profile</h3>
             </div>
             <div class="modal-body">
               <form class="create-profile">
                 <fieldset>
-                  <input type="text" name="given_name"
+                  <input type="text" autocomplete="off" name="given_name"
                   placeholder="First Name">
-                  <input type="text" name="surname"
+                  <input type="text" autocomplete="off" name="surname"
                   placeholder="Last Name">
                   <br>
-                  <input type="text" name="home_course"
+                  <input type="text" autocomplete="off" name="home_course"
                   placeholder="Home Course">
-                  <input type="text" name="state"
-                  placeholder="State">
+                  <input type="text" autocomplete="off" name="state"
+                  placeholder="State" >
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
-              <h2 class='profile-created-msg'>Profile Successfully Created</h2>
             </div>
           </div>
         </div>
@@ -301,7 +310,6 @@
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
-              <h2 class='profile-created-msg'>Profile Successfully Created</h2>
             </div>
           </div>
         </div>
@@ -325,6 +333,8 @@
               <th class='medium-field'>Differential</th>
             </tr>
           </table>
+
+          <!-- NEED TO FIND HOW TO IMPROVE THESE -->
           <form id="add-round" class='add-round'>
             <fieldset class='add-round'>
               <input class='medium-field round-input date-played'
@@ -337,18 +347,26 @@
                      placeholder="Course">
               <input class='small-field round-input rating'
                      type="number"
+                     step="positive floating-point number"
+                     max="77.2"
+                     min="25"
                      name="rating"
                      placeholder="Rating">
               <input class='small-field round-input slope'
                      type="number"
+                     step="positive integer"
+                     max="155"
+                     min="55"
                      name="slope"
                      placeholder="Slope">
               <input class='small-field round-input par'
                      type="number"
+                     step="positive integer"
                      name="par"
                      placeholder="Par">
               <input class='small-field round-input score'
                      type="number"
+                     step="positive integer"
                      name="score"
                      placeholder="Score">
               <input class='submit-round' type="submit" value="Submit">

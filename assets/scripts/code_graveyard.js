@@ -25,7 +25,7 @@
 // };
 
 
-// alternate 
+// alternate
 // $("<tr></tr>").appendTo('#add-round')
 //   .append("<td>"+roundsObject[i].date_played+
 //           "</td><td>"+roundsObject[i].course+
@@ -34,3 +34,9 @@
 //           "</td><td>"+roundsObject[i].par+
 //           "</td><td>"+roundsObject[i].score+
 //           "</td>");
+
+
+// let max = app.profile.rounds.length - 1;
+// let min = app.profile.rounds.length - 15;
+// for (let i = 0; i < app.profile.rounds.length; i++) {
+// let max = app.profile.rounds.length;

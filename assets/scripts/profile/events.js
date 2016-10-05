@@ -42,11 +42,37 @@ const onBackButtonClick = function () {
   ui.backClickSuccess();
 };
 
+const onClickDeleteProfile = function(event) {
+  event.preventDefault();
+  ui.showConfirmDelete();
+};
+
+const onDeleteProfileReject = function(event) {
+  event.preventDefault();
+  ui.hideConfirmDelete();
+};
+
+const onDeleteProfileConfirm = function(event) {
+  event.preventDefault();
+  let id = app.profile.id;
+  api.destroyProfile()
+    .done(ui.deleteProfileSuccess)
+    .fail(ui.deleteProfileFailure);
+  setTimeout(function(){$(authAPI.getUser(id)
+    .done(authUI.updateUserProfiles, ui.populateProfiles));}, 75);
+  setTimeout(function(){$(ui.clearProfiles());}, 125);
+  setTimeout(function(){$(ui.populateProfiles());}, 200);
+  setTimeout(function(){$(ui.showChooseProfile());}, 850);
+};
+
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileButtonClick);
   $('.new-profile-button').on('click', onNewProfileClick);
   $('.create-profile').on('submit', onCreateProfile);
   $('#back-btn').on('click', onBackButtonClick);
+  $('.delete-profile-btn').on('submit', onClickDeleteProfile);
+  $('#no-delete').on('click', onDeleteProfileReject);
+  $('#delete-profile').on('click', onDeleteProfileConfirm);
 
   // how to get id of button sent as parameter?
   // Profile buttons

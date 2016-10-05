@@ -52,10 +52,10 @@ const selectProfileSuccess = function (data) {
   $('#changeProfileModal').modal('hide');
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
-  // Trigger populateRounds
+  // Trigger initialRoundsPopulation
   $('.dashboard').fadeOut(400);
   setTimeout(function(){roundsUI.clearRounds();}, 410);
-  setTimeout(function(){roundsUI.populateRounds();}, 410);
+  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
   setTimeout(function(){$('.dashboard').fadeIn(400);}, 500);
 };
 
@@ -72,7 +72,13 @@ const showCreateProfile = function () {
   $('.choose-profile-modal').hide();
   $('.create-profile').show();
   setTimeout(function(){$('.create-profile-modal').fadeIn(300);}, 10);
-  $('.profile-created-msg').hide();
+
+};
+
+const showChooseProfile = function () {
+  $('.create-profile-modal').hide();
+  $('.choose-profile-modal').show();
+  $('#chooseProfileModal').modal('show');
 };
 
 const backClickSuccess = function () {
@@ -85,11 +91,10 @@ const createProfileSuccess = function (data) {
   app.profile = data.profile;
   // Show welcome function here
   $('.create-profile').hide();
-  $('.profile-created-msg').show();
-  setTimeout(function(){$('.create-profile-modal').hide();}, 2000);
-  setTimeout(function(){$('#chooseProfileModal').modal('hide');}, 2000);
-  setTimeout(function(){$('#changeProfileModal').modal('hide');}, 2000);
-  setTimeout(function(){$('.choose-profile-modal').show();}, 2300);
+  $('.create-profile-modal').hide();
+  setTimeout(function(){$('#chooseProfileModal').modal('hide');}, 200);
+  setTimeout(function(){$('#changeProfileModal').modal('hide');}, 200);
+  setTimeout(function(){$('.choose-profile-modal').show();}, 400);
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
 
@@ -98,12 +103,12 @@ const createProfileSuccess = function (data) {
   //Show user's dashboard
   $('.dashboard').fadeOut(400);
   setTimeout(function(){roundsUI.clearRounds();}, 410);
-  setTimeout(function(){roundsUI.populateRounds();}, 410);
-  setTimeout(function(){$('.dashboard').fadeIn(500);}, 2100);
+  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
+  setTimeout(function(){$('.dashboard').fadeIn(500);}, 500);
 
 
   // roundsUI.clearRounds();
-  // roundsUI.populateRounds();
+  // roundsUI.initialRoundsPopulation();
   // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
 
 // debug
@@ -116,13 +121,38 @@ const createProfileFailure = function (error) {
   // console.log('Error is', error);
 };
 
+const showConfirmDelete = function () {
+  $('#confirmDeleteModal').modal('show');
+};
+
+const hideConfirmDelete = function () {
+  $('#confirmDeleteModal').modal('hide');
+};
+
+const deleteProfileSuccess = function () {
+  $('#confirmDeleteModal').modal('hide');
+  $('#user-welcome').fadeOut(300);
+  $('#user-name-welcome').html('');
+  setTimeout(function(){$('.dashboard').fadeOut(500);}, 300);
+  // setTimeout(function(){$('#chooseProfileModal').modal('show');}, 750);
+};
+
+const deleteProfileFailure = function (error) {
+  console.log('deleteProfile error is', error);
+};
+
 module.exports = {
   populateProfiles,
   clearProfiles,
   selectProfileSuccess,
   showChangeProfile,
+  showChooseProfile,
   showCreateProfile,
   backClickSuccess,
   createProfileSuccess,
   createProfileFailure,
+  showConfirmDelete,
+  hideConfirmDelete,
+  deleteProfileSuccess,
+  deleteProfileFailure,
 };

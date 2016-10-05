@@ -90,7 +90,7 @@ input {
 }
 
 .add:hover {
-  background-color: tint($grass, 25);
+  background-color: tint($grass, 15);
 }
 
 .cancel {
@@ -98,7 +98,7 @@ input {
 }
 
 .cancel:hover {
-  background-color: tint($destroy, 25);
+  background-color: tint($destroy, 15);
 }
 
 .large-field {
