@@ -17,7 +17,16 @@ const createRound = function (data) {
   });
 };
 
+const destroyRound = function (id) {
+  let roundID = id;
+  return $.ajax({
+    url: app.host + '/rounds/' + roundID,
+    method: 'DELETE',
+  });
+};
+
 module.exports = {
   createRound,
-  indexRounds
+  indexRounds,
+  destroyRound
 };

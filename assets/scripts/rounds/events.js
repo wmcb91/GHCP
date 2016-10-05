@@ -2,7 +2,9 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
+const authAPI = require('../auth/api');
 const ui = require('./ui');
+const authUI = require('../auth/ui');
 const app = require('../app');
 
 const onAddRoundClick = function () {
@@ -34,9 +36,17 @@ const onSubmitRound = function (event) {
   }
 };
 
+// I don't think data is necessary as an argument.
 const onViewRoundsClick = function (data) {
   data = app.profile.rounds;
   ui.initialRoundsPopulation(data);
+};
+
+const onDeleteLastRound = function () {
+  let id = (app.profile.rounds[app.profile.rounds.length-1].id);
+  api.destroyRound(id);
+  authAPI.getUser()
+    .done(authUI.updateUserProfiles, ui.deleteLastRoundSuccess);
 };
 
 const addHandlers = function() {
@@ -44,6 +54,7 @@ const addHandlers = function() {
   $('.cancel').on('click', onCancelAddRoundClick);
   $('#add-round').on('submit', onSubmitRound);
   $('#view-rounds').on('click', onViewRoundsClick);
+  $('#delete-last-round').on('click', onDeleteLastRound);
 };
 
 module.exports = {

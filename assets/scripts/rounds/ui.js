@@ -99,6 +99,13 @@ const createRoundFailure = function (error) {
   return error;
 };
 
+const deleteLastRoundSuccess = function () {
+  $('.dashboard').fadeOut(400);
+  setTimeout(function(){clearRounds();}, 410);
+  setTimeout(function(){initialRoundsPopulation();}, 410);
+  setTimeout(function(){$('.dashboard').fadeIn(500);}, 500);
+};
+
 module.exports = {
   showAddRoundField,
   hideAddRoundField,
@@ -108,4 +115,5 @@ module.exports = {
   createRoundFailure,
   initialRoundsPopulation,
   clearRounds,
+  deleteLastRoundSuccess,
 };

@@ -86,6 +86,7 @@ const backClickSuccess = function () {
   setTimeout(function(){$('.choose-profile-modal').fadeIn(300);}, 10);
 };
 
+
 const createProfileSuccess = function (data) {
   //update app.profile to be current profile
   app.profile = data.profile;

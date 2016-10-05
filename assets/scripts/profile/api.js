@@ -39,7 +39,6 @@ const editProfile = function (data) {
 };
 
 const destroyProfile = function () {
-  
   return $.ajax({
     url: app.host + '/profiles/' + app.profile.id,
     method: 'DELETE',
