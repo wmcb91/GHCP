@@ -11,6 +11,8 @@ const index = function() {
 };
 
 const getProfile = function (id) {
+  console.log('id is', id);
+  console.log('');
   app.profile.id = id;
   return $.ajax({
     url: app.host + '/profiles/' + app.profile.id,

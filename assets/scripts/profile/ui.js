@@ -142,6 +142,14 @@ const deleteProfileFailure = function (error) {
   console.log('deleteProfile error is', error);
 };
 
+// Move this and other 'updates' out of UI directories
+// const updateProfile = function (data) {
+//   console.log('data is', data);
+//   console.log('app.profile before setting is', app.profile);
+//   app.profile = data.profile;
+//   console.log('app.profile after setting is', app.profile);
+// };
+
 module.exports = {
   populateProfiles,
   clearProfiles,
@@ -156,4 +164,5 @@ module.exports = {
   hideConfirmDelete,
   deleteProfileSuccess,
   deleteProfileFailure,
+  // updateProfile,
 };

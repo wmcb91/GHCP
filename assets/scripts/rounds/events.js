@@ -2,9 +2,9 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
-const authAPI = require('../auth/api');
+// const profileAPI = require('../profile/api');
 const ui = require('./ui');
-const authUI = require('../auth/ui');
+// const profileUI = require('../profile/ui');
 const app = require('../app');
 
 const onAddRoundClick = function () {
@@ -16,6 +16,7 @@ const onCancelAddRoundClick = function () {
   ui.hideAddRoundField();
 };
 
+//PRESS SUBMIT BUTTON AFTER ENTERING ROUND DATA
 const onSubmitRound = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
@@ -35,18 +36,21 @@ const onSubmitRound = function (event) {
       .fail(ui.createRoundFailure);
   }
 };
+//
 
 // I don't think data is necessary as an argument.
 const onViewRoundsClick = function (data) {
   data = app.profile.rounds;
   ui.initialRoundsPopulation(data);
 };
+//
 
+// PRESS DELETE LAST ROUND BUTTON
 const onDeleteLastRound = function () {
-  let id = (app.profile.rounds[app.profile.rounds.length-1].id);
-  api.destroyRound(id);
-  authAPI.getUser()
-    .done(authUI.updateUserProfiles, ui.deleteLastRoundSuccess);
+  let roundID = (app.profile.rounds[0].id);
+  api.destroyRound(roundID)
+    .done(ui.deleteRoundSuccess, app.profile.rounds.shift());
+  ui.deleteLastRoundSuccess();
 };
 
 const addHandlers = function() {
