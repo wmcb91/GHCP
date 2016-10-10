@@ -6,6 +6,9 @@ const indexRounds = function() {
   return $.ajax({
     url: app.host + '/rounds',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
   });
 };
 
@@ -13,15 +16,22 @@ const createRound = function (data) {
   return $.ajax({
     url: app.host + '/rounds',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
     data: data,
   });
 };
 
 const destroyRound = function (id) {
-  let roundID = id;
+  // below seems unnecessary
+  // let roundID = id;
   return $.ajax({
-    url: app.host + '/rounds/' + roundID,
+    url: app.host + '/rounds/' + id,
     method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
   });
 };
 
