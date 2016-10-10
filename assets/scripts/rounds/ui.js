@@ -105,6 +105,10 @@ const createRoundFailure = function (error) {
   return error;
 };
 
+
+//
+// DELETION OF ROUNDS FUNCTIONS
+//
 const deleteRoundSuccess = function () {
   console.log('delete round successful');
 };
@@ -125,10 +129,12 @@ const roundsPopulation = function () {
 };
 
 const deleteLastRoundSuccess = function () {
-  $('.dashboard').fadeOut(400);
-  setTimeout(function(){clearRounds();}, 410);
-  setTimeout(function(){roundsPopulation();}, 410);
-  setTimeout(function(){$('.dashboard').fadeIn(500);}, 500);
+  // TODO Change to make
+  // Don't fade entire dash, just the table components
+  $('.dashboard', 'h1').fadeOut(200);
+  setTimeout(function(){clearRounds();}, 210);
+  setTimeout(function(){roundsPopulation();}, 210);
+  setTimeout(function(){$('.dashboard').fadeIn(200);}, 300);
 };
 
 module.exports = {

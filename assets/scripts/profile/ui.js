@@ -47,6 +47,9 @@ const clearProfiles = function () {
 // CALLED BY ONPROFILE SELECTION
 // SETS APP.PROFILE and CHANGES UI
 const selectProfileSuccess = function (data) {
+  // TODO Change to make
+  // If statement where below only fires if selected index != current index
+  // If you click your own profile, the modal just gets hidden
   app.profile = data;
   $('#chooseProfileModal').modal('hide');
   $('#changeProfileModal').modal('hide');
