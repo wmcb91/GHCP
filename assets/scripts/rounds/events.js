@@ -65,9 +65,9 @@ const onDeleteLastRound = function () {
   setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 2500);
 };
 
-const logRounds = function () {
-  console.log('rounds are', app.profile.rounds);
-};
+// const logRounds = function () {
+//   console.log('rounds are', app.profile.rounds);
+// };
 
 const addHandlers = function() {
   $('.add').on('click', onAddRoundClick);
@@ -75,7 +75,7 @@ const addHandlers = function() {
   $('#add-round').on('submit', onSubmitRound);
   $('#view-rounds').on('click', onViewRoundsClick);
   $('#delete-last-round').on('click', onDeleteLastRound);
-  $('#edit-profile-btn').on('click', logRounds);
+  // $('#edit-profile-btn').on('click', logRounds);
 };
 
 module.exports = {

@@ -35,16 +35,23 @@ const createProfile = function (data) {
   });
 };
 
-const editProfile = function (data) {
+const updateProfile = function (data) {
   return $.ajax({
     url: app.host + '/profiles/' + app.profile.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
-    data: data,
+    data: {
+            profile:{
+              given_name: data.given_name,
+              surname: data.surname,
+              home_course: data.home_course
+            }
+          }
   });
 };
+
 
 const destroyProfile = function () {
   return $.ajax({
@@ -60,6 +67,6 @@ module.exports = {
   index,
   showProfile,
   createProfile,
-  editProfile,
+  updateProfile,
   destroyProfile,
 };

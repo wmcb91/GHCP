@@ -64,15 +64,22 @@ const onDeleteProfileConfirm = function(event) {
   setTimeout(function(){$(ui.showChooseProfile());}, 850);
 };
 
-// TODO Finish
+const onEditProfileButtonClick = function() {
+  ui.showEditProfile();
+};
 
-// const onEditProfileButtonClick = function() {
-//   ui.showEditProfile();
-// };
-//
-// const onEditProfileSubmit = function() {
-//   api.editProfile(app.profile.id)
-// };
+const onUpdateProfileSubmit = function(event) {
+  event.preventDefault();
+  let form = getFormFields(event.target);
+  // let data =
+  // console.log('event.target is', data);
+  // console.log('event.target is', data.given_name);
+  // console.log('event.target is', data.surname);
+  // console.log('event.target is', data.home_course);
+  api.updateProfile(form)
+    .done(ui.updateProfileSuccess())
+    .fail(ui.updateProfileFailure());
+};
 
 
 const addHandlers = function() {
@@ -83,7 +90,8 @@ const addHandlers = function() {
   $('.delete-profile-btn').on('submit', onClickDeleteProfile);
   $('#no-delete').on('click', onDeleteProfileReject);
   $('#delete-profile').on('click', onDeleteProfileConfirm);
-  // $('#edit-profile-btn').on('click', onEditProfileButtonClick);
+  $('#edit-profile-btn').on('click', onEditProfileButtonClick);
+  $('.update-profile').on('submit', onUpdateProfileSubmit);
 
 
   // how to get id of button sent as parameter?
