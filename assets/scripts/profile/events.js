@@ -54,16 +54,26 @@ const onDeleteProfileReject = function(event) {
 
 const onDeleteProfileConfirm = function(event) {
   event.preventDefault();
-  let id = app.profile.id;
   api.destroyProfile()
     .done(ui.deleteProfileSuccess)
     .fail(ui.deleteProfileFailure);
-  setTimeout(function(){$(authAPI.getUser(id)
+  setTimeout(function(){$(authAPI.getUser()
     .done(authUI.updateUserProfiles, ui.populateProfiles));}, 75);
   setTimeout(function(){$(ui.clearProfiles());}, 125);
   setTimeout(function(){$(ui.populateProfiles());}, 200);
   setTimeout(function(){$(ui.showChooseProfile());}, 850);
 };
+
+// TODO Finish
+
+// const onEditProfileButtonClick = function() {
+//   ui.showEditProfile();
+// };
+//
+// const onEditProfileSubmit = function() {
+//   api.editProfile(app.profile.id)
+// };
+
 
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileButtonClick);
@@ -73,6 +83,8 @@ const addHandlers = function() {
   $('.delete-profile-btn').on('submit', onClickDeleteProfile);
   $('#no-delete').on('click', onDeleteProfileReject);
   $('#delete-profile').on('click', onDeleteProfileConfirm);
+  // $('#edit-profile-btn').on('click', onEditProfileButtonClick);
+
 
   // how to get id of button sent as parameter?
   // Profile buttons

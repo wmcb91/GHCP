@@ -22,7 +22,7 @@ const onSubmitRound = function (event) {
   data.profile_id = app.profile.id;
 
   if (app.profile.rounds.length < 15) {
-    console.log('fewer than 15 rounds');
+    // console.log('fewer than 15 rounds');
     api.createRound(data)
       .done(ui.createRoundSuccess)
       .fail(ui.createRoundFailure);
@@ -30,7 +30,7 @@ const onSubmitRound = function (event) {
     return;
   }
   else {
-    console.log('more than 15 rounds');
+    // console.log('more than 15 rounds');
     api.createRound(data)
       .done(ui.createMaxRoundSuccess)
       .fail(ui.createRoundFailure);

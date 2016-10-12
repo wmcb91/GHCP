@@ -32,9 +32,22 @@ const reverseRoundsToObject = function () {
   return reverseRoundsObject;
 };
 
+// date_played error fix --> setMax function
+//
+// let max;
+// if (app.profile.rounds.length < 15) {
+//   let max = app.profile.rounds.length;
+//   return max;
+// } else {
+//   let max = 15;
+//   return max;
+// }
+// console.log(app.profile.rounds.length);
+// console.log('max is', max);
+
 const initialRoundsPopulation = function () {
   let reverseRoundsObject = reverseRoundsToObject();
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 9; i++) {
   // for (let i = 15; i > 0; i--) {
     $('.width-setter')
       .before("<tr class='profile-rounds'><td>"+reverseRoundsObject[i].date_played+
@@ -52,7 +65,7 @@ const clearRounds = function () {
 };
 
 const addMaxRound = function (data) {
-  console.log('addMaxRound fired');
+  // console.log('addMaxRound fired');
   let newRoundObject = data;
   $('.previous-rounds')
     .prepend("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
@@ -63,7 +76,7 @@ const addMaxRound = function (data) {
             "</td><td>"+newRoundObject.score+
             "</td></tr>");
   $('.profile-rounds').last().remove();
-  console.log('deleted', $('.profile-rounds').last());
+  // console.log('deleted', $('.profile-rounds').last());
 };
 
 // ON SUBMISSION OF VALID ROUND
@@ -102,6 +115,7 @@ const createRoundSuccess = function (data) {
 
 const createRoundFailure = function (error) {
   //Add error message
+  console.log('Create round error is', error);
   return error;
 };
 

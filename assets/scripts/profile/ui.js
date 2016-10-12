@@ -4,9 +4,9 @@ const app = require('../app');
 const roundsUI = require('../rounds/ui');
 
 const profilesToObject = function () {
-  let profilesObject = app.user.profiles.reduce(function(o, v, i) {
-    o[i] = v;
-    return o;
+  let profilesObject = app.user.profiles.reduce(function(object, values, index) {
+    object[index] = values;
+    return object;
   }, {});
   return profilesObject;
 };
@@ -121,8 +121,8 @@ const createProfileSuccess = function (data) {
 
 const createProfileFailure = function (error) {
   // create error message for UI
+  console.log('Create profile error is', error);
   return error;
-  // console.log('Error is', error);
 };
 
 const showConfirmDelete = function () {

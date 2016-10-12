@@ -7,16 +7,19 @@ const index = function() {
   return $.ajax({
     url: app.host + '/profiles',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
   });
 };
 
-const getProfile = function (id) {
-  console.log('id is', id);
-  console.log('');
-  app.profile.id = id;
+const showProfile = function (id) {
   return $.ajax({
-    url: app.host + '/profiles/' + app.profile.id,
+    url: app.host + '/profiles/' + id,
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
   });
 };
 
@@ -28,16 +31,16 @@ const createProfile = function (data) {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: data,
+    data: {profile: data}
   });
 };
 
 const editProfile = function (data) {
   return $.ajax({
-    url: app.host + '/change-password/' + app.user.id,
+    url: app.host + '/profiles/' + app.profile.id,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + app.user.token,
+      Authorization: 'Token token=' + app.user.token
     },
     data: data,
   });
@@ -48,14 +51,14 @@ const destroyProfile = function () {
     url: app.host + '/profiles/' + app.profile.id,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + app.user.token,
+      Authorization: 'Token token=' + app.user.token
     },
   });
 };
 
 module.exports = {
   index,
-  getProfile,
+  showProfile,
   createProfile,
   editProfile,
   destroyProfile,
