@@ -70,13 +70,18 @@ const onEditProfileButtonClick = function() {
 
 const onUpdateProfileSubmit = function(event) {
   event.preventDefault();
+  let data = app.profile;
   let form = getFormFields(event.target);
-  // let data =
-  // console.log('event.target is', data);
-  // console.log('event.target is', data.given_name);
-  // console.log('event.target is', data.surname);
-  // console.log('event.target is', data.home_course);
-  api.updateProfile(form)
+  if (form.given_name !== '') {
+     data.given_name = form.given_name;
+   }
+  if (form.surname !== '') {
+     data.surname = form.surname;
+   }
+  if (form.home_course !== '') {
+     data.home_course = form.home_course;
+   }
+  api.updateProfile(data)
     .done(ui.updateProfileSuccess())
     .fail(ui.updateProfileFailure());
 };
