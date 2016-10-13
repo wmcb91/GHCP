@@ -69,12 +69,19 @@ input {
   padding: 10px;
 }
 
+.previous-rounds-table {
+  clear: both;
+  float: left;
+  height: 400px;
+  overflow: scroll;
+}
+
 .width-setter {
   border: solid $charcoal;
   border-width: 0 1px 4px;
 }
 
-.rounds-header {
+.rounds-h2 {
   margin: 0 0 8px;
 }
 
@@ -107,7 +114,7 @@ input {
 .delete {
   background-color: $destroy;
   font-size: .86em;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .delete:hover {
@@ -174,9 +181,9 @@ input {
 
 .submit-round {
   height: 30px;
-  margin-left: 1px;
+  margin-left: 3px;
   margin-top: 1px;
-  padding: 3px 6px;
+  padding: 3px 5px;
   width: $medium-field-width - 2px;
 }
 
@@ -185,7 +192,7 @@ input {
   border: 1px solid $grass;
   // border-style: outset;
   height: 30px;
-  padding: 1px 6px;
+  padding: 1px 5px;
 }
 
 th,

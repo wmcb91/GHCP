@@ -83,8 +83,8 @@ const onUpdateProfileSubmit = function(event) {
      data.home_course = form.home_course;
    }
   api.updateProfile(data)
-    .done(ui.updateProfileSuccess())
-    .fail(ui.updateProfileFailure());
+    .done(ui.updateProfileSuccess)
+    .fail(ui.updateProfileFailure);
 };
 
 

@@ -27,10 +27,11 @@ const roundsToObject = function () {
 const initialRoundsPopulation = function () {
   let roundsObject = roundsToObject();
   let max;
-  if (app.profile.rounds.length < 15) {
+  // TODO fix this
+  // if (app.profile.rounds.length < 15) {
     max = app.profile.rounds.length;
-  } else {
-    max = 15;}
+  // } else {
+  //   max = 15;}
   for (let i = 0; i < max; i++) {
     $("<tr class='profile-rounds rounds-row'>"+
               "<td class='large-field'>"+roundsObject[i].date_played+
@@ -45,7 +46,7 @@ const initialRoundsPopulation = function () {
 };
 
 const clearRounds = function () {
-  $('.profile-rounds').html('');
+  $('.profile-rounds').remove();
 };
 
 const addMaxRound = function (data) {
@@ -93,6 +94,10 @@ const createRoundSuccess = function (data) {
   // app.profile.rounds[app.profile.rounds.length] = data.round;
   app.profile.rounds.push(data.round);
   // console.log(app.profile.rounds);
+  if (app.profile.rounds.length === 15) {
+    $('.previous-rounds').wrap("div class='previous-rounds-table'></div>");
+  }
+
   hideAddRoundField();
   // setTimeout(function(){addRound(app.round);}, 250);
   setTimeout(function(){clearRounds();}, 200);
@@ -117,7 +122,8 @@ const deleteLastRoundSuccess = function () {
   // TODO Change to make
   // Don't fade entire dash, just the table components
   $('.dashboard', 'h1').fadeOut(200);
-  $('.profile-rounds').first().html('');
+
+  $('.profile-rounds').first().remove();
   setTimeout(function(){$('.dashboard').fadeIn(200);}, 300);
 };
 
