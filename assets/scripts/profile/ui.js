@@ -158,15 +158,9 @@ const showEditProfile = function() {
 };
 
 const updateProfileSuccess = function() {
-  // console.log('data.profile is', data.profile);
-  // console.log(app.user.profile);
-  // console.log('app.profile is', app.profile);
-  // app.profile = data.profile;
   $('#user-name-welcome').html(app.profile.given_name);
   populateProfiles();
   setTimeout(function(){$('#editProfileModal').modal('hide');}, 150);
-  setTimeout(function(){$('.dashboard').fadeOut(200);}, 220);
-  setTimeout(function(){$('.dashboard').fadeIn(200);}, 420);
 };
 
 const updateProfileFailure = function(error) {

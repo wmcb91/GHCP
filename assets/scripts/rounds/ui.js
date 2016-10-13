@@ -24,39 +24,23 @@ const roundsToObject = function () {
   return reverseRoundsObject;
 };
 
-const reverseRoundsToObject = function () {
-  let reverseRoundsObject = app.profile.rounds.reverse().reduce(function(o, v, i) {
-    o[i] = v;
-    return o;
-  }, {});
-  return reverseRoundsObject;
-};
-
-// date_played error fix --> setMax function
-//
-// let max;
-// if (app.profile.rounds.length < 15) {
-//   let max = app.profile.rounds.length;
-//   return max;
-// } else {
-//   let max = 15;
-//   return max;
-// }
-// console.log(app.profile.rounds.length);
-// console.log('max is', max);
-
 const initialRoundsPopulation = function () {
-  let reverseRoundsObject = reverseRoundsToObject();
-  for (let i = 0; i < 9; i++) {
-  // for (let i = 15; i > 0; i--) {
-    $('.width-setter')
-      .before("<tr class='profile-rounds'><td>"+reverseRoundsObject[i].date_played+
-              "</td><td>"+reverseRoundsObject[i].course+
-              "</td><td>"+reverseRoundsObject[i].rating+
-              "</td><td>"+reverseRoundsObject[i].slope+
-              "</td><td>"+reverseRoundsObject[i].par+
-              "</td><td>"+reverseRoundsObject[i].score+
-              "</td></tr>");
+  let roundsObject = roundsToObject();
+  let max;
+  if (app.profile.rounds.length < 15) {
+    max = app.profile.rounds.length;
+  } else {
+    max = 15;}
+  for (let i = 0; i < max; i++) {
+    $("<tr class='profile-rounds rounds-row'>"+
+              "<td class='large-field'>"+roundsObject[i].date_played+
+              "</td><td class='huge-field'>"+roundsObject[i].course+
+              "</td><td class='small-field'>"+roundsObject[i].rating+
+              "</td><td class='small-field'>"+roundsObject[i].slope+
+              "</td><td class='small-field'>"+roundsObject[i].par+
+              "</td><td class='small-field'>"+roundsObject[i].score+
+              "</td></tr>")
+              .prependTo('.previous-rounds');
     }
 };
 
@@ -92,14 +76,13 @@ const createMaxRoundSuccess = function (data) {
 
 const addRound = function (data) {
   let newRoundObject = data;
-  $('.previous-rounds')
-    .prepend("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
+  $("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
             "</td><td>"+newRoundObject.course+
             "</td><td>"+newRoundObject.rating+
             "</td><td>"+newRoundObject.slope+
             "</td><td>"+newRoundObject.par+
             "</td><td>"+newRoundObject.score+
-            "</td></tr>");
+            "</td></tr>").prependTo('.rounds-row');
 };
 
 // ON SUBMISSION OF VALID ROUND
@@ -107,10 +90,13 @@ const createRoundSuccess = function (data) {
   //Console
   // console.log('create round success run');
   app.round = data.round;
-  app.profile.rounds[app.profile.rounds.length] = data.round;
+  // app.profile.rounds[app.profile.rounds.length] = data.round;
+  app.profile.rounds.push(data.round);
   // console.log(app.profile.rounds);
   hideAddRoundField();
-  setTimeout(function(){addRound(app.round);}, 250);
+  // setTimeout(function(){addRound(app.round);}, 250);
+  setTimeout(function(){clearRounds();}, 200);
+  setTimeout(function(){initialRoundsPopulation();}, 250);
 };
 
 const createRoundFailure = function (error) {
@@ -127,27 +113,11 @@ const deleteRoundSuccess = function () {
   console.log('delete round successful');
 };
 
-const roundsPopulation = function () {
-  let roundsObject = roundsToObject();
-  for (let i = 0; i < 15; i++) {
-  // for (let i = 15; i > 0; i--) {
-    $('.width-setter')
-      .before("<tr class='profile-rounds'><td>"+roundsObject[i].date_played+
-              "</td><td>"+roundsObject[i].course+
-              "</td><td>"+roundsObject[i].rating+
-              "</td><td>"+roundsObject[i].slope+
-              "</td><td>"+roundsObject[i].par+
-              "</td><td>"+roundsObject[i].score+
-              "</td></tr>");
-    }
-};
-
 const deleteLastRoundSuccess = function () {
   // TODO Change to make
   // Don't fade entire dash, just the table components
   $('.dashboard', 'h1').fadeOut(200);
-  setTimeout(function(){clearRounds();}, 210);
-  setTimeout(function(){roundsPopulation();}, 210);
+  $('.profile-rounds').first().html('');
   setTimeout(function(){$('.dashboard').fadeIn(200);}, 300);
 };
 

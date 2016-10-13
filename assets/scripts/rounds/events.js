@@ -26,7 +26,7 @@ const onSubmitRound = function (event) {
     api.createRound(data)
       .done(ui.createRoundSuccess)
       .fail(ui.createRoundFailure);
-      setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 2500);
+      setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 500);
     return;
   }
   else {
@@ -34,7 +34,7 @@ const onSubmitRound = function (event) {
     api.createRound(data)
       .done(ui.createMaxRoundSuccess)
       .fail(ui.createRoundFailure);
-      setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 2500);
+      setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 500);
   }
 
 };
@@ -58,11 +58,11 @@ const onViewRoundsClick = function (data) {
 // - Flip array back to order matching API before adding new round.
 
 const onDeleteLastRound = function () {
-  let roundID = (app.profile.rounds[0].id);
+  let roundID = app.profile.rounds.pop().id;
   api.destroyRound(roundID)
     .done(ui.deleteRoundSuccess, app.profile.rounds.shift());
   ui.deleteLastRoundSuccess();
-  setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 2500);
+  setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 500);
 };
 
 // const logRounds = function () {
