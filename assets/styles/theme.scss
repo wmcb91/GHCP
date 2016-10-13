@@ -97,9 +97,20 @@ input {
 
 .cancel {
   background-color: $destroy;
+  font-size: .86em;
 }
 
 .cancel:hover {
+  background-color: tint($destroy, 15);
+}
+
+.delete {
+  background-color: $destroy;
+  font-size: .86em;
+  margin-right: 15px;
+}
+
+.delete:hover {
   background-color: tint($destroy, 15);
 }
 
@@ -125,8 +136,8 @@ input {
 }
 
 .round-input {
-  font-size: .6em;
   float: left;
+  font-size: .6em;
   margin: 0;
 }
 

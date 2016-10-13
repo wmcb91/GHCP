@@ -13,6 +13,7 @@ const onProfileSelection = function (event) {
   let index = event.data.index;
   let data = app.user.profiles[index];
   ui.selectProfileSuccess(data);
+  console.log('rounds to begin are', app.profile.rounds);
 };
 
 const onNewProfileClick = function () {
@@ -54,16 +55,38 @@ const onDeleteProfileReject = function(event) {
 
 const onDeleteProfileConfirm = function(event) {
   event.preventDefault();
-  let id = app.profile.id;
   api.destroyProfile()
     .done(ui.deleteProfileSuccess)
     .fail(ui.deleteProfileFailure);
-  setTimeout(function(){$(authAPI.getUser(id)
+  setTimeout(function(){$(authAPI.getUser()
     .done(authUI.updateUserProfiles, ui.populateProfiles));}, 75);
   setTimeout(function(){$(ui.clearProfiles());}, 125);
   setTimeout(function(){$(ui.populateProfiles());}, 200);
   setTimeout(function(){$(ui.showChooseProfile());}, 850);
 };
+
+const onEditProfileButtonClick = function() {
+  ui.showEditProfile();
+};
+
+const onUpdateProfileSubmit = function(event) {
+  event.preventDefault();
+  let data = app.profile;
+  let form = getFormFields(event.target);
+  if (form.given_name !== '') {
+     data.given_name = form.given_name;
+   }
+  if (form.surname !== '') {
+     data.surname = form.surname;
+   }
+  if (form.home_course !== '') {
+     data.home_course = form.home_course;
+   }
+  api.updateProfile(data)
+    .done(ui.updateProfileSuccess())
+    .fail(ui.updateProfileFailure());
+};
+
 
 const addHandlers = function() {
   $('#change-profile-btn').on('click', onChangeProfileButtonClick);
@@ -73,6 +96,9 @@ const addHandlers = function() {
   $('.delete-profile-btn').on('submit', onClickDeleteProfile);
   $('#no-delete').on('click', onDeleteProfileReject);
   $('#delete-profile').on('click', onDeleteProfileConfirm);
+  $('#edit-profile-btn').on('click', onEditProfileButtonClick);
+  $('.update-profile').on('submit', onUpdateProfileSubmit);
+
 
   // how to get id of button sent as parameter?
   // Profile buttons

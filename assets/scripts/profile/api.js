@@ -7,14 +7,19 @@ const index = function() {
   return $.ajax({
     url: app.host + '/profiles',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
   });
 };
 
-const getProfile = function (id) {
-  app.profile.id = id;
+const showProfile = function (id) {
   return $.ajax({
-    url: app.host + '/profiles/' + app.profile.id,
+    url: app.host + '/profiles/' + id,
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
   });
 };
 
@@ -23,33 +28,45 @@ const createProfile = function (data) {
   return $.ajax({
     url: app.host + '/profiles',
     method: 'POST',
-    data: data,
-  });
-};
-
-const editProfile = function (data) {
-  return $.ajax({
-    url: app.host + '/change-password/' + app.user.id,
-    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: data,
+    data: {profile: data}
   });
 };
 
+const updateProfile = function (data) {
+  return $.ajax({
+    url: app.host + '/profiles/' + app.profile.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+            profile:{
+              given_name: data.given_name,
+              surname: data.surname,
+              home_course: data.home_course
+            }
+          }
+  });
+};
+
+
 const destroyProfile = function () {
-  
   return $.ajax({
     url: app.host + '/profiles/' + app.profile.id,
     method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
   });
 };
 
 module.exports = {
   index,
-  getProfile,
+  showProfile,
   createProfile,
-  editProfile,
+  updateProfile,
   destroyProfile,
 };

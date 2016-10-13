@@ -3,7 +3,7 @@ $header-box-height: 60px;
 
 html {
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 body {
@@ -101,6 +101,12 @@ hr {
   margin: 45px 5px 5px 50px;
 }
 
+.rounds-row {
+  clear: left;
+  float: left;
+  margin-right: 111px;
+}
+
 .rounds-header {
   float: left;
 }
@@ -113,6 +119,10 @@ hr {
 .round-headers {
   clear: both;
   float: left;
+}
+
+.delete {
+  float: right;
 }
 
 // ADD ROUND SUBMIT BUTTON

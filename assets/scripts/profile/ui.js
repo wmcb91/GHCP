@@ -3,15 +3,15 @@
 const app = require('../app');
 const roundsUI = require('../rounds/ui');
 
-const profilesToObject = function () {
-  let profilesObject = app.user.profiles.reduce(function(o, v, i) {
-    o[i] = v;
-    return o;
+const profilesToObject = function() {
+  let profilesObject = app.user.profiles.reduce(function(object, values, index) {
+    object[index] = values;
+    return object;
   }, {});
   return profilesObject;
 };
 
-const populateProfiles = function () {
+const populateProfiles = function() {
   let profilesObject = profilesToObject();
   //switch show to toggle
   // Should not use for loop, oh well...
@@ -39,14 +39,17 @@ const populateProfiles = function () {
   }
 };
 
-const clearProfiles = function () {
+const clearProfiles = function() {
   $('.profile-button').html('');
   $('.profile-button').hide();
 };
 
 // CALLED BY ONPROFILE SELECTION
 // SETS APP.PROFILE and CHANGES UI
-const selectProfileSuccess = function (data) {
+const selectProfileSuccess = function(data) {
+  // TODO Change to make
+  // If statement where below only fires if selected index != current index
+  // If you click your own profile, the modal just gets hidden
   app.profile = data;
   $('#chooseProfileModal').modal('hide');
   $('#changeProfileModal').modal('hide');
@@ -60,13 +63,13 @@ const selectProfileSuccess = function (data) {
 };
 
 
-const showChangeProfile = function () {
+const showChangeProfile = function() {
   $('.create-profile-modal').hide();
   $('.choose-profile-modal').show();
   $('#changeProfileModal').modal('show');
 };
 
-const showCreateProfile = function () {
+const showCreateProfile = function() {
 // CHANGE TO JUST ONE MODAL with different DIVS
   $('.create-profile').hide();
   $('.choose-profile-modal').hide();
@@ -75,18 +78,19 @@ const showCreateProfile = function () {
 
 };
 
-const showChooseProfile = function () {
+const showChooseProfile = function() {
   $('.create-profile-modal').hide();
   $('.choose-profile-modal').show();
   $('#chooseProfileModal').modal('show');
 };
 
-const backClickSuccess = function () {
+const backClickSuccess = function() {
   $('.create-profile-modal').hide();
   setTimeout(function(){$('.choose-profile-modal').fadeIn(300);}, 10);
 };
 
-const createProfileSuccess = function (data) {
+
+const createProfileSuccess = function(data) {
   //update app.profile to be current profile
   app.profile = data.profile;
   // Show welcome function here
@@ -115,21 +119,21 @@ const createProfileSuccess = function (data) {
   // console.log('App.profile is', app.profile);
 };
 
-const createProfileFailure = function (error) {
+const createProfileFailure = function(error) {
   // create error message for UI
+  console.log('Create profile error is', error);
   return error;
-  // console.log('Error is', error);
 };
 
-const showConfirmDelete = function () {
+const showConfirmDelete = function() {
   $('#confirmDeleteModal').modal('show');
 };
 
-const hideConfirmDelete = function () {
+const hideConfirmDelete = function() {
   $('#confirmDeleteModal').modal('hide');
 };
 
-const deleteProfileSuccess = function () {
+const deleteProfileSuccess = function() {
   $('#confirmDeleteModal').modal('hide');
   $('#user-welcome').fadeOut(300);
   $('#user-name-welcome').html('');
@@ -137,8 +141,30 @@ const deleteProfileSuccess = function () {
   // setTimeout(function(){$('#chooseProfileModal').modal('show');}, 750);
 };
 
-const deleteProfileFailure = function (error) {
+const deleteProfileFailure = function(error) {
   console.log('deleteProfile error is', error);
+};
+
+// Move this and other 'updates' out of UI directories
+// const updateProfile = function (data) {
+//   console.log('data is', data);
+//   console.log('app.profile before setting is', app.profile);
+//   app.profile = data.profile;
+//   console.log('app.profile after setting is', app.profile);
+// };
+
+const showEditProfile = function() {
+  $('#editProfileModal').modal('show');
+};
+
+const updateProfileSuccess = function() {
+  $('#user-name-welcome').html(app.profile.given_name);
+  populateProfiles();
+  setTimeout(function(){$('#editProfileModal').modal('hide');}, 150);
+};
+
+const updateProfileFailure = function(error) {
+  console.log('update profile error is', error);
 };
 
 module.exports = {
@@ -155,4 +181,8 @@ module.exports = {
   hideConfirmDelete,
   deleteProfileSuccess,
   deleteProfileFailure,
+  showEditProfile,
+  updateProfileSuccess,
+  updateProfileFailure,
+  // updateProfile,
 };
