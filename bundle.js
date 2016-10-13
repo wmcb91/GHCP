@@ -264,8 +264,8 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  // host: 'https://ghcp.herokuapp.com'
-	  host: 'http://localhost:3000'
+	  host: 'https://ghcp.herokuapp.com'
+	  // host: 'http://localhost:3000'
 	};
 
 	module.exports = app;
