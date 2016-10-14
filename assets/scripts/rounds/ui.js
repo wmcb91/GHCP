@@ -94,21 +94,18 @@ const createRoundFailure = function (error) {
 };
 
 
-//
-// DELETION OF ROUNDS FUNCTIONS
-//
-const deleteRoundSuccess = function () {
-  console.log('delete round successful');
-};
 
-const deleteLastRoundSuccess = function () {
-  // TODO Change to make
-  // Don't fade entire dash, just the table components
-  $('.dashboard', 'h1').fadeOut(200);
-
-  $('.profile-rounds').first().remove();
-  setTimeout(function(){$('.dashboard').fadeIn(200);}, 300);
-};
+// ADD BACK AT LATER DATE ONCE FIGURED OUT
+//
+// DELETE ROUNDS FUNCTION
+// const deleteLastRoundSuccess = function () {
+//   // TODO Change to make
+//   // Don't fade entire dash, just the table components
+//   $('.dashboard', 'h1').fadeOut(200);
+//
+//   $('.profile-rounds').first().remove();
+//   setTimeout(function(){$('.dashboard').fadeIn(200);}, 300);
+// };
 
 module.exports = {
   showAddRoundField,
@@ -119,6 +116,5 @@ module.exports = {
   createRoundFailure,
   initialRoundsPopulation,
   clearRounds,
-  deleteRoundSuccess,
-  deleteLastRoundSuccess,
+  // deleteLastRoundSuccess,
 };

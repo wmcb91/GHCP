@@ -41,7 +41,6 @@ const signOutSuccess = () => {
 };
 
 const signOutFailure = (error) => {
-  // console.error(error);
   return error;
 };
 
@@ -59,7 +58,6 @@ const changePasswordSuccess = () => {
 };
 
 const changePasswordFailure = (error) => {
-  // console.error(error);
   return error;
 };
 

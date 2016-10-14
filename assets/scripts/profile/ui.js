@@ -121,7 +121,7 @@ const deleteProfileSuccess = function() {
 };
 
 const deleteProfileFailure = function(error) {
-  console.log('deleteProfile error is', error);
+  return error;
 };
 
 const showEditProfile = function() {
@@ -135,7 +135,7 @@ const updateProfileSuccess = function() {
 };
 
 const updateProfileFailure = function(error) {
-  console.log('update profile error is', error);
+  return error;
 };
 
 module.exports = {

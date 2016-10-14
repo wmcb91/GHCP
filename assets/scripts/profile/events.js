@@ -13,7 +13,6 @@ const onProfileSelection = function (event) {
   let index = event.data.index;
   let data = app.user.profiles[index];
   ui.selectProfileSuccess(data);
-  console.log('rounds to begin are', app.profile.rounds);
 };
 
 const onNewProfileClick = function () {

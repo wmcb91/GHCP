@@ -23,31 +23,26 @@ const onSubmitRound = function (event) {
     .fail(ui.createRoundFailure);
 };
 
-const onDeleteLastRound = function () {
-  let roundID;
-  if (app.profile.rounds[0] === undefined) {
-    return;
-  }
-  else if (app.profile.rounds.length === 1) {
-    roundID = app.profile.rounds[0].id;
-  } else {
-    roundID = app.profile.rounds.pop().id;
-  }
-  api.destroyRound(roundID)
-    .done(ui.deleteRoundSuccess);
-  ui.deleteLastRoundSuccess();
-  setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 500);
-};
-
-// const logRounds = function () {
-//   console.log('rounds are', app.profile.rounds);
+// const onDeleteLastRound = function () {
+//   let roundID;
+//   if (app.profile.rounds[0] === undefined) {
+//     return;
+//   }
+//   else if (app.profile.rounds.length === 1) {
+//     roundID = app.profile.rounds[0].id;
+//   } else {
+//     roundID = app.profile.rounds.pop().id;
+//   }
+//   api.destroyRound(roundID)
+//     .done(ui.deleteRoundSuccess);
+//   ui.deleteLastRoundSuccess();
 // };
 
 const addHandlers = function() {
   $('.add').on('click', onAddRoundClick);
   $('.cancel').on('click', onCancelAddRoundClick);
   $('#add-round').on('submit', onSubmitRound);
-  $('#delete-last-round').on('click', onDeleteLastRound);
+  // $('#delete-last-round').on('click', onDeleteLastRound);
 };
 
 module.exports = {
