@@ -23,15 +23,15 @@ const createRound = function (data) {
   });
 };
 
-const destroyRound = function (id) {
-  // below seems unnecessary
-  // let roundID = id;
+const destroyRound = function (data) {
+  let id = data.id;
   return $.ajax({
     url: app.host + '/rounds/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
+    data: {round: data}
   });
 };
 

@@ -58,16 +58,24 @@ const onViewRoundsClick = function (data) {
 // - Flip array back to order matching API before adding new round.
 
 const onDeleteLastRound = function () {
-  let roundID;
+  let round;
   if (app.profile.rounds[0] === undefined) {
     return;
   }
   else if (app.profile.rounds.length === 1) {
-    roundID = app.profile.rounds[0].id;
+    round = app.profile.rounds[0];
   } else {
-    roundID = app.profile.rounds.pop().id;
+    round = app.profile.rounds.pop();
   }
-  api.destroyRound(roundID)
+  let data = {
+              'id': '',
+              'profile_id': '',
+  };
+  console.log(round.id,round.profile_id);
+  data.id = round.id;
+  data.profile_id = round.profile_id;
+  console.log(data);
+  api.destroyRound(data)
     .done(ui.deleteRoundSuccess);
   ui.deleteLastRoundSuccess();
   setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 500);
