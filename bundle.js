@@ -236,8 +236,6 @@ webpackJsonp([0],[
 	  });
 	};
 
-	// May be unnecissary if I change the user_login_serializer to have many :profiles
-	// Yup it was.
 	var getUser = function getUser() {
 	  return $.ajax({
 	    url: app.host + '/users/' + app.user.id,
@@ -277,8 +275,6 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(7);
-	// const roundsAPI = require('../rounds/api');
-	// const roundsUI = require('../rounds/ui');
 
 	//SIGN UP
 	var signUpSuccess = function signUpSuccess() {
@@ -290,22 +286,6 @@ webpackJsonp([0],[
 	  // create warning message
 	  return error;
 	};
-
-	// const hasNoProfiles = function () {
-	//   setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
-	// };
-
-	// const hasOneProfile = function () {
-	//   app.profile = app.user.profiles[0];
-	//   $('#user-welcome').fadeIn(100);
-	//   $('#user-name-welcome').html(app.profile.given_name);
-	//   roundsUI.initialRoundsPopulation(app.profile.rounds);
-	//   setTimeout(function(){$('.dashboard').fadeIn(100);}, 100);
-	// };
-	//
-	// const hasManyProfiles = function () {
-	//
-	// };
 
 	//
 	//SIGN IN
@@ -339,7 +319,6 @@ webpackJsonp([0],[
 	};
 
 	var signOutFailure = function signOutFailure(error) {
-	  // console.error(error);
 	  return error;
 	};
 
@@ -353,11 +332,9 @@ webpackJsonp([0],[
 	var changePasswordSuccess = function changePasswordSuccess() {
 	  $('#change-password').hide();
 	  $('#pwd-change-msg').show();
-	  // console.log('Password Successfully Changed');
 	};
 
 	var changePasswordFailure = function changePasswordFailure(error) {
-	  // console.error(error);
 	  return error;
 	};
 
@@ -368,7 +345,6 @@ webpackJsonp([0],[
 	};
 
 	var updateUserProfiles = function updateUserProfiles(data) {
-	  // console.log('app.user.profiles before setting is', app.user.profiles);
 	  app.user.profiles = data.user.profiles;
 	};
 
@@ -406,8 +382,6 @@ webpackJsonp([0],[
 
 	var populateProfiles = function populateProfiles() {
 	  var profilesObject = profilesToObject();
-	  //switch show to toggle
-	  // Should not use for loop, oh well...
 	  for (var i = 0; i < app.user.profiles.length; i++) {
 	    $('#' + i).html("<h3 class='profile-text'>" + profilesObject[i].given_name + "</h3><h4 class='profile-text'>" + profilesObject[i].surname + "</h4><h6 class='profile-club'>" + profilesObject[i].home_course + "</h6></button>");
 	    $('#' + i).show();
@@ -421,28 +395,24 @@ webpackJsonp([0],[
 	  $('.profile-button').hide();
 	};
 
-	// CALLED BY ONPROFILE SELECTION
 	// SETS APP.PROFILE and CHANGES UI
 	var selectProfileSuccess = function selectProfileSuccess(data) {
-	  // TODO Change to make
-	  // If statement where below only fires if selected index != current index
-	  // If you click your own profile, the modal just gets hidden
 	  app.profile = data;
 	  $('#chooseProfileModal').modal('hide');
 	  $('#changeProfileModal').modal('hide');
 	  $('#user-welcome').show();
 	  $('#user-name-welcome').html(app.profile.given_name);
 	  // Trigger initialRoundsPopulation
-	  $('.dashboard').fadeOut(400);
+	  $('.dashboard').fadeOut(250);
 	  setTimeout(function () {
 	    roundsUI.clearRounds();
-	  }, 410);
+	  }, 260);
 	  setTimeout(function () {
 	    roundsUI.initialRoundsPopulation();
-	  }, 410);
+	  }, 270);
 	  setTimeout(function () {
-	    $('.dashboard').fadeIn(400);
-	  }, 500);
+	    $('.dashboard').fadeIn(250);
+	  }, 300);
 	};
 
 	var showChangeProfile = function showChangeProfile() {
@@ -452,7 +422,6 @@ webpackJsonp([0],[
 	};
 
 	var showCreateProfile = function showCreateProfile() {
-	  // CHANGE TO JUST ONE MODAL with different DIVS
 	  $('.create-profile').hide();
 	  $('.choose-profile-modal').hide();
 	  $('.create-profile').show();
@@ -475,7 +444,7 @@ webpackJsonp([0],[
 	};
 
 	var createProfileSuccess = function createProfileSuccess(data) {
-	  //update app.profile to be current profile
+	  // Update app.profile to be current profile
 	  app.profile = data.profile;
 	  // Show welcome function here
 	  $('.create-profile').hide();
@@ -492,31 +461,20 @@ webpackJsonp([0],[
 	  $('#user-welcome').show();
 	  $('#user-name-welcome').html(app.profile.given_name);
 
-	  //Create message about adding rounds and trigger it
-
 	  //Show user's dashboard
-	  $('.dashboard').fadeOut(400);
+	  $('.dashboard').fadeOut(250);
 	  setTimeout(function () {
 	    roundsUI.clearRounds();
-	  }, 410);
+	  }, 260);
 	  setTimeout(function () {
 	    roundsUI.initialRoundsPopulation();
-	  }, 410);
+	  }, 270);
 	  setTimeout(function () {
-	    $('.dashboard').fadeIn(500);
-	  }, 500);
-
-	  // roundsUI.clearRounds();
-	  // roundsUI.initialRoundsPopulation();
-	  // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
-
-	  // debug
-	  // console.log('App.profile is', app.profile);
+	    $('.dashboard').fadeIn(250);
+	  }, 300);
 	};
 
 	var createProfileFailure = function createProfileFailure(error) {
-	  // create error message for UI
-	  console.log('Create profile error is', error);
 	  return error;
 	};
 
@@ -535,20 +493,11 @@ webpackJsonp([0],[
 	  setTimeout(function () {
 	    $('.dashboard').fadeOut(500);
 	  }, 300);
-	  // setTimeout(function(){$('#chooseProfileModal').modal('show');}, 750);
 	};
 
 	var deleteProfileFailure = function deleteProfileFailure(error) {
-	  console.log('deleteProfile error is', error);
+	  return error;
 	};
-
-	// Move this and other 'updates' out of UI directories
-	// const updateProfile = function (data) {
-	//   console.log('data is', data);
-	//   console.log('app.profile before setting is', app.profile);
-	//   app.profile = data.profile;
-	//   console.log('app.profile after setting is', app.profile);
-	// };
 
 	var showEditProfile = function showEditProfile() {
 	  $('#editProfileModal').modal('show');
@@ -563,7 +512,7 @@ webpackJsonp([0],[
 	};
 
 	var updateProfileFailure = function updateProfileFailure(error) {
-	  console.log('update profile error is', error);
+	  return error;
 	};
 
 	module.exports = {
@@ -593,7 +542,6 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(7);
-	// const showRoundsTemplate = require('../templates/round-showing.handlebars');
 
 	//SHOW AND HIDE FOR ADDING ROUNDS
 	var showAddRoundField = function showAddRoundField() {
@@ -619,11 +567,7 @@ webpackJsonp([0],[
 	var initialRoundsPopulation = function initialRoundsPopulation() {
 	  var roundsObject = roundsToObject();
 	  var max = void 0;
-	  // TODO fix this
-	  // if (app.profile.rounds.length < 15) {
 	  max = app.profile.rounds.length;
-	  // } else {
-	  //   max = 15;}
 	  for (var i = 0; i < max; i++) {
 	    $("<tr class='profile-rounds rounds-row'>" + "<td class='large-field'>" + roundsObject[i].date_played + "</td><td class='huge-field'>" + roundsObject[i].course + "</td><td class='small-field'>" + roundsObject[i].rating + "</td><td class='small-field'>" + roundsObject[i].slope + "</td><td class='small-field'>" + roundsObject[i].par + "</td><td class='small-field'>" + roundsObject[i].score + "</td></tr>").prependTo('.previous-rounds');
 	  }
@@ -634,20 +578,15 @@ webpackJsonp([0],[
 	};
 
 	var addMaxRound = function addMaxRound(data) {
-	  // console.log('addMaxRound fired');
 	  var newRoundObject = data;
 	  $('.previous-rounds').prepend("<tr class='profile-rounds'><td>" + newRoundObject.date_played + "</td><td>" + newRoundObject.course + "</td><td>" + newRoundObject.rating + "</td><td>" + newRoundObject.slope + "</td><td>" + newRoundObject.par + "</td><td>" + newRoundObject.score + "</td></tr>");
 	  $('.profile-rounds').last().remove();
-	  // console.log('deleted', $('.profile-rounds').last());
 	};
 
 	// ON SUBMISSION OF VALID ROUND
 	var createMaxRoundSuccess = function createMaxRoundSuccess(data) {
-	  //Console
-	  // console.log('create round success run');
 	  app.round = data.round;
 	  app.profile.rounds[app.profile.rounds.length] = data.round;
-	  // console.log(app.profile.rounds);
 	  hideAddRoundField();
 	  setTimeout(function () {
 	    addMaxRound(app.round);
@@ -661,18 +600,13 @@ webpackJsonp([0],[
 
 	// ON SUBMISSION OF VALID ROUND
 	var createRoundSuccess = function createRoundSuccess(data) {
-	  //Console
-	  // console.log('create round success run');
 	  app.round = data.round;
-	  // app.profile.rounds[app.profile.rounds.length] = data.round;
 	  app.profile.rounds.push(data.round);
-	  // console.log(app.profile.rounds);
 	  if (app.profile.rounds.length === 15) {
 	    $('.previous-rounds').wrap("div class='previous-rounds-table'></div>");
 	  }
 
 	  hideAddRoundField();
-	  // setTimeout(function(){addRound(app.round);}, 250);
 	  setTimeout(function () {
 	    clearRounds();
 	  }, 200);
@@ -682,28 +616,20 @@ webpackJsonp([0],[
 	};
 
 	var createRoundFailure = function createRoundFailure(error) {
-	  //Add error message
-	  console.log('Create round error is', error);
 	  return error;
 	};
 
+	// ADD BACK AT LATER DATE ONCE FIGURED OUT
 	//
-	// DELETION OF ROUNDS FUNCTIONS
+	// DELETE ROUNDS FUNCTION
+	// const deleteLastRoundSuccess = function () {
+	//   // TODO Change to make
+	//   // Don't fade entire dash, just the table components
+	//   $('.dashboard', 'h1').fadeOut(200);
 	//
-	var deleteRoundSuccess = function deleteRoundSuccess() {
-	  console.log('delete round successful');
-	};
-
-	var deleteLastRoundSuccess = function deleteLastRoundSuccess() {
-	  // TODO Change to make
-	  // Don't fade entire dash, just the table components
-	  $('.dashboard', 'h1').fadeOut(200);
-
-	  $('.profile-rounds').first().remove();
-	  setTimeout(function () {
-	    $('.dashboard').fadeIn(200);
-	  }, 300);
-	};
+	//   $('.profile-rounds').first().remove();
+	//   setTimeout(function(){$('.dashboard').fadeIn(200);}, 300);
+	// };
 
 	module.exports = {
 	  showAddRoundField: showAddRoundField,
@@ -713,9 +639,7 @@ webpackJsonp([0],[
 	  addRound: addRound,
 	  createRoundFailure: createRoundFailure,
 	  initialRoundsPopulation: initialRoundsPopulation,
-	  clearRounds: clearRounds,
-	  deleteRoundSuccess: deleteRoundSuccess,
-	  deleteLastRoundSuccess: deleteLastRoundSuccess
+	  clearRounds: clearRounds
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -738,7 +662,6 @@ webpackJsonp([0],[
 	  var index = event.data.index;
 	  var data = app.user.profiles[index];
 	  ui.selectProfileSuccess(data);
-	  console.log('rounds to begin are', app.profile.rounds);
 	};
 
 	var onNewProfileClick = function onNewProfileClick() {
@@ -822,7 +745,6 @@ webpackJsonp([0],[
 	  $('#edit-profile-btn').on('click', onEditProfileButtonClick);
 	  $('.update-profile').on('submit', onUpdateProfileSubmit);
 
-	  // how to get id of button sent as parameter?
 	  // Profile buttons
 	  $('#0').on('click', { index: 0 }, onProfileSelection);
 	  $('#1').on('click', { index: 1 }, onProfileSelection);
@@ -926,9 +848,7 @@ webpackJsonp([0],[
 
 	var getFormFields = __webpack_require__(5);
 	var api = __webpack_require__(14);
-	// const profileAPI = require('../profile/api');
 	var ui = __webpack_require__(10);
-	// const profileUI = require('../profile/ui');
 	var app = __webpack_require__(7);
 
 	var onAddRoundClick = function onAddRoundClick() {
@@ -944,69 +864,29 @@ webpackJsonp([0],[
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
 	  data.profile_id = app.profile.id;
-
-	  // if (app.profile.rounds.length < 14) {
-	  // console.log('fewer than 15 rounds');
 	  api.createRound(data).done(ui.createRoundSuccess).fail(ui.createRoundFailure);
-	  setTimeout(function () {
-	    console.log('rounds are now', app.profile.rounds);
-	  }, 100);
-	  return;
-	  // }
-	  // else {
-	  //   // console.log('more than 15 rounds');
-	  //   api.createRound(data)
-	  //     .done(ui.createMaxRoundSuccess)
-	  //     .fail(ui.createRoundFailure);
-	  //     setTimeout(function(){console.log('rounds are now', app.profile.rounds);}, 500);
-	  // }
-	};
-	//
-
-	// I don't think data is necessary as an argument.
-	var onViewRoundsClick = function onViewRoundsClick(data) {
-	  data = app.profile.rounds;
-	  ui.initialRoundsPopulation(data);
-	};
-	//
-
-	// PRESS DELETE LAST ROUND BUTTON
-	// Current BUG:
-	// - Issue when deleting round after creating rounds.
-	// - Deletes round at top of table before creating rounds
-	// - Newest round added to end of array when next 'newest' round is the 0th index
-	// Options:
-	// - Do not flip array ever, just find out how to print array correctly
-	// - Use .unshift() method to put new round in beginning of array
-	// - Flip array back to order matching API before adding new round.
-
-	var onDeleteLastRound = function onDeleteLastRound() {
-	  var roundID = void 0;
-	  if (app.profile.rounds[0] === undefined) {
-	    return;
-	  } else if (app.profile.rounds.length === 1) {
-	    roundID = app.profile.rounds[0].id;
-	  } else {
-	    roundID = app.profile.rounds.pop().id;
-	  }
-	  api.destroyRound(roundID).done(ui.deleteRoundSuccess);
-	  ui.deleteLastRoundSuccess();
-	  setTimeout(function () {
-	    console.log('rounds are now', app.profile.rounds);
-	  }, 500);
 	};
 
-	// const logRounds = function () {
-	//   console.log('rounds are', app.profile.rounds);
+	// const onDeleteLastRound = function () {
+	//   let roundID;
+	//   if (app.profile.rounds[0] === undefined) {
+	//     return;
+	//   }
+	//   else if (app.profile.rounds.length === 1) {
+	//     roundID = app.profile.rounds[0].id;
+	//   } else {
+	//     roundID = app.profile.rounds.pop().id;
+	//   }
+	//   api.destroyRound(roundID)
+	//     .done(ui.deleteRoundSuccess);
+	//   ui.deleteLastRoundSuccess();
 	// };
 
 	var addHandlers = function addHandlers() {
 	  $('.add').on('click', onAddRoundClick);
 	  $('.cancel').on('click', onCancelAddRoundClick);
 	  $('#add-round').on('submit', onSubmitRound);
-	  $('#view-rounds').on('click', onViewRoundsClick);
-	  $('#delete-last-round').on('click', onDeleteLastRound);
-	  // $('#edit-profile-btn').on('click', logRounds);
+	  // $('#delete-last-round').on('click', onDeleteLastRound);
 	};
 
 	module.exports = {
@@ -1044,8 +924,6 @@ webpackJsonp([0],[
 	};
 
 	var destroyRound = function destroyRound(id) {
-	  // below seems unnecessary
-	  // let roundID = id;
 	  return $.ajax({
 	    url: app.host + '/rounds/' + id,
 	    method: 'DELETE',
