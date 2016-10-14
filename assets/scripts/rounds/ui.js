@@ -1,7 +1,6 @@
 'use strict';
 
 const app = require('../app');
-// const showRoundsTemplate = require('../templates/round-showing.handlebars');
 
 //SHOW AND HIDE FOR ADDING ROUNDS
 const showAddRoundField = function () {
@@ -27,11 +26,7 @@ const roundsToObject = function () {
 const initialRoundsPopulation = function () {
   let roundsObject = roundsToObject();
   let max;
-  // TODO fix this
-  // if (app.profile.rounds.length < 15) {
     max = app.profile.rounds.length;
-  // } else {
-  //   max = 15;}
   for (let i = 0; i < max; i++) {
     $("<tr class='profile-rounds rounds-row'>"+
               "<td class='large-field'>"+roundsObject[i].date_played+
@@ -50,7 +45,6 @@ const clearRounds = function () {
 };
 
 const addMaxRound = function (data) {
-  // console.log('addMaxRound fired');
   let newRoundObject = data;
   $('.previous-rounds')
     .prepend("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
@@ -61,16 +55,12 @@ const addMaxRound = function (data) {
             "</td><td>"+newRoundObject.score+
             "</td></tr>");
   $('.profile-rounds').last().remove();
-  // console.log('deleted', $('.profile-rounds').last());
 };
 
 // ON SUBMISSION OF VALID ROUND
 const createMaxRoundSuccess = function (data) {
-  //Console
-  // console.log('create round success run');
   app.round = data.round;
   app.profile.rounds[app.profile.rounds.length] = data.round;
-  // console.log(app.profile.rounds);
   hideAddRoundField();
   setTimeout(function(){addMaxRound(app.round);}, 250);
 };
@@ -88,25 +78,18 @@ const addRound = function (data) {
 
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
-  //Console
-  // console.log('create round success run');
   app.round = data.round;
-  // app.profile.rounds[app.profile.rounds.length] = data.round;
   app.profile.rounds.push(data.round);
-  // console.log(app.profile.rounds);
   if (app.profile.rounds.length === 15) {
     $('.previous-rounds').wrap("div class='previous-rounds-table'></div>");
   }
 
   hideAddRoundField();
-  // setTimeout(function(){addRound(app.round);}, 250);
   setTimeout(function(){clearRounds();}, 200);
   setTimeout(function(){initialRoundsPopulation();}, 250);
 };
 
 const createRoundFailure = function (error) {
-  //Add error message
-  console.log('Create round error is', error);
   return error;
 };
 

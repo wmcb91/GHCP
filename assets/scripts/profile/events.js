@@ -100,7 +100,6 @@ const addHandlers = function() {
   $('.update-profile').on('submit', onUpdateProfileSubmit);
 
 
-  // how to get id of button sent as parameter?
   // Profile buttons
   $('#0').on('click', {index: 0}, onProfileSelection);
   $('#1').on('click', {index: 1}, onProfileSelection);

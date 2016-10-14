@@ -70,7 +70,6 @@ const showSignUpModal = function() {
 };
 
 const updateUserProfiles = function (data) {
-  // console.log('app.user.profiles before setting is', app.user.profiles);
   app.user.profiles = data.user.profiles;
 };
 
