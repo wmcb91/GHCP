@@ -13,7 +13,6 @@ const onProfileSelection = function (event) {
   let index = event.data.index;
   let data = app.user.profiles[index];
   ui.selectProfileSuccess(data);
-  console.log('rounds to begin are', app.profile.rounds);
 };
 
 const onNewProfileClick = function () {
@@ -100,7 +99,6 @@ const addHandlers = function() {
   $('.update-profile').on('submit', onUpdateProfileSubmit);
 
 
-  // how to get id of button sent as parameter?
   // Profile buttons
   $('#0').on('click', {index: 0}, onProfileSelection);
   $('#1').on('click', {index: 1}, onProfileSelection);

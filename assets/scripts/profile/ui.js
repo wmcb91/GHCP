@@ -13,8 +13,6 @@ const profilesToObject = function() {
 
 const populateProfiles = function() {
   let profilesObject = profilesToObject();
-  //switch show to toggle
-  // Should not use for loop, oh well...
   for (let i = 0; i < app.user.profiles.length; i++) {
     $('#'+i)
       .html(
@@ -44,22 +42,18 @@ const clearProfiles = function() {
   $('.profile-button').hide();
 };
 
-// CALLED BY ONPROFILE SELECTION
 // SETS APP.PROFILE and CHANGES UI
 const selectProfileSuccess = function(data) {
-  // TODO Change to make
-  // If statement where below only fires if selected index != current index
-  // If you click your own profile, the modal just gets hidden
   app.profile = data;
   $('#chooseProfileModal').modal('hide');
   $('#changeProfileModal').modal('hide');
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
   // Trigger initialRoundsPopulation
-  $('.dashboard').fadeOut(400);
-  setTimeout(function(){roundsUI.clearRounds();}, 410);
-  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
-  setTimeout(function(){$('.dashboard').fadeIn(400);}, 500);
+  $('.dashboard').fadeOut(250);
+  setTimeout(function(){roundsUI.clearRounds();}, 260);
+  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 270);
+  setTimeout(function(){$('.dashboard').fadeIn(250);}, 300);
 };
 
 
@@ -70,12 +64,10 @@ const showChangeProfile = function() {
 };
 
 const showCreateProfile = function() {
-// CHANGE TO JUST ONE MODAL with different DIVS
   $('.create-profile').hide();
   $('.choose-profile-modal').hide();
   $('.create-profile').show();
   setTimeout(function(){$('.create-profile-modal').fadeIn(300);}, 10);
-
 };
 
 const showChooseProfile = function() {
@@ -91,7 +83,7 @@ const backClickSuccess = function() {
 
 
 const createProfileSuccess = function(data) {
-  //update app.profile to be current profile
+  // Update app.profile to be current profile
   app.profile = data.profile;
   // Show welcome function here
   $('.create-profile').hide();
@@ -102,26 +94,14 @@ const createProfileSuccess = function(data) {
   $('#user-welcome').show();
   $('#user-name-welcome').html(app.profile.given_name);
 
-  //Create message about adding rounds and trigger it
-
   //Show user's dashboard
-  $('.dashboard').fadeOut(400);
-  setTimeout(function(){roundsUI.clearRounds();}, 410);
-  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 410);
-  setTimeout(function(){$('.dashboard').fadeIn(500);}, 500);
-
-
-  // roundsUI.clearRounds();
-  // roundsUI.initialRoundsPopulation();
-  // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
-
-// debug
-  // console.log('App.profile is', app.profile);
+  $('.dashboard').fadeOut(250);
+  setTimeout(function(){roundsUI.clearRounds();}, 260);
+  setTimeout(function(){roundsUI.initialRoundsPopulation();}, 270);
+  setTimeout(function(){$('.dashboard').fadeIn(250);}, 300);
 };
 
 const createProfileFailure = function(error) {
-  // create error message for UI
-  console.log('Create profile error is', error);
   return error;
 };
 
@@ -138,20 +118,11 @@ const deleteProfileSuccess = function() {
   $('#user-welcome').fadeOut(300);
   $('#user-name-welcome').html('');
   setTimeout(function(){$('.dashboard').fadeOut(500);}, 300);
-  // setTimeout(function(){$('#chooseProfileModal').modal('show');}, 750);
 };
 
 const deleteProfileFailure = function(error) {
-  console.log('deleteProfile error is', error);
+  return error;
 };
-
-// Move this and other 'updates' out of UI directories
-// const updateProfile = function (data) {
-//   console.log('data is', data);
-//   console.log('app.profile before setting is', app.profile);
-//   app.profile = data.profile;
-//   console.log('app.profile after setting is', app.profile);
-// };
 
 const showEditProfile = function() {
   $('#editProfileModal').modal('show');
@@ -164,7 +135,7 @@ const updateProfileSuccess = function() {
 };
 
 const updateProfileFailure = function(error) {
-  console.log('update profile error is', error);
+  return error;
 };
 
 module.exports = {
@@ -184,5 +155,4 @@ module.exports = {
   showEditProfile,
   updateProfileSuccess,
   updateProfileFailure,
-  // updateProfile,
 };

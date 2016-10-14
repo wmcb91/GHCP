@@ -24,8 +24,6 @@ const createRound = function (data) {
 };
 
 const destroyRound = function (id) {
-  // below seems unnecessary
-  // let roundID = id;
   return $.ajax({
     url: app.host + '/rounds/' + id,
     method: 'DELETE',

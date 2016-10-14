@@ -1,8 +1,6 @@
 'use strict';
 
 const app = require('../app');
-// const roundsAPI = require('../rounds/api');
-// const roundsUI = require('../rounds/ui');
 
 //SIGN UP
 const signUpSuccess = () => {
@@ -14,23 +12,6 @@ const signUpFailure = (error) => {
   // create warning message
   return error;
 };
-
-
-// const hasNoProfiles = function () {
-//   setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
-// };
-
-// const hasOneProfile = function () {
-//   app.profile = app.user.profiles[0];
-//   $('#user-welcome').fadeIn(100);
-//   $('#user-name-welcome').html(app.profile.given_name);
-//   roundsUI.initialRoundsPopulation(app.profile.rounds);
-//   setTimeout(function(){$('.dashboard').fadeIn(100);}, 100);
-// };
-//
-// const hasManyProfiles = function () {
-//
-// };
 
 //
 //SIGN IN
@@ -60,7 +41,6 @@ const signOutSuccess = () => {
 };
 
 const signOutFailure = (error) => {
-  // console.error(error);
   return error;
 };
 
@@ -75,11 +55,9 @@ const showChangePassword = function () {
 const changePasswordSuccess = () => {
   $('#change-password').hide();
   $('#pwd-change-msg').show();
-  // console.log('Password Successfully Changed');
 };
 
 const changePasswordFailure = (error) => {
-  // console.error(error);
   return error;
 };
 
@@ -90,7 +68,6 @@ const showSignUpModal = function() {
 };
 
 const updateUserProfiles = function (data) {
-  // console.log('app.user.profiles before setting is', app.user.profiles);
   app.user.profiles = data.user.profiles;
 };
 
