@@ -94,7 +94,6 @@ const createRoundFailure = function (error) {
 };
 
 
-
 // ADD BACK AT LATER DATE ONCE FIGURED OUT
 //
 // DELETE ROUNDS FUNCTION
