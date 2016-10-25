@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const profileAPI = require('../profile/api');
 const ui = require('./ui');
+const calculations = require('./handicap_calculations');
 const app = require('../app');
 
 const onAddRoundClick = function () {
@@ -25,10 +26,12 @@ const getProfileRounds = () => {
 const onSubmitRound = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
+  data.differential = calculations.calculateDifferential(data);
   data.profile_id = app.profile.id;
   api.createRound(data)
     .done(getProfileRounds)
     .fail(ui.createRoundFailure);
+
   // api.createRound(data)
   //   .done(ui.createRoundSuccess)
   //   .fail(ui.createRoundFailure);
