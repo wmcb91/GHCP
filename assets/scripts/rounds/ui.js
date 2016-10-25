@@ -16,14 +16,14 @@ const hideAddRoundField = function () {
 };
 
 const roundsToObject = function () {
-  let reverseRoundsObject = app.profile.rounds.reduce(function(o, v, i) {
+  let roundsObject = app.profile.rounds.reduce(function(o, v, i) {
     o[i] = v;
     return o;
   }, {});
-  return reverseRoundsObject;
+  return roundsObject;
 };
 
-const initialRoundsPopulation = function () {
+const populateRounds = function () {
   let roundsObject = roundsToObject();
   let max;
     max = app.profile.rounds.length;
@@ -86,7 +86,7 @@ const createRoundSuccess = function (data) {
 
   hideAddRoundField();
   setTimeout(function(){clearRounds();}, 200);
-  setTimeout(function(){initialRoundsPopulation();}, 250);
+  setTimeout(function(){populateRounds();}, 250);
 };
 
 const createRoundFailure = function (error) {
@@ -114,7 +114,7 @@ module.exports = {
   createRoundSuccess,
   addRound,
   createRoundFailure,
-  initialRoundsPopulation,
+  populateRounds,
   clearRounds,
   // deleteLastRoundSuccess,
 };
