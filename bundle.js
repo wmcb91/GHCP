@@ -287,6 +287,25 @@ webpackJsonp([0],[
 	  return error;
 	};
 
+<<<<<<< HEAD
+=======
+	// const hasNoProfiles = function () {
+	//   setTimeout(function(){$('#chooseProfileModal').modal('show');}, 200);
+	// };
+
+	// const hasOneProfile = function () {
+	//   app.profile = app.user.profiles[0];
+	//   $('#user-welcome').fadeIn(100);
+	//   $('#user-name-welcome').html(app.profile.given_name);
+	//   roundsUI.populateRounds(app.profile.rounds);
+	//   setTimeout(function(){$('.dashboard').fadeIn(100);}, 100);
+	// };
+	//
+	// const hasManyProfiles = function () {
+	//
+	// };
+
+>>>>>>> master
 	//
 	//SIGN IN
 	var signInSuccess = function signInSuccess(data) {
@@ -402,14 +421,24 @@ webpackJsonp([0],[
 	  $('#changeProfileModal').modal('hide');
 	  $('#user-welcome').show();
 	  $('#user-name-welcome').html(app.profile.given_name);
+<<<<<<< HEAD
 	  // Trigger initialRoundsPopulation
 	  $('.dashboard').fadeOut(250);
+=======
+	  // Trigger populateRounds
+	  $('.dashboard').fadeOut(400);
+>>>>>>> master
 	  setTimeout(function () {
 	    roundsUI.clearRounds();
 	  }, 260);
 	  setTimeout(function () {
+<<<<<<< HEAD
 	    roundsUI.initialRoundsPopulation();
 	  }, 270);
+=======
+	    roundsUI.populateRounds();
+	  }, 410);
+>>>>>>> master
 	  setTimeout(function () {
 	    $('.dashboard').fadeIn(250);
 	  }, 300);
@@ -467,11 +496,26 @@ webpackJsonp([0],[
 	    roundsUI.clearRounds();
 	  }, 260);
 	  setTimeout(function () {
+<<<<<<< HEAD
 	    roundsUI.initialRoundsPopulation();
 	  }, 270);
 	  setTimeout(function () {
 	    $('.dashboard').fadeIn(250);
 	  }, 300);
+=======
+	    roundsUI.populateRounds();
+	  }, 410);
+	  setTimeout(function () {
+	    $('.dashboard').fadeIn(500);
+	  }, 500);
+
+	  // roundsUI.clearRounds();
+	  // roundsUI.populateRounds();
+	  // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
+
+	  // debug
+	  // console.log('App.profile is', app.profile);
+>>>>>>> master
 	};
 
 	var createProfileFailure = function createProfileFailure(error) {
@@ -564,12 +608,20 @@ webpackJsonp([0],[
 	  return reverseRoundsObject;
 	};
 
+<<<<<<< HEAD
 	var initialRoundsPopulation = function initialRoundsPopulation() {
 	  var roundsObject = roundsToObject();
 	  var max = void 0;
 	  max = app.profile.rounds.length;
 	  for (var i = 0; i < max; i++) {
 	    $("<tr class='profile-rounds rounds-row'>" + "<td class='large-field'>" + roundsObject[i].date_played + "</td><td class='huge-field'>" + roundsObject[i].course + "</td><td class='small-field'>" + roundsObject[i].rating + "</td><td class='small-field'>" + roundsObject[i].slope + "</td><td class='small-field'>" + roundsObject[i].par + "</td><td class='small-field'>" + roundsObject[i].score + "</td></tr>").prependTo('.previous-rounds');
+=======
+	var populateRounds = function populateRounds() {
+	  var reverseRoundsObject = reverseRoundsToObject();
+	  for (var i = 0; i < 15; i++) {
+	    // for (let i = 15; i > 0; i--) {
+	    $('.width-setter').before("<tr class='profile-rounds'><td>" + reverseRoundsObject[i].date_played + "</td><td>" + reverseRoundsObject[i].course + "</td><td>" + reverseRoundsObject[i].rating + "</td><td>" + reverseRoundsObject[i].slope + "</td><td>" + reverseRoundsObject[i].par + "</td><td>" + reverseRoundsObject[i].score + "</td></tr>");
+>>>>>>> master
 	  }
 	};
 
@@ -638,7 +690,7 @@ webpackJsonp([0],[
 	  createRoundSuccess: createRoundSuccess,
 	  addRound: addRound,
 	  createRoundFailure: createRoundFailure,
-	  initialRoundsPopulation: initialRoundsPopulation,
+	  populateRounds: populateRounds,
 	  clearRounds: clearRounds
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
@@ -864,6 +916,7 @@ webpackJsonp([0],[
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
 	  data.profile_id = app.profile.id;
+<<<<<<< HEAD
 	  api.createRound(data).done(ui.createRoundSuccess).fail(ui.createRoundFailure);
 	};
 
@@ -881,6 +934,23 @@ webpackJsonp([0],[
 	//     .done(ui.deleteRoundSuccess);
 	//   ui.deleteLastRoundSuccess();
 	// };
+=======
+
+	  if (app.profile.rounds.length < 15) {
+	    console.log('fewer than 15 rounds');
+	    api.createRound(data).done(ui.createRoundSuccess).fail(ui.createRoundFailure);
+	    return;
+	  } else {
+	    console.log('more than 15 rounds');
+	    api.createRound(data).done(ui.createMaxRoundSuccess).fail(ui.createRoundFailure);
+	  }
+	};
+
+	var onViewRoundsClick = function onViewRoundsClick(data) {
+	  data = app.profile.rounds;
+	  ui.populateRounds(data);
+	};
+>>>>>>> master
 
 	var addHandlers = function addHandlers() {
 	  $('.add').on('click', onAddRoundClick);
