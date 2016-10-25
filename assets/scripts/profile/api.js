@@ -14,6 +14,7 @@ const index = function() {
 };
 
 const showProfile = function (id) {
+  console.log('in show profile');
   return $.ajax({
     url: app.host + '/profiles/' + id,
     method: 'GET',
