@@ -299,7 +299,7 @@ webpackJsonp([0],[
 	//   app.profile = app.user.profiles[0];
 	//   $('#user-welcome').fadeIn(100);
 	//   $('#user-name-welcome').html(app.profile.given_name);
-	//   roundsUI.initialRoundsPopulation(app.profile.rounds);
+	//   roundsUI.populateRounds(app.profile.rounds);
 	//   setTimeout(function(){$('.dashboard').fadeIn(100);}, 100);
 	// };
 	//
@@ -428,13 +428,13 @@ webpackJsonp([0],[
 	  $('#changeProfileModal').modal('hide');
 	  $('#user-welcome').show();
 	  $('#user-name-welcome').html(app.profile.given_name);
-	  // Trigger initialRoundsPopulation
+	  // Trigger populateRounds
 	  $('.dashboard').fadeOut(400);
 	  setTimeout(function () {
 	    roundsUI.clearRounds();
 	  }, 410);
 	  setTimeout(function () {
-	    roundsUI.initialRoundsPopulation();
+	    roundsUI.populateRounds();
 	  }, 410);
 	  setTimeout(function () {
 	    $('.dashboard').fadeIn(400);
@@ -496,14 +496,14 @@ webpackJsonp([0],[
 	    roundsUI.clearRounds();
 	  }, 410);
 	  setTimeout(function () {
-	    roundsUI.initialRoundsPopulation();
+	    roundsUI.populateRounds();
 	  }, 410);
 	  setTimeout(function () {
 	    $('.dashboard').fadeIn(500);
 	  }, 500);
 
 	  // roundsUI.clearRounds();
-	  // roundsUI.initialRoundsPopulation();
+	  // roundsUI.populateRounds();
 	  // setTimeout(function(){$('.dashboard').fadeIn(500);}, 2150);
 
 	  // debug
@@ -585,7 +585,7 @@ webpackJsonp([0],[
 	  return reverseRoundsObject;
 	};
 
-	var initialRoundsPopulation = function initialRoundsPopulation() {
+	var populateRounds = function populateRounds() {
 	  var reverseRoundsObject = reverseRoundsToObject();
 	  for (var i = 0; i < 15; i++) {
 	    // for (let i = 15; i > 0; i--) {
@@ -648,7 +648,7 @@ webpackJsonp([0],[
 	  createRoundSuccess: createRoundSuccess,
 	  addRound: addRound,
 	  createRoundFailure: createRoundFailure,
-	  initialRoundsPopulation: initialRoundsPopulation,
+	  populateRounds: populateRounds,
 	  clearRounds: clearRounds
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
@@ -851,7 +851,7 @@ webpackJsonp([0],[
 
 	var onViewRoundsClick = function onViewRoundsClick(data) {
 	  data = app.profile.rounds;
-	  ui.initialRoundsPopulation(data);
+	  ui.populateRounds(data);
 	};
 
 	var addHandlers = function addHandlers() {
