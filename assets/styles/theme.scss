@@ -12,16 +12,16 @@ $small-field-width: 71px;
 // }
 
 hr {
-  border: 1px solid $black;
+  border: 1.5px solid $near-black;
 }
 
 .main {
-  background-image: url('./Header_Golf_1.jpg');
+  background-image: url('../images/Header_Golf_1.jpg');
   background-repeat: no-repeat;
   background-size: 140%;
-  border: 1px solid $black;
-  height: 40vw * 1.085;
-  position: static;
+  height: 100vh;
+  // left: 500px;
+  // position: static;
 }
 
 //Change hover icon from highlight bar to mouse or finger for anchors

@@ -4,12 +4,6 @@
 
 $tiny-font: 12.2vw;
 
-html {
-  @include breakpoint(large) {
-    height: 470px;
-  }
-}
-
 .title {
   @include breakpoint(tiny) {
     font-size: $tiny-font;
@@ -41,6 +35,43 @@ html {
     margin-left: 4px;
   }
 }
+
+
+.main {
+  @include breakpoint(tiny) {
+    background-image: url('../images/mobile-img.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  @include breakpoint(x-small) {
+    background-image: url('../images/mobile-img.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  @include breakpoint(small) {
+    background-image: url('../images/background-2.jpg');
+    background-repeat: no-repeat;
+    background-size: 110%;
+  }
+
+  @include breakpoint(medium) {
+    background-image: url('../images/background-2.jpg');
+    background-repeat: no-repeat;
+    background-size: 115%;
+    height: 100vh;
+  }
+
+  @include breakpoint(large) {
+    background-image: url('../images/Header_Golf_1.jpg');
+    background-repeat: no-repeat;
+    background-size: 140%;
+  }
+}
+
+
+
 
 .credit {
   @include breakpoint(tiny) {
