@@ -40,13 +40,37 @@ $tiny-font: 12.2vw;
 
 .main {
   @include breakpoint(tiny) {
-    background-image: url('../images/mobile-img.jpg');
+    background-image: url('../images/mobile-img3.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
   }
 
   @include breakpoint(x-small) {
-    background-image: url('../images/mobile-img.jpg');
+    background-image: url('../images/mobile-img2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  @include iphone5(portrait) {
+    background-image: url('../images/mobile-img3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  @include iphone6(portrait) {
+    background-image: url('../images/mobile-img3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  @include iphone5(landscape) {
+    background-image: url('../images/mobile-img3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  @include iphone6(landscape) {
+    background-image: url('../images/mobile-img3.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
   }
