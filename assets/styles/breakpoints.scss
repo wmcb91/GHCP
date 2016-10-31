@@ -1,3 +1,4 @@
+@import 'media-queries';
 @import 'breakpoint';
 @import 'layout';
 @import 'typography';
@@ -60,7 +61,6 @@ $tiny-font: 12.2vw;
     background-image: url('../images/background-2.jpg');
     background-repeat: no-repeat;
     background-size: 115%;
-    height: 100vh;
   }
 
   @include breakpoint(large) {
