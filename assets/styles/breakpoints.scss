@@ -40,61 +40,50 @@ $tiny-font: 12.2vw;
 
 .main {
   @include breakpoint(tiny) {
-    background-image: url('../images/mobile-img3.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url('../images/mobile-img2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   @include breakpoint(x-small) {
-    background-image: url('../images/mobile-img2.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
-
-  @include iphone5(portrait) {
-    background-image: url('../images/mobile-img3.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
-
-  @include iphone6(portrait) {
-    background-image: url('../images/mobile-img3.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
-
-  @include iphone5(landscape) {
-    background-image: url('../images/mobile-img3.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
-
-  @include iphone6(landscape) {
-    background-image: url('../images/mobile-img3.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url('../images/mobile-img4.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   @include breakpoint(small) {
-    background-image: url('../images/background-2.jpg');
-    background-repeat: no-repeat;
-    background-size: 110%;
+    background: url('../images/mobile-img4.jpg') no-repeat center center fixed;
+    // background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   @include breakpoint(medium) {
-    background-image: url('../images/background-2.jpg');
+    background: url('../images/background-2.jpg') no-repeat center center fixed;
     background-repeat: no-repeat;
-    background-size: 115%;
+    // background-size: 115%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   @include breakpoint(large) {
-    background-image: url('../images/Header_Golf_1.jpg');
+    background: url('../images/Header_Golf_1.jpg') no-repeat center center fixed;
     background-repeat: no-repeat;
-    background-size: 140%;
+    // background-size: 140%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 }
-
-
 
 
 .credit {
