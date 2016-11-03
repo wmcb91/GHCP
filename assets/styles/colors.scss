@@ -1,5 +1,6 @@
 $white: #fff;
 $black: #000;
+$near-black: #323232;
 $off-white: #fefefe;
 $grey: #e5e5e5;
 $charcoal: #4e4e4e;
@@ -15,4 +16,8 @@ $grass: #5c8e05;
 
 @function shade($color, $percentage) {
   @return mix($black, $color, $percentage);
+}
+
+body {
+  background-color: $off-white;
 }

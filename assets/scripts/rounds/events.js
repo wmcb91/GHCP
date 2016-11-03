@@ -2,7 +2,9 @@
 
 const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
+const profileAPI = require('../profile/api');
 const ui = require('./ui');
+const calculations = require('./handicap_calculations');
 const app = require('../app');
 
 const onAddRoundClick = function () {
@@ -13,15 +15,29 @@ const onCancelAddRoundClick = function () {
   ui.hideAddRoundField();
 };
 
+
+const getProfileRounds = () => {
+  profileAPI.showProfile(app.profile.id)
+    .done(ui.createRoundSuccess)
+    .fail(ui.createRoundFailure);
+};
+
 //PRESS SUBMIT BUTTON AFTER ENTERING ROUND DATA
 const onSubmitRound = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
+  data.differential = calculations.calculateDifferential(data);
   data.profile_id = app.profile.id;
   api.createRound(data)
-    .done(ui.createRoundSuccess)
+    .done(getProfileRounds)
     .fail(ui.createRoundFailure);
+
+  // api.createRound(data)
+  //   .done(ui.createRoundSuccess)
+  //   .fail(ui.createRoundFailure);
 };
+
+
 
 // const onDeleteLastRound = function () {
 //   let roundID;

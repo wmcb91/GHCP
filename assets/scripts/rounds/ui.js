@@ -23,6 +23,23 @@ const roundsToObject = function () {
   return roundsObject;
 };
 
+// const populateRounds = function () {
+//   let roundsObject = roundsToObject();
+//   let max;
+//     max = app.profile.rounds.length;
+//   for (let i = 0; i < max; i++) {
+//     $("<tr class='profile-rounds rounds-row'>"+
+//               "<td class='large-field'>"+roundsObject[i].date_played+
+//               "</td><td class='huge-field'>"+roundsObject[i].course+
+//               "</td><td class='small-field'>"+roundsObject[i].rating+
+//               "</td><td class='small-field'>"+roundsObject[i].slope+
+//               "</td><td class='small-field'>"+roundsObject[i].par+
+//               "</td><td class='small-field'>"+roundsObject[i].score+
+//               "</td></tr>")
+//               .prependTo('.previous-rounds');
+//     }
+// };
+
 const populateRounds = function () {
   let roundsObject = roundsToObject();
   let max;
@@ -36,7 +53,7 @@ const populateRounds = function () {
               "</td><td class='small-field'>"+roundsObject[i].par+
               "</td><td class='small-field'>"+roundsObject[i].score+
               "</td></tr>")
-              .prependTo('.previous-rounds');
+              .appendTo('.previous-rounds');
     }
 };
 
@@ -78,11 +95,13 @@ const addRound = function (data) {
 
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
-  app.round = data.round;
-  app.profile.rounds.push(data.round);
-  if (app.profile.rounds.length === 15) {
-    $('.previous-rounds').wrap("div class='previous-rounds-table'></div>");
-  }
+  console.log('data returned is', data);
+  app.profile = data.profile;
+  // app.round = data.round;
+  // app.profile.rounds.push(data.round);
+  // if (app.profile.rounds.length === 15) {
+  //   $('.previous-rounds').wrap("div class='previous-rounds-table'></div>");
+  // }
 
   hideAddRoundField();
   setTimeout(function(){clearRounds();}, 200);
@@ -92,7 +111,6 @@ const createRoundSuccess = function (data) {
 const createRoundFailure = function (error) {
   return error;
 };
-
 
 
 // ADD BACK AT LATER DATE ONCE FIGURED OUT
