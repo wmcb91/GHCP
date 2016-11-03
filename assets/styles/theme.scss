@@ -3,7 +3,7 @@
 $background-color: $off-white;
 // $font-color: $charcoal;
 $huge-field-width: 221px;
-$large-field-width: 141px;
+$large-field-width: 142px;
 $medium-field-width: 111px;
 $small-field-width: 71px;
 
@@ -151,7 +151,11 @@ input {
 .date-played {
   font-size: .6em;
   margin-left: -.25pt;
-  width: $large-field-width * 1.005;
+  width: $medium-field-width;
+}
+
+.adding-round {
+  width: $large-field-width;
 }
 
 .course {
@@ -176,6 +180,10 @@ input {
 }
 
 .add-round {
+  // input[type=date]::-webkit-inner-spin-button {
+  //     -webkit-appearance: none;
+  //     display: none;
+  // }
   margin: 1px 0;
 }
 
@@ -202,6 +210,8 @@ td {
   margin: 1px 20px 1px 0;
   padding: 1px 3px 1px 4px;
 }
+
+
 
 // Styling for profile buttons
 // .profile-button {
