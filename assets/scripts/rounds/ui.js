@@ -40,7 +40,7 @@ const populateRounds = function () {
               "</td><td class='small-field'>"+roundsObject[i].slope+
               "</td><td class='small-field'>"+roundsObject[i].par+
               "</td><td class='small-field'>"+roundsObject[i].score+
-              "</td><td class='small-field'>"+roundsObject[i].differential+
+              // "</td><td class='small-field'>"+roundsObject[i].differential+
               "</td></tr>")
               .appendTo('.previous-rounds');
     }

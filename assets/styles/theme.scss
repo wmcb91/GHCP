@@ -3,9 +3,9 @@
 $background-color: $off-white;
 // $font-color: $charcoal;
 $huge-field-width: 221px;
-$large-field-width: 134px;
+$large-field-width: 126px;
 $medium-field-width: 111px;
-$small-field-width: 71px;
+$small-field-width: 64px;
 
 // body {
 //   color: $font-color;
@@ -174,11 +174,12 @@ input {
 }
 
 .add-round {
-  // input[type=date]::-webkit-inner-spin-button {
-  //     -webkit-appearance: none;
-  //     display: none;
-  // }
   margin: 1px 0;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
 }
 
 .submit-round {
