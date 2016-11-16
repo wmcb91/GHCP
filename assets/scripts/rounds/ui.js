@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app');
+const handicap = require('./handicap-calculations')
 
 //SHOW AND HIDE FOR ADDING ROUNDS
 const showAddRoundField = function () {
@@ -39,9 +40,13 @@ const populateRounds = function () {
               "</td><td class='small-field'>"+roundsObject[i].slope+
               "</td><td class='small-field'>"+roundsObject[i].par+
               "</td><td class='small-field'>"+roundsObject[i].score+
+              "</td><td class='small-field'>"+roundsObject[i].differential+
               "</td></tr>")
               .appendTo('.previous-rounds');
     }
+  // handicap.createDifferentialArray();
+  // handicap.calcDifferentialsToUse();
+  handicap.calculateHandicapIndex();
 };
 
 const clearRounds = function () {
