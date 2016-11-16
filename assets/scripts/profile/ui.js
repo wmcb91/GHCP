@@ -51,6 +51,11 @@ const selectProfileSuccess = function(data) {
   $('#user-name-welcome').html(app.profile.given_name);
   // Trigger populateRounds
   $('.dashboard').fadeOut(250);
+  if (app.profile.rounds.length > 5) {
+    $('.greeting-message').fadeOut(250);
+  } else {
+    setTimeout(function(){$('.greeting-message').show();}, 300);
+  }
   setTimeout(function(){roundsUI.clearRounds();}, 260);
   setTimeout(function(){roundsUI.populateRounds();}, 270);
   setTimeout(function(){$('.dashboard').fadeIn(250);}, 300);
@@ -96,6 +101,7 @@ const createProfileSuccess = function(data) {
 
   //Show user's dashboard
   $('.dashboard').fadeOut(250);
+  setTimeout(function(){$('.greeting-message').show();}, 300);
   setTimeout(function(){roundsUI.clearRounds();}, 260);
   setTimeout(function(){roundsUI.populateRounds();}, 270);
   setTimeout(function(){$('.dashboard').fadeIn(250);}, 300);

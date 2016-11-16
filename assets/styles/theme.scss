@@ -62,150 +62,174 @@ input {
   width: 150px;
 }
 
-.rounds {
+// ----------------  START STYLING FOR DASHBOARD --------------------- //
+.dashboard {
   background-color: $off-white;
-  border: 3px solid $charcoal;
-  border-radius: 5px;
-  padding: 10px;
-}
 
-.previous-rounds-table {
-  clear: both;
-  float: left;
-  height: 400px;
-  overflow: scroll;
-}
+  h2 {
+    margin: 0 0 8px;
+  }
+  // ----------------  START STYLING FOR ROUNDS TABLE --------------------- //
+  .rounds,
+  .profile-dash {
+    background-color: inherit;
+    border: 3px solid $charcoal;
+    border-radius: 5px;
+    padding: 10px;
+  }
 
-.width-setter {
-  border: solid $charcoal;
-  border-width: 0 1px 4px;
-}
+  .previous-rounds-table {
+    clear: both;
+    float: left;
+    height: 400px;
+    overflow: scroll;
+  }
 
-.rounds-h2 {
-  margin: 0 0 8px;
-}
+  .width-setter {
+    border: solid $charcoal;
+    border-width: 0 1px 4px;
+  }
 
-.rounds-btn {
-  border: 1px solid $charcoal;
-  border-radius: 3px;
-  color: $off-white;
-  margin: 1px 0;
-  padding: 3px 10px;
-}
+  .rounds-btn {
+    border: 1px solid $charcoal;
+    border-radius: 3px;
+    color: $off-white;
+    margin: 1px 0;
+    padding: 3px 10px;
+  }
 
-.add {
-  background-color: $grass;
-  font-size: .86em;
-}
+  .add {
+    background-color: $grass;
+    font-size: .86em;
+  }
 
-.add:hover {
-  background-color: tint($grass, 15);
-}
+  .add:hover {
+    background-color: tint($grass, 15);
+  }
 
-.cancel {
-  background-color: $destroy;
-  font-size: .86em;
-}
+  .cancel {
+    background-color: $destroy;
+    font-size: .86em;
+  }
 
-.cancel:hover {
-  background-color: tint($destroy, 15);
-}
+  .cancel:hover {
+    background-color: tint($destroy, 15);
+  }
 
-.delete {
-  background-color: $destroy;
-  font-size: .86em;
-  margin-right: 10px;
-}
+  .delete {
+    background-color: $destroy;
+    font-size: .86em;
+    margin-right: 10px;
+  }
 
-.delete:hover {
-  background-color: tint($destroy, 15);
-}
+  .delete:hover {
+    background-color: tint($destroy, 15);
+  }
 
-.huge-field {
-  width: $huge-field-width;
-}
+  .huge-field {
+    width: $huge-field-width;
+  }
 
-.medium-field {
-  width: $medium-field-width;
-}
+  .medium-field {
+    width: $medium-field-width;
+  }
 
-.small-field {
-  width: $small-field-width;
-}
+  .small-field {
+    width: $small-field-width;
+  }
 
-.large-field {
-  width: $large-field-width;
-}
+  .large-field {
+    width: $large-field-width;
+  }
 
-.round-input {
-  float: left;
-  font-size: .6em;
-  margin: 0;
-}
+  .round-input {
+    float: left;
+    font-size: .75em;
+    margin: 0;
+  }
 
-.date-played {
-  font-size: .6em;
-  margin-left: -.25pt;
-}
+  .date-played {
+    font-size: .75em;
+    margin-left: -.25pt;
+  }
 
-.adding-round {
-  width: $large-field-width;
-}
+  .adding-round {
+    width: $large-field-width;
+  }
 
-.course {
-  margin-left: .25pt;
-  margin-right: 1pt;
-  width: $huge-field-width - 1px;
-}
+  .course {
+    margin-left: .25pt;
+    margin-right: 1pt;
+    width: $huge-field-width - 1px;
+  }
 
-.rating {
-  margin-right: 1pt;
-  width: $small-field-width - 1px;
-}
+  .rating {
+    margin-right: 1pt;
+    width: $small-field-width - 1px;
+  }
 
-.slope {
-  margin-right: .5pt;
-  width: $small-field-width - 1px;
-}
+  .slope {
+    margin-right: .5pt;
+    width: $small-field-width - 1px;
+  }
 
-.par {
-  margin-right: 1pt;
-  width: $small-field-width - 1px;
-}
+  .par {
+    margin-right: 1pt;
+    width: $small-field-width - 1px;
+  }
 
-.add-round {
-  margin: 1px 0;
-}
+  .add-round {
+    margin: 1px 0;
+  }
 
-input[type=date]::-webkit-inner-spin-button {
+  .date-played::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
-}
+  }
 
-.submit-round {
-  height: 30px;
-  margin-left: 3px;
-  margin-top: 1px;
-  padding: 3px 5px;
-  width: $medium-field-width - 2px;
-}
+  .submit-round {
+    height: 30px;
+    margin-left: 3px;
+    margin-top: 1px;
+    padding: 3px 5px;
+    width: $medium-field-width - 2px;
+  }
 
-.submit-round:hover {
-  background-color: shade($off-white, 12);
-  border: 1px solid $grass;
-  // border-style: outset;
-  height: 30px;
-  padding: 1px 5px;
-}
+  .submit-round:hover {
+    background-color: shade($off-white, 12);
+    border: 1px solid $grass;
+    height: 30px;
+    padding: 1px 5px;
+  }
 
-th,
-td {
-  border: 1px solid $charcoal;
-  border-style: inset;
-  margin: 1px 20px 1px 0;
-  padding: 1px 3px 1px 4px;
-}
+  th,
+  td {
+    border: 1px solid $charcoal;
+    border-style: inset;
+    margin: 1px 20px 1px 0;
+    padding: 1px 3px 1px 4px;
+  }
 
+  // ----------------  END STYLING FOR ROUNDS TABLE --------------------- //
+
+  // ----------------  START STYLING FOR PROFILE DASH --------------------- //
+
+  .profile-dash {
+    background-color: inherit;
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+  }
+
+
+  // ----------------  END STYLING FOR PROFILE DASH --------------------- //
+
+}
 
 
 // Styling for profile buttons

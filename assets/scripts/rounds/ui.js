@@ -9,6 +9,7 @@ const showAddRoundField = function () {
   $('.date').addClass('large-field');
   $('.date-played').addClass('large-field');
   $('.cancel').fadeIn(500);
+  $('.submit-round').show();
   $('#add-round').fadeIn(500);
 };
 
@@ -17,7 +18,8 @@ const hideAddRoundField = function () {
   $('.date').removeClass('large-field');
   $('.date-played').removeClass('large-field');
   $('.add').fadeIn(500);
-  $('#add-round').fadeOut(250);
+  $('.submit-round').hide();
+  $('#add-round').fadeOut();
 };
 
 const roundsToObject = function () {
@@ -46,6 +48,9 @@ const populateRounds = function () {
     }
   // handicap.createDifferentialArray();
   // handicap.calcDifferentialsToUse();
+  if (app.profile.rounds.length > 5) {
+    $('.greeting-message').fadeOut(250);
+  }
   handicap.calculateHandicapIndex();
 };
 
@@ -57,7 +62,6 @@ const clearRounds = function () {
 
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
-  console.log('data returned is', data);
   app.profile = data.profile;
 
   hideAddRoundField();

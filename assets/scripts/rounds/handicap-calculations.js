@@ -128,37 +128,34 @@ const truncateAverage = (avg) => {
   return truncatedAverage;
 };
 
+// const calcHomeHandicap = (index) => {
+//   let handicapIndex = index;
+//   let homeSlope = app.profile.homeSlope;
+//   let homeCourseHandicap = handicapIndex * (homeSlope / 113);
+//   return homeCourseHandicap;
+// };
+
 const calculateHandicapIndex = () => {
   let differentialsUsed = calcDifferentialsToUse();
-  console.log('Step 1 done');
-
   let differentialArray = createDifferentialArray();
-  console.log('Step 2 done, differentialArray is', differentialArray);
-
   let lowestDiffArray = createLowestDifferentialArray(differentialArray, differentialsUsed);
-  console.log('Step 3 done');
-
   let avgDifferential = averageDifferential(lowestDiffArray);
-  console.log('Step 4 done');
-
   let adjustedAvg = adjustedAverageDifferential(avgDifferential);
-  console.log('Step 5 done');
-
   let handicapIndex = truncateAverage(adjustedAvg);
-  console.log('6. handicapIndex is', handicapIndex);
   app.profile.handicapIndex = handicapIndex;
-  console.log('app.profile.handicapIndex is', app.profile.handicapIndex);
+  $('.handicap-index').html(app.profile.handicapIndex);
 };
+
 
 
 
 
 module.exports = {
   calculateDifferential,
-  calcDifferentialsToUse,
-  createDifferentialArray,
-  createLowestDifferentialArray,
+  // calcDifferentialsToUse,
+  // createDifferentialArray,
+  // createLowestDifferentialArray,
+  // averageDifferential,
+  // adjustedAverageDifferential,
   calculateHandicapIndex,
-  averageDifferential,
-  adjustedAverageDifferential,
 };
