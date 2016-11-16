@@ -15,25 +15,25 @@ $tiny-font: 12.2vw;
   @include breakpoint(x-small) {
     font-size: $title-size * .94;
     margin: inherit;
-    margin-left: 4px;
+    margin-left: 8px;
   }
 
   @include breakpoint(small) {
     font-size: $title-size;
     margin: inherit;
-    margin-left: 4px;
+    margin-left: 12px;
   }
 
   @include breakpoint(medium) {
     font-size: $title-size;
     margin: inherit;
-    margin-left: 4px;
+    margin-left: 20px;
   }
 
   @include breakpoint(large) {
     font-size: $title-size;
     margin: inherit;
-    margin-left: 4px;
+    margin-left: 20px;
   }
 }
 
@@ -41,46 +41,26 @@ $tiny-font: 12.2vw;
 .main {
   @include breakpoint(tiny) {
     background: url('../images/mobile-img2.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
   }
 
   @include breakpoint(x-small) {
     background: url('../images/mobile-img4.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
   }
 
   @include breakpoint(small) {
     background: url('../images/mobile-img4.jpg') no-repeat center center fixed;
-    // background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
   }
 
   @include breakpoint(medium) {
     background: url('../images/background-2.jpg') no-repeat center center fixed;
-    background-repeat: no-repeat;
-    // background-size: 115%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
   }
 
   @include breakpoint(large) {
     background: url('../images/Header_Golf_1.jpg') no-repeat center center fixed;
-    background-repeat: no-repeat;
-    // background-size: 140%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
   }
 }

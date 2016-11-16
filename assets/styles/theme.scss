@@ -3,7 +3,7 @@
 $background-color: $off-white;
 // $font-color: $charcoal;
 $huge-field-width: 221px;
-$large-field-width: 142px;
+$large-field-width: 134px;
 $medium-field-width: 111px;
 $small-field-width: 71px;
 
@@ -122,24 +122,19 @@ input {
 }
 
 .huge-field {
-  // margin-right: -2px;
   width: $huge-field-width;
 }
 
-.large-field {
-  // margin-right: -2px;
-  width: $large-field-width;
-}
-
 .medium-field {
-  // margin-right: -2px;
   width: $medium-field-width;
 }
 
 .small-field {
-  // margin-left: 0;
-  // margin-right: -2px;
   width: $small-field-width;
+}
+
+.large-field {
+  width: $large-field-width;
 }
 
 .round-input {
@@ -151,7 +146,6 @@ input {
 .date-played {
   font-size: .6em;
   margin-left: -.25pt;
-  width: $medium-field-width;
 }
 
 .adding-round {

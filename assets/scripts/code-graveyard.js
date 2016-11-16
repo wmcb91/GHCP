@@ -40,3 +40,36 @@
 // let min = app.profile.rounds.length - 15;
 // for (let i = 0; i < app.profile.rounds.length; i++) {
 // let max = app.profile.rounds.length;
+
+
+// const addMaxRound = function (data) {
+//   let newRoundObject = data;
+//   $('.previous-rounds')
+//     .prepend("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
+//             "</td><td>"+newRoundObject.course+
+//             "</td><td>"+newRoundObject.rating+
+//             "</td><td>"+newRoundObject.slope+
+//             "</td><td>"+newRoundObject.par+
+//             "</td><td>"+newRoundObject.score+
+//             "</td></tr>");
+//   $('.profile-rounds').last().remove();
+// };
+
+// ON SUBMISSION OF VALID ROUND
+// const createMaxRoundSuccess = function (data) {
+//   app.round = data.round;
+//   app.profile.rounds[app.profile.rounds.length] = data.round;
+//   hideAddRoundField();
+//   setTimeout(function(){addMaxRound(app.round);}, 250);
+// };
+
+// const addRound = function (data) {
+//   let newRoundObject = data;
+//   $("<tr class='profile-rounds'><td>"+newRoundObject.date_played+
+//             "</td><td>"+newRoundObject.course+
+//             "</td><td>"+newRoundObject.rating+
+//             "</td><td>"+newRoundObject.slope+
+//             "</td><td>"+newRoundObject.par+
+//             "</td><td>"+newRoundObject.score+
+//             "</td></tr>").prependTo('.rounds-row');
+// };
