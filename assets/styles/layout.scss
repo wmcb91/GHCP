@@ -16,7 +16,6 @@ p {
 
 .title {
   float: left;
-  margin: 0 0 0 $header-margin;
 }
 
 .header-box {
@@ -95,7 +94,8 @@ hr {
   float: left;
 }
 
-// STYLING FOR ROUNDS TABLE
+
+// ----------------  START STYLING FOR ROUNDS TABLE --------------------- //
 .rounds {
   float: left;
   margin: 45px 5px 5px 50px;
@@ -131,11 +131,30 @@ hr {
   float: left;
 }
 
-// MAKES INSERTED ROWS LINE UP WITH OLDER ROWS
-.previous-rounds {
-  clear: both;
-  float: left;
+// ----------------  END STYLING FOR ROUNDS TABLE --------------------- //
+
+// ----------------  START STYLING FOR PROFILE DASH --------------------- //
+.profile-dash {
+  float: right;
+  margin: 45px 50px 5px 5px;
+  min-width: 245px;
+  width: 20%;
+
+  h2,
+  p {
+    text-align: center;
+  }
+
+  strong {
+    margin-left: 4px;
+  }
 }
+
+
+
+// ----------------  END STYLING FOR PROFILE DASH --------------------- //
+
+
 
 
 // STYLING FOR FOOTER AND ITS CONTENTS

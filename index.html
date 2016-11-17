@@ -12,7 +12,7 @@
             charset="utf-8"
             defer></script>
     <link
-    href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Rubik|VT323"
+    href="https://fonts.googleapis.com/css?family=Rubik"
     rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="./icon-28-golf.png">
   </head>
@@ -237,6 +237,13 @@
                   <br>
                   <input type="text" autocomplete="off" name="home_course"
                   placeholder="Home Course">
+                  <input class='home-course-slope'
+                         type="number"
+                         step="positive integer"
+                         max="155"
+                         min="55"
+                         name="home_course_slope"
+                         placeholder="Home Course Slope">
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
@@ -301,6 +308,13 @@
                   <br>
                   <input type="text" name="home_course"
                   placeholder="Home Course">
+                  <input class='home-course-slope'
+                         type="number"
+                         step="positive integer"
+                         max="155"
+                         min="55"
+                         name="home_course_slope"
+                         placeholder="Home Course Slope">
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
@@ -323,7 +337,7 @@
               aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h2 class="modal-title" id="myModalLabel">Edit your profile</h2>
+              <h2 class="modal-title" id="myModalLabel">Edit Profile</h2>
             </div>
             <div class="modal-body profiles">
               <form class="update-profile">
@@ -335,6 +349,13 @@
                   <br>
                   <input type="text" name="home_course"
                   placeholder="Home Course">
+                  <input class='home-course-slope'
+                         type="number"
+                         step="positive integer"
+                         max="155"
+                         min="55"
+                         name="home_course_slope"
+                         placeholder="Home Course Slope">
                   <input type="submit" value="Submit">
                 </fieldset>
               </form>
@@ -347,7 +368,7 @@
       <!-- DASHBOARD DIV -->
       <div class='dashboard'>
         <div class='rounds'>
-          <h2 class='rounds-h2'>Your Golf Rounds</h2>
+          <h2 class='rounds-h2'>Your Past Rounds</h2>
 
           <button class='rounds-btn add'>Add Round +</button>
           <button class='rounds-btn cancel'>Cancel</button>
@@ -359,7 +380,7 @@
           </button> -->
           <table class='round-headers'>
             <tr>
-              <th class='large-field'>Date Played</th>
+              <th class='date medium-field'>Date Played</th>
               <th class='huge-field'>Course</th>
               <th class='small-field'>Rating</th>
               <th class='small-field'>Slope</th>
@@ -414,6 +435,22 @@
           <!-- <button id="show-all-rounds">Show all rounds
           </button> -->
         </div>
+
+        <div class="profile-dash">
+          <h2>Golfer Profile</h2>
+          <p class="greeting-message">
+            You must enter at least 5 rounds to view stats.
+          </p>
+          <ul class="profile-stats">
+            <li>Rounds Played: <strong class="rounds-played">-</strong></li>
+            <li>Handicap Index: <strong class="handicap-index">-</strong></li>
+            <li>Home Course Handicap: <span class="home-handicap">-</span></li>
+            <li>Lowest Round: <strong class="lowest-round">-</strong></li>
+            <!-- <li>: <strong class="">-</strong></li> -->
+          </ul>
+        </div>
+
+
       </div> <!-- END DASHBOARD -->
 
     </div>
@@ -421,7 +458,7 @@
 
 
     <!-- <footer>
-      <h5 class="credit">Game created by Will McBride</h5>
+      <h5 class="credit">Created by Will McBride</h5>
     </footer> -->
 
   </body>

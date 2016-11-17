@@ -1,19 +1,10 @@
 @import 'layout';
-// margin
-// width and friends (like max-width)
-// line-height
-// font-size
-// padding
 
 $title-size: 75px;
 $credit-size: 15px;
 $rounds-font-size: 13pt;
 
-// font-family: 'VT323', monospace;
-$bungee-shade: 'Bungee Shade', cursive;
-$bungee: 'Bungee', cursive;
 $rubik: 'Rubik', sans-serif;
-$vt323: 'VT323', monospace;
 
 $font-size: 14px;
 $line-height: 1.6;
@@ -36,6 +27,19 @@ body {
 .profile-club {
   margin-top: 15px;
 }
+
+.profile-dash {
+  font-size: 1.2em;
+
+  strong {
+    font-size: 1.15em;
+  }
+
+  small {
+    font-size: .75em;
+  }
+}
+
 
 .round-input {
   font-size: $rounds-font-size - 3pt;

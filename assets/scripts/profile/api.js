@@ -14,7 +14,6 @@ const index = function() {
 };
 
 const showProfile = function (id) {
-  console.log('in show profile');
   return $.ajax({
     url: app.host + '/profiles/' + id,
     method: 'GET',
@@ -47,7 +46,8 @@ const updateProfile = function (data) {
             profile:{
               given_name: data.given_name,
               surname: data.surname,
-              home_course: data.home_course
+              home_course: data.home_course,
+              home_course_slope: data.home_course_slope
             }
           }
   });

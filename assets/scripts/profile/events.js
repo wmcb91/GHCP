@@ -81,6 +81,9 @@ const onUpdateProfileSubmit = function(event) {
   if (form.home_course !== '') {
      data.home_course = form.home_course;
    }
+   if (form.home_course_slope !== '') {
+      data.home_course_slope = form.home_course_slope;
+    }
   api.updateProfile(data)
     .done(ui.updateProfileSuccess)
     .fail(ui.updateProfileFailure);

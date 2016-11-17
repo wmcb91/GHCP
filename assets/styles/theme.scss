@@ -3,9 +3,10 @@
 $background-color: $off-white;
 // $font-color: $charcoal;
 $huge-field-width: 221px;
-$large-field-width: 141px;
+$large-field-width: 126px;
 $medium-field-width: 111px;
-$small-field-width: 71px;
+$small-field-width: 64px;
+$home-course-slope-width: 171px;
 
 // body {
 //   color: $font-color;
@@ -62,8 +63,22 @@ input {
   width: 150px;
 }
 
-.rounds {
+.home-course-slope {
+  width: $home-course-slope-width;
+}
+
+// ----------------  START STYLING FOR DASHBOARD --------------------- //
+.dashboard {
   background-color: $off-white;
+
+  h2 {
+    margin: 0 0 8px;
+  }
+}
+  // ----------------  START STYLING FOR ROUNDS TABLE --------------------- //
+.rounds,
+.profile-dash {
+  background-color: inherit;
   border: 3px solid $charcoal;
   border-radius: 5px;
   padding: 10px;
@@ -79,10 +94,6 @@ input {
 .width-setter {
   border: solid $charcoal;
   border-width: 0 1px 4px;
-}
-
-.rounds-h2 {
-  margin: 0 0 8px;
 }
 
 .rounds-btn {
@@ -122,36 +133,34 @@ input {
 }
 
 .huge-field {
-  // margin-right: -2px;
   width: $huge-field-width;
 }
 
-.large-field {
-  // margin-right: -2px;
-  width: $large-field-width;
-}
-
 .medium-field {
-  // margin-right: -2px;
   width: $medium-field-width;
 }
 
 .small-field {
-  // margin-left: 0;
-  // margin-right: -2px;
   width: $small-field-width;
+}
+
+.large-field {
+  width: $large-field-width;
 }
 
 .round-input {
   float: left;
-  font-size: .6em;
+  font-size: .75em;
   margin: 0;
 }
 
 .date-played {
-  font-size: .6em;
+  font-size: .75em;
   margin-left: -.25pt;
-  width: $large-field-width * 1.005;
+}
+
+.adding-round {
+  width: $large-field-width;
 }
 
 .course {
@@ -179,6 +188,11 @@ input {
   margin: 1px 0;
 }
 
+.date-played::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
 .submit-round {
   height: 30px;
   margin-left: 3px;
@@ -190,7 +204,6 @@ input {
 .submit-round:hover {
   background-color: shade($off-white, 12);
   border: 1px solid $grass;
-  // border-style: outset;
   height: 30px;
   padding: 1px 5px;
 }
@@ -202,6 +215,27 @@ td {
   margin: 1px 20px 1px 0;
   padding: 1px 3px 1px 4px;
 }
+
+// ----------------  END STYLING FOR ROUNDS TABLE --------------------- //
+
+// ----------------  START STYLING FOR PROFILE DASH --------------------- //
+
+.profile-dash {
+  background-color: inherit;
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+
+// ----------------  END STYLING FOR PROFILE DASH --------------------- //
+
+
 
 // Styling for profile buttons
 // .profile-button {
