@@ -13,6 +13,7 @@ const onProfileSelection = function (event) {
   let index = event.data.index;
   let data = app.user.profiles[index];
   ui.selectProfileSuccess(data);
+  console.log('app.profile is', app.profile);
 };
 
 const onNewProfileClick = function () {
@@ -81,6 +82,9 @@ const onUpdateProfileSubmit = function(event) {
   if (form.home_course !== '') {
      data.home_course = form.home_course;
    }
+   if (form.home_course_slope !== '') {
+      data.home_course_slope = form.home_course_slope;
+    }
   api.updateProfile(data)
     .done(ui.updateProfileSuccess)
     .fail(ui.updateProfileFailure);

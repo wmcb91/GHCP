@@ -7,62 +7,47 @@ const calculateDifferential = (round) => {
   let slope = round.slope;
   let rating = round.rating;
   let differential = (score - rating) * 113 / slope;
-  console.log(differential);
   return differential;
 };
 
 const calcDifferentialsToUse = () => {
   let roundsPlayed = app.profile.rounds.length;
   let differentialsUsed;
-  console.log('1. number of rounds played is', roundsPlayed);
   if (roundsPlayed < 5){
     differentialsUsed = 0;
     // Add error message
-    // return;
   }
   else if (roundsPlayed < 7){
     differentialsUsed = 1;
-    // return;
   }
   else if (roundsPlayed < 9){
     differentialsUsed = 2;
-    // return;
   }
   else if (roundsPlayed < 11){
     differentialsUsed = 3;
-    // return;
   }
   else if (roundsPlayed < 13){
     differentialsUsed = 4;
-    // return;
   }
   else if (roundsPlayed < 15){
     differentialsUsed = 5;
-    // return;
   }
   else if (roundsPlayed < 17){
     differentialsUsed = 6;
-    // return;
   }
   else if (roundsPlayed === 17){
     differentialsUsed = 7;
-    // return;
   }
   else if (roundsPlayed === 18){
     differentialsUsed = 8;
-    // return;
   }
   else if (roundsPlayed === 19){
     differentialsUsed = 9;
-    // return;
   }
   else {
     differentialsUsed = 10;
-    // return;
   }
-  console.log('1b. # of differentials to be used is', differentialsUsed);
   return differentialsUsed;
-
 };
 
 
@@ -78,7 +63,6 @@ const createDifferentialArray = () => {
   for (let i = 0; i < max; i++) {
     differentialArray.push(parseFloat(app.profile.rounds[i].differential));
   }
-  console.log('2. differentialArray is', differentialArray);
   return differentialArray;
 };
 
@@ -90,11 +74,8 @@ const createLowestDifferentialArray = (array, differentialsUsed) => {
     let lowestDiff = Math.min.apply(null, differentialArray);
     let lowDiffIndex = differentialArray.indexOf(lowestDiff);
     lowestDiffArray.push(lowestDiff);
-    console.log('3. lowest diff is', lowestDiff);
-    console.log('3. index of lowest diff is', lowDiffIndex);
     differentialArray.splice(lowDiffIndex, 1);
   }
-  console.log('3b. lowest diffs are', lowestDiffArray);
   return lowestDiffArray;
 };
 
@@ -106,14 +87,12 @@ const averageDifferential = (array) => {
     return a + b;
   }, 0);
   let averageDifferential = (sum / lowestDiffArray.length);
-  console.log('4. averageDifferential is', averageDifferential);
   return averageDifferential;
 };
 
 const adjustedAverageDifferential = (avgDifferential) => {
   let avgDiff = avgDifferential;
   let adjustedAvg = avgDiff * 0.96;
-  console.log('5. adjustedAvg is', adjustedAvg);
   return adjustedAvg;
 };
 
@@ -128,13 +107,6 @@ const truncateAverage = (avg) => {
   return truncatedAverage;
 };
 
-// const calcHomeHandicap = (index) => {
-//   let handicapIndex = index;
-//   let homeSlope = app.profile.homeSlope;
-//   let homeCourseHandicap = handicapIndex * (homeSlope / 113);
-//   return homeCourseHandicap;
-// };
-
 const calculateHandicapIndex = () => {
   let differentialsUsed = calcDifferentialsToUse();
   let differentialArray = createDifferentialArray();
@@ -143,7 +115,14 @@ const calculateHandicapIndex = () => {
   let adjustedAvg = adjustedAverageDifferential(avgDifferential);
   let handicapIndex = truncateAverage(adjustedAvg);
   app.profile.handicapIndex = handicapIndex;
-  $('.handicap-index').html(app.profile.handicapIndex);
+  // $('.handicap-index').html(app.profile.handicapIndex);
+};
+
+const calculateHomeHandicap = () => {
+  let handicapIndex = app.profile.handicapIndex;
+  let homeSlope = app.profile.home_course_slope;
+  let homeCourseHandicap = Math.round(handicapIndex * (homeSlope / 113));
+  app.profile.homeCourseHandicap = homeCourseHandicap;
 };
 
 const calculateLowestScore = () => {
@@ -152,11 +131,19 @@ const calculateLowestScore = () => {
   for (let i = 0; i < max; i++) {
     scoresArray.push(parseFloat(app.profile.rounds[i].score));
   }
-  return scoresArray;
+  let lowestScore = Math.min.apply(null, scoresArray);
+  app.profile.lowScore = lowestScore;
 };
 
 const updateProfileStats = () => {
-  let scores =
+  calculateHandicapIndex();
+  calculateLowestScore();
+  calculateHomeHandicap();
+  $('.rounds-played').html(app.profile.rounds.length);
+  $('.handicap-index').html(app.profile.handicapIndex);
+  $('.home-handicap').html(app.profile.homeCourseHandicap);
+  $('.lowest-round').html(app.profile.lowScore);
+
 };
 
 
@@ -164,11 +151,6 @@ const updateProfileStats = () => {
 
 module.exports = {
   calculateDifferential,
-  // calcDifferentialsToUse,
-  // createDifferentialArray,
-  // createLowestDifferentialArray,
-  // averageDifferential,
-  // adjustedAverageDifferential,
   calculateHandicapIndex,
   updateProfileStats,
 };

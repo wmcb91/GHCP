@@ -37,6 +37,7 @@ const createProfile = function (data) {
 };
 
 const updateProfile = function (data) {
+  console.log('patch data is', data);
   return $.ajax({
     url: app.host + '/profiles/' + app.profile.id,
     method: 'PATCH',
@@ -47,7 +48,8 @@ const updateProfile = function (data) {
             profile:{
               given_name: data.given_name,
               surname: data.surname,
-              home_course: data.home_course
+              home_course: data.home_course,
+              home_course_slope: data.home_course_slope
             }
           }
   });

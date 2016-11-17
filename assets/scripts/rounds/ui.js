@@ -62,7 +62,7 @@ const clearRounds = function () {
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
   app.profile = data.profile;
-  handicap.calculateHandicapIndex();
+  handicap.updateProfileStats();
   hideAddRoundField();
   setTimeout(function(){clearRounds();}, 200);
   setTimeout(function(){populateRounds();}, 250);
