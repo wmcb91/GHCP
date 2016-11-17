@@ -141,9 +141,14 @@ const updateProfileStats = () => {
   calculateHomeHandicap();
   $('.rounds-played').html(app.profile.rounds.length);
   $('.handicap-index').html(app.profile.handicapIndex);
-  $('.home-handicap').html(app.profile.homeCourseHandicap);
   $('.lowest-round').html(app.profile.lowScore);
 
+  if (app.profile.home_course_slope !== null) {
+    $('.home-handicap').html("<strong>" + app.profile.homeCourseHandicap +
+                             "</strong>");
+  } else {
+    $('.home-handicap').html("<br><small>Add home course slope to calculate<small>");
+  }
 };
 
 

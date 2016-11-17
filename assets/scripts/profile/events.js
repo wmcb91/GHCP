@@ -13,7 +13,6 @@ const onProfileSelection = function (event) {
   let index = event.data.index;
   let data = app.user.profiles[index];
   ui.selectProfileSuccess(data);
-  console.log('app.profile is', app.profile);
 };
 
 const onNewProfileClick = function () {

@@ -46,10 +46,9 @@ const populateRounds = function () {
               "</td></tr>")
               .appendTo('.previous-rounds');
     }
-  // handicap.createDifferentialArray();
-  // handicap.calcDifferentialsToUse();
-  if (app.profile.rounds.length > 5) {
-    $('.greeting-message').fadeOut(250);
+  if (app.profile.rounds.length >= 5) {
+    setTimeout(function(){$('.greeting-message').hide();}, 300);
+    setTimeout(function(){$('.profile-stats').show();}, 300);
   }
 };
 

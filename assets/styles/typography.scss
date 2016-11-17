@@ -34,7 +34,12 @@ body {
   strong {
     font-size: 1.15em;
   }
+
+  small {
+    font-size: .75em;
+  }
 }
+
 
 .round-input {
   font-size: $rounds-font-size - 3pt;

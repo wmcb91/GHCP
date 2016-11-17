@@ -53,9 +53,11 @@ const selectProfileSuccess = function(data) {
   // Trigger populateRounds
   $('.dashboard').fadeOut(250);
   if (app.profile.rounds.length > 5) {
-    $('.greeting-message').fadeOut(250);
+    setTimeout(function(){$('.greeting-message').hide();}, 300);
+    setTimeout(function(){$('.profile-stats').show();}, 300);
   } else {
     setTimeout(function(){$('.greeting-message').show();}, 300);
+    setTimeout(function(){$('.profile-stats').hide();}, 300);
   }
   setTimeout(function(){handicap.updateProfileStats();}, 260);
   setTimeout(function(){roundsUI.clearRounds();}, 260);
@@ -104,6 +106,7 @@ const createProfileSuccess = function(data) {
   //Show user's dashboard
   $('.dashboard').fadeOut(250);
   setTimeout(function(){$('.greeting-message').show();}, 300);
+  setTimeout(function(){$('.profile-stats').hide();}, 300);
   setTimeout(function(){handicap.updateProfileStats();}, 260);
   setTimeout(function(){roundsUI.clearRounds();}, 260);
   setTimeout(function(){roundsUI.populateRounds();}, 270);
@@ -140,6 +143,7 @@ const showEditProfile = function() {
 const updateProfileSuccess = function() {
   $('#user-name-welcome').html(app.profile.given_name);
   populateProfiles();
+  handicap.updateProfileStats();
   setTimeout(function(){$('#editProfileModal').modal('hide');}, 150);
 };
 

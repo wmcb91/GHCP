@@ -137,10 +137,11 @@ hr {
 .profile-dash {
   float: right;
   margin: 45px 50px 5px 5px;
-  min-width: 234px;
+  min-width: 245px;
   width: 20%;
 
-  h2 {
+  h2,
+  p {
     text-align: center;
   }
 

@@ -14,7 +14,6 @@ const index = function() {
 };
 
 const showProfile = function (id) {
-  console.log('in show profile');
   return $.ajax({
     url: app.host + '/profiles/' + id,
     method: 'GET',
@@ -37,7 +36,6 @@ const createProfile = function (data) {
 };
 
 const updateProfile = function (data) {
-  console.log('patch data is', data);
   return $.ajax({
     url: app.host + '/profiles/' + app.profile.id,
     method: 'PATCH',
