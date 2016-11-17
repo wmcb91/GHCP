@@ -1,7 +1,7 @@
 'use strict';
 
 const app = require('../app');
-const handicap = require('./handicap-calculations')
+const handicap = require('./handicap-calculations');
 
 //SHOW AND HIDE FOR ADDING ROUNDS
 const showAddRoundField = function () {
@@ -51,7 +51,6 @@ const populateRounds = function () {
   if (app.profile.rounds.length > 5) {
     $('.greeting-message').fadeOut(250);
   }
-  handicap.calculateHandicapIndex();
 };
 
 const clearRounds = function () {
@@ -63,7 +62,7 @@ const clearRounds = function () {
 // ON SUBMISSION OF VALID ROUND
 const createRoundSuccess = function (data) {
   app.profile = data.profile;
-
+  handicap.calculateHandicapIndex();
   hideAddRoundField();
   setTimeout(function(){clearRounds();}, 200);
   setTimeout(function(){populateRounds();}, 250);

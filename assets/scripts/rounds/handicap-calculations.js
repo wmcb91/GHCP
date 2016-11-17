@@ -146,6 +146,18 @@ const calculateHandicapIndex = () => {
   $('.handicap-index').html(app.profile.handicapIndex);
 };
 
+const calculateLowestScore = () => {
+  let scoresArray = [];
+  let max = app.profile.rounds.length;
+  for (let i = 0; i < max; i++) {
+    scoresArray.push(parseFloat(app.profile.rounds[i].score));
+  }
+  return scoresArray;
+};
+
+const updateProfileStats = () => {
+  let scores =
+};
 
 
 
@@ -158,4 +170,5 @@ module.exports = {
   // averageDifferential,
   // adjustedAverageDifferential,
   calculateHandicapIndex,
+  updateProfileStats,
 };
